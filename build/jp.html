@@ -1,0 +1,2071 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>FCoin API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="jp" data-languages="[&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" />
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#b8bbaebbc1" class="toc-h1 toc-link" data-title="">紹介</a>
+          </li>
+          <li>
+            <a href="#1bff7d7a22" class="toc-h1 toc-link" data-title="">認証</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1308356abb" class="toc-h2 toc-link" data-title="">アクセス制限</a>
+                  </li>
+                  <li>
+                    <a href="#api" class="toc-h2 toc-link" data-title="api">API 署名</a>
+                  </li>
+                  <li>
+                    <a href="#53184fb5c1" class="toc-h2 toc-link" data-title="">デモンストレーション</a>
+                  </li>
+                  <li>
+                    <a href="#07e2a33eed" class="toc-h2 toc-link" data-title="">パラメータ名</a>
+                  </li>
+                  <li>
+                    <a href="#f6c2c8d0f4" class="toc-h2 toc-link" data-title="">説明</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api" class="toc-h1 toc-link" data-title="api">公開API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#6379b76879" class="toc-h2 toc-link" data-title="">サーバー時刻の照会</a>
+                  </li>
+                  <li>
+                    <a href="#908c1cb803" class="toc-h2 toc-link" data-title="">取扱い仮想通貨の照会</a>
+                  </li>
+                  <li>
+                    <a href="#be15bcbfb5" class="toc-h2 toc-link" data-title="">取引通貨ペアの照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#c06c016e90" class="toc-h1 toc-link" data-title="">マーケット情報</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#0093b50f1a" class="toc-h2 toc-link" data-title="">マーケット情報概述</a>
+                  </li>
+                  <li>
+                    <a href="#websocket" class="toc-h2 toc-link" data-title="websocket">WebSocket 初回接続の確立</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-heartbeat" class="toc-h2 toc-link" data-title="websocket-heartbeat">WebSocket 接続の維持 - heartbeat</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-3" class="toc-h2 toc-link" data-title="websocket">WebSocket サブスクリプション</a>
+                  </li>
+                  <li>
+                    <a href="#ticker" class="toc-h2 toc-link" data-title="ticker">ticker データの取得</a>
+                  </li>
+                  <li>
+                    <a href="#240d66ab51" class="toc-h2 toc-link" data-title="">最新の厚み詳細の取得</a>
+                  </li>
+                  <li>
+                    <a href="#906d86c346" class="toc-h2 toc-link" data-title="">最新の取引明細の取得</a>
+                  </li>
+                  <li>
+                    <a href="#candle" class="toc-h2 toc-link" data-title="candle">Candle 情報の取得</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#286e96ae2d" class="toc-h1 toc-link" data-title="">アカウントと資金</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#3545e9444a" class="toc-h2 toc-link" data-title="">アカウント資金照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#662dbb2d11" class="toc-h1 toc-link" data-title="">注文</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#d3cb4d170f" class="toc-h2 toc-link" data-title="">注文モデル説明</a>
+                  </li>
+                  <li>
+                    <a href="#d05dbb7e5c" class="toc-h2 toc-link" data-title="">新規注文</a>
+                  </li>
+                  <li>
+                    <a href="#99c1710851" class="toc-h2 toc-link" data-title="">注文リストの照会</a>
+                  </li>
+                  <li>
+                    <a href="#ad492cf980" class="toc-h2 toc-link" data-title="">特定注文の取得</a>
+                  </li>
+                  <li>
+                    <a href="#2e599e0bc8" class="toc-h2 toc-link" data-title="">注文キャンセルのリクエスト</a>
+                  </li>
+                  <li>
+                    <a href="#b9da761c2a" class="toc-h2 toc-link" data-title="">指定されている注文の取引記録の照会</a>
+                  </li>
+                  <li>
+                    <a href="#1df63788aa" class="toc-h2 toc-link" data-title="">注文エラーコード</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#otc" class="toc-h1 toc-link" data-title="otc">OTC</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#otc-2" class="toc-h2 toc-link" data-title="otc">OTC資産の振込入金</a>
+                  </li>
+                  <li>
+                    <a href="#otc-3" class="toc-h2 toc-link" data-title="otc">OTC資産の振込出金</a>
+                  </li>
+                  <li>
+                    <a href="#otc-4" class="toc-h2 toc-link" data-title="otc">OTC注文</a>
+                  </li>
+                  <li>
+                    <a href="#otc-5" class="toc-h2 toc-link" data-title="otc">OTC注文リストを照会する</a>
+                  </li>
+                  <li>
+                    <a href="#0e59768ff5" class="toc-h2 toc-link" data-title="">注文詳細を照会する</a>
+                  </li>
+                  <li>
+                    <a href="#c1b4af4d26" class="toc-h2 toc-link" data-title="">注文支払いの確認</a>
+                  </li>
+                  <li>
+                    <a href="#8a2456a092" class="toc-h2 toc-link" data-title="">買い手の注文キャンセル</a>
+                  </li>
+                  <li>
+                    <a href="#ccec8ae230" class="toc-h2 toc-link" data-title="">売り手の支払い方法の確認</a>
+                  </li>
+                  <li>
+                    <a href="#otc-6" class="toc-h2 toc-link" data-title="otc">OTC口座情報の獲得</a>
+                  </li>
+                  <li>
+                    <a href="#otc-7" class="toc-h2 toc-link" data-title="otc">OTC口座資金総額の照会</a>
+                  </li>
+                  <li>
+                    <a href="#otc-8" class="toc-h2 toc-link" data-title="otc">OTC口座の指定された通貨の資金照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#06ce28d2d5" class="toc-h1 toc-link" data-title="">レバレッジ</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#a84ad32734" class="toc-h2 toc-link" data-title="">レバレッジ口座へ資産の振込入金</a>
+                  </li>
+                  <li>
+                    <a href="#51bbf5ba19" class="toc-h2 toc-link" data-title="">レバレッジ口座から資産の振込出金</a>
+                  </li>
+                  <li>
+                    <a href="#c7bfb1a0e0" class="toc-h2 toc-link" data-title="">指定されたレバレッジ口座の情報を照会する</a>
+                  </li>
+                  <li>
+                    <a href="#fcfb3b2fea" class="toc-h2 toc-link" data-title="">全てのレバレッジ口座の情報を照会する</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#044106d39a" class="toc-h1 toc-link" data-title="">エラーコード</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://exchange.fcoin.com/setting/api'>申请 API 秘钥</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='b8bbaebbc1'>紹介</h1>
+<p>FCoin取引プラットフォームの利用方法をご紹介します。FCoinが提供するAPIを使用して、FCoin取引プラットフォームに簡単にアクセスできます。</p>
+<h1 id='1bff7d7a22'>認証</h1>
+<blockquote>
+<p>下記コードを使用して、ユーザー認証を行います：</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+</code></pre>
+<p>FCoinはAPI キーとAPIシークレットを使用して、認証を行います。 設定センターにて，開発者にご登録してください。ご登録いただいた後、API キーとAPI シークレット情報をご利用いただけます。</p>
+
+<p>FCoinのAPI利用について，公開API以外に、API キー及び署名が必要となります。</p>
+<h2 id='1308356abb'>アクセス制限</h2>
+<p>現在、アクセスの頻度はユーザーごとに100回 / 10秒，将来はサービスごと、アクセスの頻度を制限する予定です。</p>
+<h2 id='api'>API 署名</h2>
+<p>署名を行うため、あらかじめ下記データをご用意してください：</p>
+
+<p><code>HTTP_METHOD</code> + <code>HTTP_REQUEST_URI</code> + <code>TIMESTAMP</code> + <code>POST_BODY</code></p>
+
+<p>接続が確立後， Base64エンコーディングが必要です。エンコーディング後のデータに対して、 HMAC-SHA1 署名を行います。また、デジタル署名に対して、Base64エンコーディングを2回実施します。各ステップの詳細内容について、ご説明します：</p>
+
+<aside class="warning">
+注意事項： `Base64`エンコーディングは2回実施する必要があります！
+</aside>
+<h3 id='http_method'>HTTP_METHOD</h3>
+<p><code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code> は必ず大文字にしてください</p>
+<h3 id='http_request_uri'>HTTP_REQUEST_URI</h3>
+<p><code>https://api.fcoin.com/v2/</code> v2 APIのリクエストの接頭辞</p>
+
+<p>その後に、アクセスしたいリソースパスを記入してください。例： <code>orders?param1=value1</code>の場合は，最終形は <code>https://api.fcoin.com/v2/orders?param1=value1</code>となります</p>
+
+<p>リクエストされたURIのパラメータについては、アルファベット順に並べ替える必要があります！</p>
+
+<p>すなわち、リクエストされたURIは<code>https://api.fcoin.com/v2/orders?c=value1&amp;b=value2&amp;a=value3</code>の場合，デジタル署名する際に、リクエスト・パラメータをアルファベット順にソートさせ、デジタル署名の最終URIは <code>https://api.fcoin.com/v2/orders?a=value3&amp;b=value2&amp;c=value1</code>となります。 元のリクエスト中には、URI中の三つのパラメータの順番は <code>c</code>, <code>b</code>, <code>a</code>だが，ソート後、順番は <code>a</code>, <code>b</code>, <code>c</code>になっております。ご注意ください。</p>
+<h3 id='timestamp'>TIMESTAMP</h3>
+<p>APIを利用してアクセスする時のUNIX EPOCHタイムスタンプは、サーバーとの時間差は30秒以内でなければなりません。</p>
+<h3 id='post_body'>POST_BODY</h3>
+<p>POST リクエストの場合は，POST リクエストデータへのデジタル署名も必要です。デジタル署名のルールはご説明します：</p>
+
+<p>リクエストされたすべてのキーはアルファベット順に並べ替えられた後、urlパラメータ化されます。 &amp;を使用して、繋ぎます。</p>
+
+<aside class="warning">
+POST_BODYのキーの値は、アルファベット順にソートする必要があります。ご注意ください！
+</aside>
+
+<blockquote>
+<p>下記リクエストデータの場合は：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passowrd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>先に、キーをアルファベット順にソートし、urlパラメータ化します。すなわち：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>password=password
+username=username
+</code></pre>
+<blockquote>
+<p>アルファベットの順番には、<code>p</code>はuの前にあるため、<code>password</code>は<code>username</code>の前に置かれるべき、その次、＆を使用して接続します。すなわち：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>password=password&amp;username=username
+</code></pre><h2 id='53184fb5c1'>デモンストレーション</h2>
+<blockquote>
+<p>下記のリクエストの場合は：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://api.fcoin.com/v2/orders
+
+{
+  "type": "limit",
+  "side": "buy",
+  "amount": "100.0",
+  "price": "100.0",
+  "symbol": "btcusdt"
+}
+
+timestamp: 1523069544359
+</code></pre>
+<blockquote>
+<p>デジタル署名を行うため、あらかじめ下記データをご用意してください：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POSThttps://api.fcoin.com/v2/orders1523069544359amount=100.0&amp;price=100.0&amp;side=buy&amp;symbol=btcusdt&amp;type=limit
+</code></pre>
+<blockquote>
+<p>Base64エンコーディングし、下記データになります：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>UE9TVGh0dHBzOi8vYXBpLmZjb2luLmNvbS92Mi9vcmRlcnMxNTIzMDY5NTQ0MzU5YW1vdW50PTEwMC4wJnByaWNlPTEwMC4wJnNpZGU9YnV5JnN5bWJvbD1idGN1c2R0JnR5cGU9bGltaXQ=
+</code></pre>
+<blockquote>
+<p>API キーを申請した際に取得したキー（API シークレット）をコピーし，以下のデジタル署名結果は、例として <code>3600d0a74aa3410fb3b1996cca2419c8</code> を使用しています，</p>
+
+<p>結果に対して、秘密鍵を使用して、 <code>HMAC-SHA1</code> デジタル署名し、バイナリ結果に対して<code>Base64</code> エンコーディング後、下記になります：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>DeP6oftldIrys06uq3B7Lkh3a0U=
+</code></pre>
+<blockquote>
+<p>すなわち、APIサーバーへ検証するための最終的なデジタル署名が生成されます</p>
+</blockquote>
+<h2 id='07e2a33eed'>パラメータ名</h2>
+<ul>
+<li><code>FC-ACCESS-KEY</code></li>
+<li><code>FC-ACCESS-SIGNATURE</code></li>
+<li><code>FC-ACCESS-TIMESTAMP</code></li>
+</ul>
+<h2 id='f6c2c8d0f4'>説明</h2>
+<p>デベロッパーツール（準備中）を使用して、オンライン検証を行えます。</p>
+<h1 id='api'>公開API</h1><h2 id='6379b76879'>サーバー時刻の照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">server_time</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">server_time</span><span class="p">()</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">serverTime</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">serverTime</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>応答結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">1523430502977</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIを使用して、サーバー時刻を取得できます。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/public/server-time</code></p>
+<h2 id='908c1cb803'>取扱い仮想通貨の照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">currencies</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">currencies</span><span class="p">()</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">currencies</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">currencies</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>応答結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"eth"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIを使用して、取扱い仮想通貨を取得できます。</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/public/currencies</code></p>
+<h2 id='be15bcbfb5'>取引通貨ペアの照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">symbols</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">symbols</span><span class="p">()</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">symbols</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">symbols</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>応答結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethusdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount_decimal"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIを使用して、取引通貨ペアを取得できます。</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/public/symbols</code></p>
+<h1 id='c06c016e90'>マーケット情報</h1><h2 id='0093b50f1a'>マーケット情報概述</h2>
+<p>マーケット情報は公開APIを通じて取得できます。現在、HTTPとWebSocketの2つのAPIを提供しています。タイムリーにマーケット情報を取得するため、WebSocketを使用してアクセスすることをお勧めします。マーケット情報のリアルタイムパフォーマンスを可能な限り高めるために、現在の公開している部分は最新のマーケットデータのみを取得することができます。もし全部の情報、または履歴情報を取得する必要がある場合は、support@fcoin.comまでご連絡ください。</p>
+
+<p>すべての HTTP リクエストのURLベースは：https://api.fcoin.com/v2/market です</p>
+
+<p>すべての WebSocket リクエストのURLは: wss://api.fcoin.com/v2/ws です</p>
+
+<p>用語は以下のように統一されます:</p>
+
+<ul>
+<li><code>topic</code> サブスクリプションのテーマを示します。</li>
+<li><code>symbol</code> 対応する取引通貨を示します。すべての通貨区分のトピックはトピックの最後に表示されます。</li>
+<li><code>ticker</code> マーケット情報のtickデータ、最新の買い売りの約定価格と出来高、買い注文の最高値と売り注文の最安値、24時間の出来高が含まれます。</li>
+<li><code>depth</code> 板の厚さ、相場を示します。</li>
+<li><code>level</code> 板の厚さのタイプを示します。例えば、<code>L20</code>, <code>L100</code>。</li>
+<li><code>trade</code> 最新の成約と取引を示します。</li>
+<li><code>candle</code> チャート、ローソク足、平均足を示します。</li>
+<li><code>resolution</code> チャートの種類を示します。例えば、<code>M1</code>, <code>M15</code>。</li>
+<li><code>base volume</code> 基軸通貨の出来高を示します。例えば、 btcusdt 中 btc のボリューム。</li>
+<li><code>quote volume</code> 評価通貨の出来高を示します。例えば、 btcusdt 中 usdt のボリューム。</li>
+<li><code>ts</code> プッシュサーバーの時刻を示します。ミリ秒単位の数値フィールドです。 unix epoch in millisecond.</li>
+</ul>
+<h2 id='websocket'>WebSocket 初回接続の確立</h2>
+<p>接続ができたら、サーバーからウェルカムメッセージを送信します。</p>
+
+<blockquote>
+<p>接続成功後、サーバーからメッセージを返します:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693784042</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<ul>
+<li><code>ts</code>: プッシュサーバーの現在の時点。</li>
+</ul>
+</blockquote>
+<h2 id='websocket-heartbeat'>WebSocket 接続の維持 - heartbeat</h2><pre class="highlight python tab-python"><code><span class="c"># WebSocket サーバーに ping を送信し、ハートビートを維持します。</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">now_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="n">api</span><span class="o">.</span><span class="n">market</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">now_ms</span><span class="p">)</span>
+</code></pre>
+<p>WebSocket クライアント側は WebSocket サーバーとの接続を確立後、お勧めとして、WebSocket Client が30sごとに（この頻度は変化する可能性があります）、サーバーへ ping リクエストを送信します。サーバーがクライアントのping要求を長時間受信しなかった場合、サーバーはアクティブに接続を切断します（300s）。</p>
+<h3 id='websocket-2'>WebSocket リクエスト</h3>
+<p><strong>ping リクエスト</strong>の送信: <code>{&quot;cmd&quot;:&quot;ping&quot;,&quot;args&quot;:[$client_ts],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: クライアントが現在のリクエストで指定されたカスタムidであり、サーバーはそのままで返します。</li>
+<li><code>client_ts</code>: クライアントの現在の時点</li>
+</ul>
+
+<blockquote>
+<p>ping リクエストの例：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"ping"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="mi">1540557696867</span><span class="p">],</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"sample.client.id"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>ping リクエストが成功になり、サーバーから以下の情報を返しました：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"sample.client.id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693784042</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gap"</span><span class="p">:</span><span class="mi">112</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<ul>
+<li><code>gap</code>: プッシュサーバーがこのリクエストを処理する時間と、ユーザーまで送信する時差。</li>
+<li><code>ts</code>:  プッシュサーバーの現在の時点。</li>
+</ul>
+</blockquote>
+
+<aside class="notice">
+tip: ping リクエストでサーバーから返した ts 和 gap を通して、プッシュサーバーの時間とユーザーまで送信する時差を取得することができます。
+</aside>
+<h2 id='websocket-3'>WebSocket サブスクリプション</h2>
+<p><strong>sub リクエスト</strong>の送信: <code>{&quot;cmd&quot;:&quot;sub&quot;,&quot;args&quot;:[&quot;$topic&quot;, ...],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: クライアントが現在のリクエストで指定されたカスタムidであり、サーバーはそのままで返します。</li>
+<li><code>topic</code>: サブスクリプション待ちの topic が複数である場合は、特殊記号<code>,</code>で区切ってください。</li>
+</ul>
+
+<blockquote>
+<p>sub リクエストの例（単一 topic）：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"ticker.ethbtc"</span><span class="p">]}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>sub リクエストの例（複数 topic）：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"ticker.ethbtc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">]}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>サブスクリプション成功した場合の応答結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"topics"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ticker.ethbtc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>サブスクリプション失敗した場合の応答結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"invalid_topics_sample"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">41002</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"invalid sub topic, xxx.M1.xxx"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='ticker'>ticker データの取得</h2>
+<p>ticker 情報ブロックを十分に小さく、迅速に取得するために、強制的にリスト形式を使用しています。</p>
+
+<blockquote>
+<p>ticker リストの対応するフィールドの意味説明：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"最新取引価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最新の成約高"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"買い注文価格の最高値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"買い注文取引量の最高値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"売り注文価格の最安値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"売り注文取引量の最安値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間前の成約価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間価格の最高値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間価格の最安値"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間基軸通貨の取引量。例えば、btcusdt の btc のボリューム"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間評価通貨の取引量。例えば、btcusdt の usdt のボリューム"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http'>HTTP リクエスト</h3>
+<p><code>GET https://api.fcoin.com/v2/market/ticker/$symbol</code></p>
+<pre class="highlight python tab-python"><code><span class="c">#  ticker データの取得</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">market</span><span class="o">.</span><span class="n">get_ticker</span><span class="p">(</span><span class="s">"ethbtc"</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>HTTP リクエストの応答結果は下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000000000000</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-4'>WebSocket サブスクリプション</h3>
+<p><strong>sub リクエスト</strong>の送信、topic: <code>ticker.$symbol</code>  ( <code>WebSocket サブスクリプション</code>をご参照ください)</p>
+<pre class="highlight python tab-python"><code><span class="c"># ticker データのサブスクリプション</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">fcoin_ws</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">init_ws</span><span class="p">()</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="p">[</span><span class="s">"ticker.ethbtc"</span><span class="p">,</span> <span class="s">"ticker.btcusdt"</span><span class="p">]</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>WebSocket サブスクリプションの通知結果は下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='240d66ab51'>最新の厚み詳細の取得</h2><h3 id='http-2'>HTTP リクエスト</h3>
+<p><code>GET https://api.fcoin.com/v2/market/depth/$level/$symbol</code></p>
+
+<p><code>$level</code> 含まれる種類(大文字と小文字にご注意ください)：</p>
+
+<table><thead>
+<tr>
+<th>種類</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>L20</code></td>
+<td>20 番目の注文までの明細</td>
+</tr>
+<tr>
+<td><code>L150</code></td>
+<td>150 番目の注文までの明細</td>
+</tr>
+</tbody></table>
+
+<p>その中で、 <code>L20</code> のプッシュ時間が <code>L150</code>より少し早くなり、プッシュの頻度が <code>L150</code>より少し多くなります。具体的なストレスや状況により決められます。自身のニーズによって、ご利用ください。</p>
+
+<blockquote>
+<p>HTTP リクエストの応答結果は下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth.L20.ethbtc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1523619211000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.000100000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">0.000010000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-5'>WebSocket サブスクリプション</h3><pre class="highlight python tab-python"><code><span class="c"># WebSocket サブスクリプションのデプス詳細</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">fcoin_ws</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">init_ws</span><span class="p">()</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="p">[</span><span class="s">"depth.L20.ethbtc"</span><span class="p">,</span> <span class="s">"depth.L150.btcusdt"</span><span class="p">]</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// WebSocket サブスクリプションのデプス詳細</span>
+<span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">fcoin_ws</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">init_ws</span><span class="p">()</span>
+<span class="nx">topics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"depth.L20.ethbtc"</span><span class="p">,</span> <span class="s2">"depth.L150.btcusdt"</span><span class="p">]</span>
+<span class="nx">fcoin_ws</span><span class="p">.</span><span class="nx">handle</span><span class="p">(</span><span class="nx">print</span><span class="p">)</span>
+<span class="nx">fcoin_ws</span><span class="p">.</span><span class="nx">sub</span><span class="p">(</span><span class="nx">topics</span><span class="p">)</span>
+</code></pre>
+<p><strong>sub リクエスト</strong>の送信，topic: <code>depth.$level.$symbol</code>   ( <code>WebSocket サブスクリプション</code>をご参照ください)</p>
+
+<blockquote>
+<p>WebSocket サブスクリプションの通知結果が下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth.L20.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1523619211000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.000100000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">0.000010000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>bids 和 asks に対応する配列は偶数の項目であります。買い（売り）注文１の価格、買い（売り）注文１の数量のように順序に並びます。</p>
+</blockquote>
+<h2 id='906d86c346'>最新の取引明細の取得</h2>
+<p>取引 id のサイズを比較することによって、最新の取引かどうかを判断できます。{trade id}
+通常、 trade から transaction までのプロセスがあるため、公開マーケットの取引 id は、決済システム中の取引 id と実際には一致しないことにご注意ください。
+取引記録が１つであっても、最新の取引が再取得されたときに、 id が常に一致しているという保証はできません。</p>
+
+<p>PS:過去のマーケット情報では、取引 id が１つであることが保証できます。{transaction id} ここはマーケットの更新通知としてのみ使用され、アーカイブに使用しないでください。</p>
+<pre class="highlight python tab-python"><code><span class="c"># WebSocket 最新の取引明細を照会するリクエスト</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">fcoin_ws</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">init_ws</span><span class="p">()</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="s">"trade.ethbtc"</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">topic</span><span class="p">,</span> <span class="n">limit</span><span class="p">]</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">req</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">rep_handler</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># WebSocket 最新の取引明細のサブスクリプション</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">fcoin_ws</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">init_ws</span><span class="p">()</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="p">[</span><span class="s">"trade.ethbtc"</span><span class="p">,</span> <span class="s">"trade.btcusdt"</span><span class="p">]</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+</code></pre><h3 id='http-3'>HTTP リクエスト</h3>
+<p><code>GET https://api.fcoin.com/v2/market/trades/$symbol</code></p>
+<h4 id='http-4'>ペラメータの紹介(HTTP リクエスト)</h4>
+<table><thead>
+<tr>
+<th>ペラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>before</td>
+<td></td>
+<td>ある id より小さい id の Candle を照会する</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>デフォルトは 20 条</td>
+</tr>
+</tbody></table>
+<h3 id='websocket-6'>WebSocket リクエスト</h3>
+<p><strong>req リクエスト</strong>の送信: <code>{&quot;cmd&quot;:&quot;req&quot;, &quot;args&quot;:[&quot;$topic&quot;, limit],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: クライアントが現在のリクエストで指定されたカスタムidであり、サーバーはそのままで返します。</li>
+<li><code>topic</code>: <code>trade.$symbol</code></li>
+<li><code>limit</code>: 取得する必要がある最近の成約数</li>
+</ul>
+
+<blockquote>
+<p>WebSocket リクエストが成功した場合の応答結果が下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693400329</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419946174</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">76000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419114272</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">74000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523415182356</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">71000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">3.000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-7'>WebSocket サブスクリプション</h3>
+<p><strong>sub リクエスト</strong>の送信、topic: <code>trade.$symbol</code>   ( <code>WebSocket サブスクリプション</code>をご参照ください)</p>
+
+<ul>
+<li><code>symbol</code>: 対応の取引ペア</li>
+</ul>
+
+<blockquote>
+<p>WebSocket サブスクリプションの通知結果が下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"trade.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">76000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419946174</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='candle'>Candle 情報の取得</h2><h3 id='http-5'>HTTP リクエスト</h3>
+<p><code>GET https://api.fcoin.com/v2/market/candles/$resolution/$symbol</code></p>
+<h4 id='http-6'>パラメータの照会(HTTP リクエスト)</h4>
+<table><thead>
+<tr>
+<th>ペラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>before</td>
+<td></td>
+<td>ある id より小さい id の Candle を照会する</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>デフォルトは 20 条</td>
+</tr>
+</tbody></table>
+
+<p>$resolution 含まれる種類（大文字と小文字にご注意ください）：</p>
+
+<table><thead>
+<tr>
+<th>種類</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>M1</code></td>
+<td>1 分</td>
+</tr>
+<tr>
+<td><code>M3</code></td>
+<td>3 分</td>
+</tr>
+<tr>
+<td><code>M5</code></td>
+<td>5 分</td>
+</tr>
+<tr>
+<td><code>M15</code></td>
+<td>15 分</td>
+</tr>
+<tr>
+<td><code>M30</code></td>
+<td>30 分</td>
+</tr>
+<tr>
+<td><code>H1</code></td>
+<td>1 時間</td>
+</tr>
+<tr>
+<td><code>H4</code></td>
+<td>4 時間</td>
+</tr>
+<tr>
+<td><code>H6</code></td>
+<td>6 時間</td>
+</tr>
+<tr>
+<td><code>D1</code></td>
+<td>1 日</td>
+</tr>
+<tr>
+<td><code>W1</code></td>
+<td>1 週</td>
+</tr>
+<tr>
+<td><code>MN</code></td>
+<td>1 ヶ月</td>
+</tr>
+</tbody></table>
+<h3 id='websocket-8'>WebSocket リクエスト</h3>
+<p><strong>req リクエスト</strong>の送信: <code>{&quot;cmd&quot;:&quot;req&quot;,&quot;args&quot;:[&quot;$topic&quot;,limit,before],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: クライアントが現在のリクエストで指定されたカスタムidであり、サーバーはそのままで返します</li>
+<li><code>topic</code>: <code>candle.$resolution.$symbol</code></li>
+<li><code>limit</code>: 取得する必要がある candle の数</li>
+<li><code>before</code>: ある id より小さい id の Candle を照会する</li>
+</ul>
+
+<blockquote>
+<p>WebSocket リクエストが成功した場合の応答結果が下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"candle.btcusdt.M1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1540809840</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">24793830600000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">6491.74</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">6489.24</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">6491.24</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">6490.07</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mf">8.2221</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mf">53371.531286</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1540809900</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">24793879800000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">6490.47</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">6487.62</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">6490.09</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">6487.62</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mf">10.8527</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mf">70430.840624</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='weboskcet'>Weboskcet サブスクリプション</h3>
+<p><strong>sub リクエスト</strong>の送信，topic: <code>candle.$resolution.$symbol</code>   ( <code>WebSocket サブスクリプショ</code>をご参照ください)</p>
+
+<ul>
+<li><code>resolution</code>： HTTP からの resolution ペラメータへのリクエストに相当します</li>
+</ul>
+<pre class="highlight python tab-python"><code><span class="c"># WebSocket サブスクリプション candle データ</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">fcoin_ws</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">init_ws</span><span class="p">()</span>
+<span class="n">topics</span> <span class="o">=</span> <span class="p">[</span><span class="s">"candle.M1.ethbtc"</span><span class="p">]</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">handle</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+<span class="n">fcoin_ws</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">topics</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>WebSocket サブスクリプションの通知結果が下記の通りです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"candle.M1.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1523691480</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">11400000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='286e96ae2d'>アカウントと資金</h1><h2 id='3545e9444a'>アカウント資金照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">accounts_balance</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">orders</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">accountsBalance</span><span class="p">;</span>
+</code></pre>
+<blockquote>
+<p>响应结果如下：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは、ユーザーの資産リストを照会するために使用されます。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/accounts/balance</code></p>
+<h1 id='662dbb2d11'>注文</h1><h2 id='d3cb4d170f'>注文モデル説明</h2>
+<p>注文モデルは、以下の属性によって構成されます：</p>
+
+<table><thead>
+<tr>
+<th>属性</th>
+<th>タイプ</th>
+<th>内容説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>注文 ID</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>通貨ペア</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td><code>String</code></td>
+<td>取引方向（<code>buy</code>, <code>sell</code>）</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>String</code></td>
+<td>注文タイプ（<code>limit</code>，<code>market</code>）</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><code>String</code></td>
+<td>注文価格</td>
+</tr>
+<tr>
+<td><code>amount</code></td>
+<td><code>String</code></td>
+<td>注文ボリューム</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>String</code></td>
+<td>注文ステータス</td>
+</tr>
+<tr>
+<td><code>executed_value</code></td>
+<td><code>String</code></td>
+<td>約定</td>
+</tr>
+<tr>
+<td><code>filled_amount</code></td>
+<td><code>String</code></td>
+<td>出来高</td>
+</tr>
+<tr>
+<td><code>fill_fees</code></td>
+<td><code>String</code></td>
+<td>手数料</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>Long</code></td>
+<td>注文日時</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>String</code></td>
+<td>ソース</td>
+</tr>
+</tbody></table>
+
+<p>注文ステータス説明：</p>
+
+<table><thead>
+<tr>
+<th>属性</th>
+<th>内容説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>submitted</code></td>
+<td>注文中</td>
+</tr>
+<tr>
+<td><code>partial_filled</code></td>
+<td>一部約定</td>
+</tr>
+<tr>
+<td><code>partial_canceled</code></td>
+<td>一部キャンセル</td>
+</tr>
+<tr>
+<td><code>filled</code></td>
+<td>約定</td>
+</tr>
+<tr>
+<td><code>canceled</code></td>
+<td>キャンセル</td>
+</tr>
+<tr>
+<td><code>pending_cancel</code></td>
+<td>キャンセルリクエスト中</td>
+</tr>
+</tbody></table>
+<h2 id='d05dbb7e5c'>新規注文</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">order_create_param</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">order_create_param</span><span class="p">(</span><span class="s">'btcusdt'</span><span class="p">,</span> <span class="s">'buy'</span><span class="p">,</span> <span class="s">'limit'</span><span class="p">,</span> <span class="s">'8000.0'</span><span class="p">,</span> <span class="s">'1.0'</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">order_create_param</span><span class="p">)</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">orderCreateParam</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">orderCreateParam</span><span class="p">(</span><span class="s1">'btcusdt'</span><span class="p">,</span> <span class="s1">'buy'</span><span class="p">,</span> <span class="s1">'limit'</span><span class="p">,</span> <span class="s1">'8000.0'</span><span class="p">,</span> <span class="s1">'1.0'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">orders</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">orderCreateParam</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>レスポンス結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d17a03b852e48c0b3920c7412867623"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは新規注文を発注します。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/orders</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>無</td>
+<td>通貨ペア</td>
+</tr>
+<tr>
+<td>side</td>
+<td>無</td>
+<td>取引方向</td>
+</tr>
+<tr>
+<td>type</td>
+<td>無</td>
+<td>注文タイプ</td>
+</tr>
+<tr>
+<td>price</td>
+<td>無</td>
+<td>価格</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>無</td>
+<td>発注量</td>
+</tr>
+<tr>
+<td>exchage</td>
+<td>無</td>
+<td>取引ゾーン</td>
+</tr>
+<tr>
+<td>account_type</td>
+<td>無</td>
+<td>注文タイプ（レバレッジ：margin）</td>
+</tr>
+</tbody></table>
+<h2 id='99c1710851'>注文リストの照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">orders</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>レスポンス結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"executed_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fill_fees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filled_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは注文リストの照会に使用されます。</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/orders</code></p>
+<h3 id='ec409876b3'>照会パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td></td>
+<td>通貨ペア</td>
+</tr>
+<tr>
+<td>states</td>
+<td></td>
+<td>注文ステータス</td>
+</tr>
+<tr>
+<td>before</td>
+<td></td>
+<td>あるページの前の</td>
+</tr>
+<tr>
+<td>after</td>
+<td></td>
+<td>あるページの後の注文の照会</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>ページごとの注文量、デフォルトは20条</td>
+</tr>
+</tbody></table>
+<h2 id='ad492cf980'>特定注文の取得</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'9d17a03b852e48c0b3920c7412867623'</span><span class="p">)</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'9d17a03b852e48c0b3920c7412867623'</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>レスポンス結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9d17a03b852e48c0b3920c7412867623"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"submitted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"executed_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fill_fees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"filled_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは指定された注文の詳細を取得します。</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/orders/{order_id}</code></p>
+<h3 id='url'>URL パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td>注文 ID</td>
+</tr>
+</tbody></table>
+<h2 id='2e599e0bc8'>注文キャンセルのリクエスト</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">submit_cancel</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">submitCancel</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>レスポンス結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは指定された注文をキャンセルするために、使用されます。注文のキャンセル・プロセスは非同期です。つまり、このAPIの呼び出しが成功した場合は、注文はキャンセルリクエストのプロセスに入っていますが、注文の取り消しを確認するためにマッチング処理を待つ必要があります。</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/orders/{order_id}/submit-cancel</code></p>
+<h3 id='url-2'>URL パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>解釈</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td>注文 ID</td>
+</tr>
+</tbody></table>
+<h2 id='b9da761c2a'>指定されている注文の取引記録の照会</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'9d17a03b852e48c0b3920c7412867623'</span><span class="p">)</span><span class="o">.</span><span class="n">match_results</span><span class="p">()</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">orders</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'9d17a03b852e48c0b3920c7412867623'</span><span class="p">).</span><span class="nx">matchResults</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>レスポンス結果は下記のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fill_fees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filled_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>このAPIは指定されている注文の取引記録の取得に使用されます</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/orders/{order_id}/match-results</code></p>
+<h3 id='url-3'>URL パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>解釈</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td>注文 ID</td>
+</tr>
+</tbody></table>
+<h2 id='1df63788aa'>注文エラーコード</h2>
+<table><thead>
+<tr>
+<th>エラーコード</th>
+<th>内容解釈</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2000</td>
+<td>アカウントエラー</td>
+</tr>
+</tbody></table>
+<h1 id='otc'>OTC</h1><h2 id='otc-2'>OTC資産の振込入金</h2>
+<p>このAPIは、取引口座やマイウォレットの資産をOTC口座に振込入金するために使用されます。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/otc/assets/transfer/in</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">振込入金の数量</td>
+</tr>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">通貨：usdt、btc、eth</td>
+</tr>
+<tr>
+<td style="text-align: left">source_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">送金口座のタイプ: exchange: 取引口座; assets: マイウォレット</td>
+</tr>
+<tr>
+<td style="text-align: left">target_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">入金先の口座のタイプ: otc:法定通貨口座</td>
+</tr>
+</tbody></table>
+<pre class="highlight plaintext"><code>{
+  "amount": 1,
+  "currency": "btc",
+  "source_account_type": "exchange",
+  "target_account_type": "otc"
+}
+</code></pre><h3 id='347e18424f'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "data": null,
+  "status": "ok"
+}
+</code></pre><h2 id='otc-3'>OTC資産の振込出金</h2>
+<p>このAPIは、OTC口座の資産を取引口座やマイウォレットに振込出金するために使用されます。</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/otc/assets/transfer/out</code></p>
+<h3 id='4c4f7e67fc-2'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">振込出金の数量</td>
+</tr>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">通貨：usdt、btc、eth</td>
+</tr>
+<tr>
+<td style="text-align: left">source_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">送金口座のタイプ:otc: 法币账户</td>
+</tr>
+<tr>
+<td style="text-align: left">target_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">入金先の口座のタイプ: exchange: 取引口座; assets: マイウォレット</td>
+</tr>
+</tbody></table>
+<pre class="highlight plaintext"><code>{
+  "amount": 1,
+  "currency": "btc",
+  "source_account_type": "otc",
+  "target_account_type": "exchange"
+}
+</code></pre><h3 id='347e18424f-2'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "data": null,
+  "status": "ok"
+}
+</code></pre><h2 id='otc-4'>OTC注文</h2><h3 id='d48994f8cb'>新しい注文を作る</h3>
+<p>このAPIは、新しいOTC注文を作るために使用されます。</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/otc/suborders</code></p>
+<h3 id='4c4f7e67fc-3'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">取引数量</td>
+</tr>
+<tr>
+<td style="text-align: left">delegation_order_id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">委託注文id</td>
+</tr>
+</tbody></table>
+<pre class="highlight plaintext"><code>{
+  "amount": 1,
+  "delegation_order_id": "St5_OiSE5YQiy4lxkQhq8w"
+}
+</code></pre><h3 id='347e18424f-3'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "err_code": "",
+  "err_msg": "",
+  "status": "ok",
+  "data": 4064224473046529
+}
+</code></pre><h2 id='otc-5'>OTC注文リストを照会する</h2>
+<p>このAPIは、OTC注文リストを照会するために使用されます。</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/suborders</code></p>
+<h3 id='4c4f7e67fc-4'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">最後のページングのID</td>
+</tr>
+<tr>
+<td style="text-align: left">page_size</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">各ページの記録回数</td>
+</tr>
+<tr>
+<td style="text-align: left">delegation_order_id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">委託注文id</td>
+</tr>
+<tr>
+<td style="text-align: left">states</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">注文状態：</td>
+</tr>
+</tbody></table>
+
+<p>1 confirmed 確認済 2 buyer_appeal 買い手申し立て中 3 seller_appeal 売り手申し立て中 4 paid 買い手が支払い済み 5 released 通貨が転送済み
+6 filled 約定済 7 cancelled キャンセル済 8 timeout キャンセル時間切れ 9 system_cancelled システムキャンセル（残高不足）|</p>
+<h3 id='347e18424f-4'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "err_code": "",
+  "err_msg": "",
+  "status": "ok",
+  "data": {
+    "content": [
+      {
+        "id": "4064224473046529",
+        "currency": "usdt",
+        "legal_currency": "cny",
+        "direction": "buy",
+        "type": "normal",
+        "price": "7.00",
+        "amount": "100.000000",
+        "total_price": "700.00",
+        "start_at": 1546614090132,
+        "created_at": 1546614090135,
+        "state": "confirmed"
+      },
+      {
+        "id": "3214937639915529",
+        "currency": "usdt",
+        "legal_currency": "cny",
+        "direction": "buy",
+        "type": "normal",
+        "price": "7.70",
+        "amount": "100.000000",
+        "total_price": "770.00",
+        "start_at": 1546421969839,
+        "created_at": 1546421969842,
+        "state": "filled"
+      }
+    ],
+    "current_elements": 2,
+    "has_prev": true,
+    "has_next": false,
+    "next_page_id": 3214937639915529
+  }
+}
+</code></pre><h2 id='0e59768ff5'>注文詳細を照会する</h2>
+<p>このAPIは、注文詳細を照会するために使用されます。</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/suborders/{id}</code></p>
+<h3 id='4c4f7e67fc-5'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">注文id</td>
+</tr>
+</tbody></table>
+<h3 id='347e18424f-5'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "status": "ok",
+  "data": {
+    "id": "4064224473046529",
+    "currency": "usdt",
+    "legal_currency": "cny",
+    "direction": "buy",
+    "type": "normal",
+    "price": "7.00",
+    "amount": "100.000000",
+    "payment_method": "wechat_pay",
+    "total_price": "700.00",
+    "start_at": 1546614090132,
+    "paid_at": 1546614126421,
+    "finished_at": 1546614470679,
+    "created_at": 1546614090135,
+    "release_begin_at": 1546614294160,
+    "buyer_user_id": "hXD7rALO-p899HLEG6OGCA",
+    "seller_user_id": "U_g-dtTE_B8Q2eQYa4a8Bw",
+    "state": "filled",
+    "first_name": "Tim",
+    "last_name": "im"
+  }
+}
+</code></pre><h2 id='c1b4af4d26'>注文支払いの確認</h2>
+<p>このAPIは、注文の支払いを確認するために使用されます。</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/otc/suborders/{id}/pay_confirm</code></p>
+<h3 id='4c4f7e67fc-6'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">注文id</td>
+</tr>
+<tr>
+<td style="text-align: left">payment_method</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">支払い方法：</td>
+</tr>
+</tbody></table>
+
+<p>1 alipay Alipay
+2 wechat_pay Wechat Pay
+3 bank_card_pay 銀行カード</p>
+<h3 id='347e18424f-6'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "err_code": "",
+  "err_msg": "",
+  "status": "ok"
+}
+</code></pre><h2 id='8a2456a092'>買い手の注文キャンセル</h2>
+<p>このAPIは、買い手が注文をキャンセルするために使用されます。</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/otc/suborders/{id}/cancel</code></p>
+<h3 id='4c4f7e67fc-7'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">注文id</td>
+</tr>
+</tbody></table>
+<h3 id='347e18424f-7'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "err_code": "",
+  "err_msg": "",
+  "status": "ok"
+}
+</code></pre><h2 id='ccec8ae230'>売り手の支払い方法の確認</h2>
+<p>このAPIは、注文した後、売り手の支払い方法を確認するために使用されます。</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/suborders/{id}/payments</code></p>
+<h3 id='4c4f7e67fc-8'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">注文id</td>
+</tr>
+</tbody></table>
+<h3 id='347e18424f-8'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "status": "ok",
+  "data": [
+    {
+      "payment_method": "alipay",
+      "first_name": "Tim",
+      "last_name": "im",
+      "bank_name": null,
+      "bank_branch_name": null,
+      "account": "zhifubao",
+      "account_image_key": "551c9c2d6bad417fb4aa171bcc6b861d.jpg",
+      "account_image_read_url": "https://s3.ap-northeast-1.amazonaws.com/local-s3.bitdict.com/kyc/551c9c2d6bad417fb4aa171bcc6b861d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20190115T113640Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=7200&amp;X-Amz-Credential=AKIAIZ37IMEFO7JZRBOQ%2F20190115%2Fap-northeast-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=26788f3972b7a732b232cc08a54cd7afa038da0a219bf20076267ec70037bf3c"
+    },
+    {
+      "payment_method": "wechat_pay",
+      "first_name": "Tim",
+      "last_name": "im",
+      "bank_name": null,
+      "bank_branch_name": null,
+      "account": "weixina",
+      "account_image_key": "e5b20c5af24232f11ec4ce187f7c6998.jpg",
+      "account_image_read_url": "https://s3.ap-northeast-1.amazonaws.com/local-s3.bitdict.com/kyc/e5b20c5af24232f11ec4ce187f7c6998.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20190115T113640Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=7200&amp;X-Amz-Credential=AKIAIZ37IMEFO7JZRBOQ%2F20190115%2Fap-northeast-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=8d9e599cf672d3cc495407d2c9538e3b4fb7275aee7201b48b8ba48c65f6fa68"
+    }
+  ]
+}
+</code></pre><h2 id='otc-6'>OTC口座情報の獲得</h2><h3 id='http'>HTTP请求</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/users</code></p>
+<h3 id='4c4f7e67fc-9'>リクエスト・パラメータ</h3>
+<p>无</p>
+<h3 id='347e18424f-9'>応答結果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+        "user_id": "Hff9R282Ty8wDa5Xb8AaLg",                #ユーザーID
+        "nickname": "isfulei",                              #ニックネーム
+        "merchant": true,                                   #OTCメーカーですか？
+        "margin_amount": "1.00000000",                      #証拠金の数量
+        "total_transaction": 0,                             #約定済の注文総数
+        "recent_transaction": 0,                            #最近約定済の注文数
+        "total_release_time": "0",                          #合計転送時間（分）
+        "average_release_time": "0",                        #平均転送時間（分）
+        "recent_success_transaction_ratio": "0",            #最近の成約率
+        "register_at": 1,                                   #登録時間
+        "remark": "备注",                                    #メモ
+        "bind_email": true,                                 #メールアドレスの紐付けを設定しますか？
+        "bind_phone": true,                                 #携帯の紐付けを設定しますか？
+        "kyc": true,                                        #KYC認証しますか？
+        "enable_otc": true,                                 #OTCユーザーでありますか？
+        "set_payment_method": false,                        #支払い方法を設定しましたか？
+        "set_assets_password": false,                       #資金パスワードを設定しましたか？
+        "binding_google_auth": false,                       #2段階認証を設定しましたか？
+        "phone": "86-13000000000",                          #電話番号
+        "first_name": fu,                                   #姓
+        "last_name": lei,                                   #名
+        "email": "mock_user@fcoin.com"                      #メール
+    }
+</code></pre><h2 id='otc-7'>OTC口座資金総額の照会</h2><h3 id='90aa7c4e14'>リクエスト</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/users/me/balances</code></p>
+<h3 id='4c4f7e67fc-10'>リクエスト・パラメータ</h3>
+<p>無</p>
+<h3 id='5126f8e363'>応答結果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+        "summary": "0.00000000",
+        "balances": [
+            {
+                "currency": "btc",                 # 通貨
+                "available_amount": 20.3202023,    # 利用可能額
+                "frozen_amount": 32093.3223        # 凍結中の数量
+            },
+            {
+                "currency": "eth",
+                "available_amount": 20.3202023,
+                "frozen_amount": 32093.3223
+            }
+        ]
+    }
+}            
+</code></pre><h2 id='otc-8'>OTC口座の指定された通貨の資金照会</h2><h3 id='url'>リクエスト・URL</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/otc/users/me/balance</code></p>
+<h3 id='4c4f7e67fc-11'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">通貨（例）：btc/eth/usdt</td>
+</tr>
+</tbody></table>
+<h3 id='5126f8e363-2'>応答結果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+        "summary": "0.00000000",                  # btcに換算すると
+        "balances": [
+            {
+                "currency": "btc",               # 通貨
+                "available_amount": 20.3202023,  # 利用可能額
+                "frozen_amount": 32093.3223      # 凍結中の数量
+            }
+        ]
+    }
+}             
+</code></pre><h1 id='06ce28d2d5'>レバレッジ</h1><h2 id='a84ad32734'>レバレッジ口座へ資産の振込入金</h2>
+<p>このAPIは、取引口座或いはマイウォレットの資産をレバレッジ口座に振込入金するために使用されます。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/leveraged/assets/transfer/in</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">振込入金の数量</td>
+</tr>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">通貨：usdt、btc、eth</td>
+</tr>
+<tr>
+<td style="text-align: left">source_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">送金口座のタイプ: exchange: 取引口座; assets: マイウォレット</td>
+</tr>
+<tr>
+<td style="text-align: left">target_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">入金先の口座のタイプ: leveraged_btcusdt、leveraged_ethusdt、leveraged_eosusdt、leveraged_xrpusdt</td>
+</tr>
+</tbody></table>
+<pre class="highlight plaintext"><code>{
+  "amount": 1,
+  "currency": "btc",
+  "source_account_type": "exchange",
+  "target_account_type": "leveraged_btcusdt"
+}
+</code></pre><h3 id='347e18424f'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "data": null,
+  "status": "ok"
+}
+</code></pre><h2 id='51bbf5ba19'>レバレッジ口座から資産の振込出金</h2>
+<p>このAPIは、レバレッジ口座から取引口座或いはマイウォレットに資産を振込出金するために使用されます。</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://api.fcoin.com/v2/broker/leveraged/assets/transfer/out</code></p>
+<h3 id='4c4f7e67fc-2'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">振込出金の数量</td>
+</tr>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">通貨：usdt、btc、eth、eos、xrp</td>
+</tr>
+<tr>
+<td style="text-align: left">source_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">資産の元口座のタイプ: leveraged_btcusdt、leveraged_ethusdt、leveraged_eosusdt、leveraged_xrpusdt</td>
+</tr>
+<tr>
+<td style="text-align: left">target_account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">出金先の口座のタイプ:: exchange: 取引口座; assets: マイウォレット</td>
+</tr>
+</tbody></table>
+<pre class="highlight plaintext"><code>{
+  "amount": 1,
+  "currency": "btc",
+  "source_account_type": "leveraged_btcusdt",
+  "target_account_type": "exchange"
+}
+</code></pre><h3 id='347e18424f-2'>応答結果</h3><pre class="highlight plaintext"><code>{
+  "data": null,
+  "status": "ok"
+}
+</code></pre><h2 id='c7bfb1a0e0'>指定されたレバレッジ口座の情報を照会する</h2><h3 id='url'>リクエスト・URL</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/leveraged_accounts/account</code></p>
+<h3 id='4c4f7e67fc-3'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">ペラメータ</th>
+<th style="text-align: center">デフォルト値</th>
+<th style="text-align: left">説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">account_type</td>
+<td style="text-align: center">無</td>
+<td style="text-align: left">レバレッジ口座のタイプ:btcusdt/ethusdt</td>
+</tr>
+</tbody></table>
+<h3 id='347e18424f-3'>応答結果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+       "open": true,                                    #本タイプのレバレッジ口座を開設しましたか？ true:はい;false:いいえ
+        "leveraged_account_type": "btcusdt",             #レバレッジ口座のタイプ
+        "base": "btc",                                   #基軸通貨
+        "quote": "usdt",                                 #評価通貨
+        "available_base_currency_amount": "1001.00",     #利用可能の基軸通貨資産
+        "frozen_base_currency_amount": "0",              #凍結中の基軸通貨資産
+        "available_quote_currency_amount": "100100",     #利用可能の評価通貨資産
+        "frozen_quote_currency_amount": "0",             #凍結中の評価通貨資産
+        "available_base_currency_loan_amount": "2.000",  #貸借可能の基軸通貨資産        
+　　　　　"available_quote_currency_loan_amount": "300.000",#貸借可能の評価通貨数量
+        "blow_up_price": null,                           #清算価格
+        "risk_rate": "0.90",                             #ロスカットリスク率
+        "state": "open"                                  #口座状態. close クローズ;open オープン-貸借無し;normal 貸借あり-ノーマルなリスク率;blow_up ロスカット;overrun 追証", allowableValues = "close,open,normal,blow_up,overrun")
+
+    }
+}
+</code></pre><h2 id='fcfb3b2fea'>全てのレバレッジ口座の情報を照会する</h2><h3 id='url-2'>リクエスト・URL</h3>
+<p><code>GET https://api.fcoin.com/v2/broker/leveraged_accounts</code></p>
+<h3 id='4c4f7e67fc-4'>リクエスト・パラメータ</h3>
+<p>无</p>
+<h3 id='347e18424f-4'>応答結果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": [
+        {
+       "open": true,                                    #本タイプのレバレッジ口座を開設しましたか？ true:はい;false:いいえ
+        "leveraged_account_type": "btcusdt",             #レバレッジ口座のタイプ
+        "base": "btc",                                   #基軸通貨
+        "quote": "usdt",                                 #評価通貨
+        "available_base_currency_amount": "1001.00",     #利用可能の基軸通貨資産
+        "frozen_base_currency_amount": "0",              #凍結中の基軸通貨資産
+        "available_quote_currency_amount": "100100",     #利用可能の評価通貨資産
+        "frozen_quote_currency_amount": "0",             #凍結中の評価通貨資産
+        "available_base_currency_loan_amount": "2.000",  #貸借可能の基軸通貨資産        
+　　　　　"available_quote_currency_loan_amount": "300.000",#貸借可能の評価通貨数量
+        "blow_up_price": null,                           #清算価格
+        "risk_rate": "0.90",                             #ロスカットリスク率
+        "state": "open"                                  #口座状態. close クローズ;open オープン-貸借無し;normal 貸借あり-ノーマルなリスク率;blow_up ロスカット;overrun 追証"
+        }
+    ]
+}
+</code></pre><h1 id='044106d39a'>エラーコード</h1>
+<table><thead>
+<tr>
+<th>エラーコード</th>
+<th>内容解釈</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request --  誤リクエスト</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- API key 或いは署名、タイムスタンプに誤りがあります</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- アクセス不可</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- リクエストされたリソースが見つかりませんでした</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- 使用されるHTTPメソッドは、要求されたリソースには適用されません</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- リクエストされたコンテンツのフォーマットはJSONではありません</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- 負荷がオーバーロード、リクエスト頻度を下げてください</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- サービスの内部エラーが発生、後でもう一度お試しください</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- サービスが利用できません、後でやり直してください</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
