@@ -8,12 +8,10 @@
 ---------- | ------- | -------
 `id`	|long	|订单ID
 `sequenceId`|	long|	定序ID
-`userId`|	long|	用户ID
-`symbolId`|	long|	交易Symbol ID
 `marginCurrencyId`	|long|	保证金Currency ID
-`direction`|	enum|	参见Direction
-`type`|	enum	|参见OrderType
-`status`	|enum	|参见OrderStatus
+`direction`|	enum|	仓位方向LONG/SHORT
+`type`|	enum	|订单类型LIMIT/MARKET
+`status`	|enum	|参见订单状态说明
 `features`	|long	|订单特性，每个bit表示一种特性：0x01=FOK，0x02=PostOnly，0x04=Hidden，0x08=IOC，0x8000=爆仓单
 `price`	|decimal|	限价单价格（若为市价单，此处为市价单价格上限或下限）
 `quantity`|long	|订单数量
