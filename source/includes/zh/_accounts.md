@@ -1,102 +1,117 @@
-# 币币账户与资产
+# 账户
 
 
-## 查询交易账户的资产列表。
+## 查询当前用户账户余额
 
-此api用于查询交易账户的资产
+此api用于查询用户资产
 ### HTTP Request
 
-`GET https://api.fcoin.com/v2/accounts/balance`
+API路径：`GET /v3/contracts/accounts`
 
+API请求参数：无
+
+### API响应：
 ```
+{
+  "status":0,
+  "data":
+        {币种: [可用余额, 订单冻结金额, 仓位保证金金额]
+          "BTC":[2.796888254907565438,0E-18,0E-18]
+          }
+        }
+}
 ```
 
-
-
-## 查询我的钱包的资产列表。
-此api用于查询我的钱包的资产
+## 保证金转出至钱包
 
 ### HTTP Request
+API路径：`POST /v3/contracts/transfer/out/request`
 
-`GET https://api.fcoin.com/v2/assets/accounts/balance`
+### 请求参数
+|字段名称|字段类型|是否必须|默认值|描述|
+|:------|:------:|:------|:------|:------|
+currency|string|Y|币种名称，例如"BTC"
+transferFrom|enum|Y|转账来源，必须为"CONTRACTS"
+transferTo|enum|Y|转账目标，必须为"WALLET"
+amount|decimal|Y|转账金额，例如：1.024
+### 请求示例：
+```
+{
+    "currency":"BTC",
+    "transferFrom":"CONTRACTS",
+    "transferTo":"WALLET",
+    "amount":1,
+}
+```
 
-### 响应结果
+
+### API响应：
+```
+{
+  "status":0,
+  "data":{
+        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
+        "transferFrom":"CONTRACTS",
+        "transferTo":"WALLET",
+        "amount":0.01,
+        "done":false,  // 是否已完成
+        "createdAt":1566280321419,
+        "updatedAt":1566280321419,
+        "error":false,  // 是否有错误
+        "currency":"BTC"
+        }
+}
+
+```
+## 查询一个转出操作（合约->钱包）的当前执行状态
+API路径：`GET /v3/contracts/transfer/out/{transferId}/status`
+
+API请求参数：无
+
+### API响应：
+```
+{
+  "status":0,
+  "data":{
+        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
+        "transferFrom":"CONTRACTS",
+        "transferTo":"WALLET",
+        "amount":0.01,
+        "done":false,  // 是否已完成
+        "createdAt":1566280321419,
+        "updatedAt":1566280321419,
+        "error":false,  // 是否有错误
+        "currency":"BTC"
+        }
+}
+```
+
+
+## 查询转账日志
+API路径：`GET /v3/contracts/transfer/logs`
+
+API请求参数：无
+
+### API响应：
 ```
 {
   'status': 0,
-  'data': [
-    {
-      'currency': 'btc',                        币种名称
-      'available': '0.000000000000000000',      可用
-      'frozen': '0.000000000000000000',         冻结
-      'demand_deposit': '0.000000000000000000', 理财资产
-      'lock_deposit': '0.000000000000000000',   锁仓资产
-      'balance': '0.000000000000000000'         总资产
-    },
-    {
-      'currency': 'eth',
-      'available': '0.000000000000000000',
-      'frozen': '0.000000000000000000',
-      'demand_deposit': '0.000000000000000000',
-      'lock_deposit': '0.000000000000000000',
-      'balance': '0.000000000000000000'
-    },
-    ...
-}
-```
-
-
-
-## 从我的钱包划转到交易账户
-此接口用于从我的钱包将资产划转到交易账户
-
-### HTTP Request
-`POST https://api.fcoin.com/v2/assets/accounts/assets-to-spot`
-
-### 请求参数
-|参数|默认值|描述|
-|:------|:------:|:------|
-currency|  |币种名称
-amount|  |数量
-### 请求示例：
-```
-{
-  "currency": "btc",
-  "amount": 1
-}
-```
-```
-```
-### 响应结果
-```
-{
-  "data": null,
-  "status": "ok"
-}
-```
-
-## 从交易账户划转到我的钱包
-此接口用于从交易账户将资产划转到我的钱包
-
-### HTTP Request
-`POST https://api.fcoin.com/v2/accounts/spot-to-assets`
-
-### 请求参数
-|参数|默认值|描述|
-|:------|:------:|:------|
-currency|  |币种名称
-amount|  |数量
-### 请求示例：
-```
-{
-  "currency": "btc",
-  "amount": 1
-}
-```
-### 响应结果
-```
-{
-  "data": null,
-  "status": "ok"
+  'data': {
+    'hasMore': False,
+    'nextOffsetId': 0,
+    'results': [
+      {
+        'transferId': '167600369696833',
+        'transferFrom': 'CONTRACTS',
+        'transferTo': 'WALLET',
+        'amount': 0.01,
+        'done': True,
+        'createdAt': 1566280321419,
+        'updatedAt': 1566280321851,
+        'error': False,
+        'currency': 'BTC'
+      }
+    ]
+  }
 }
 ```

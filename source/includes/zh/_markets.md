@@ -4,11 +4,11 @@
 
 行情是一个全公开的 API, 当前同时提供了 HTTP 和 WebSocket 的 API.
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
-为尽可能行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 `support@fcoin.com`
+为尽可能行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 `support@fmex.com`
 
-所有 HTTP 请求的 URL base 为: `https://api.fcoin.com/v2/market`
+所有 HTTP 请求的 URL base 为: `https://XXX/v2/market`
 
-所有 WebSocket 请求的 URL 为: `wss://api.fcoin.com/v2/ws`
+所有 WebSocket 请求的 URL 为: `wss://XXX/v2/ws`
 
 下文会统一术语:
 
@@ -148,15 +148,8 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 ### HTTP 请求
 
-`GET https://api.fcoin.com/v2/market/ticker/$symbol`
+`GET https://XXX/v2/market/ticker/$symbol`
 
-```python
-# 获取 ticker 数据
-import fcoin
-
-api = fcoin.authorize('key', 'secret', timestamp)
-api.market.get_ticker("ethbtc")
-```
 
 > HTTP 请求响应结果如下：
 
@@ -187,16 +180,6 @@ api.market.get_ticker("ethbtc")
 
 发送 **sub 指令**，topic: `ticker.$symbol`  (请参考 `WebSocket 订阅`)
 
-```python
-# 订阅 ticker 数据
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["ticker.ethbtc", "ticker.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
 > WebSocket 订阅的通知消息结果如下:
 
 ```json
@@ -219,13 +202,11 @@ fcoin_ws.sub(topics)
 }
 ```
 
-
-
 ## 获取最新的深度明细
 
 ### HTTP 请求
 
-`GET https://api.fcoin.com/v2/market/depth/$level/$symbol`
+`GET https://XXX/v2/market/depth/$level/$symbol`
 
 `$level` 包含的种类(大小写敏感)：
 
@@ -252,26 +233,6 @@ fcoin_ws.sub(topics)
 ```
 
 ### WebSocket 订阅
-
-```python
-# WebSocket 订阅深度明细
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["depth.L20.ethbtc", "depth.L150.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-```javascript
-// WebSocket 订阅深度明细
-const fcoin = require('fcoin');
-
-let fcoin_ws = fcoin.init_ws()
-topics = ["depth.L20.ethbtc", "depth.L150.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
 
 发送 **sub 指令**，topic: `depth.$level.$symbol`   (请参考 `WebSocket 订阅`)
 
@@ -300,31 +261,9 @@ fcoin_ws.sub(topics)
 PS: 历史行情中, 是可以保证成交 id 保持恒定. {transaction id} 此处只作为行情更新通知, 不应依赖归档使用.
 
 
-```python
-# WebSocket 请求获取最近的成交明细
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topic = "trade.ethbtc"
-limit = 3
-args = [topic, limit]
-fcoin_ws.req(args, rep_handler)
-```
-
-```python
-# WebSocket 订阅最近的成交明细
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["trade.ethbtc", "trade.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-
 ### HTTP 请求
 
-`GET https://api.fcoin.com/v2/market/trades/$symbol`
+`GET https://XXX/v2/market/trades/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -396,7 +335,7 @@ limit |  | 默认为 20 条
 
 ### HTTP 请求
 
-`GET https://api.fcoin.com/v2/market/candles/$resolution/$symbol`
+`GET https://XXX/v2/market/candles/$resolution/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -468,16 +407,6 @@ $resolution 包含的种类(大小写敏感)：
 
 * `resolution`： 同 HTTP 请求 resolution 参数
 
-```python
-# WebSocket 订阅 candle 数据
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["candle.M1.ethbtc"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
 > WebSocket 订阅的通知消息结果如下:
 
 ```json
@@ -496,13 +425,18 @@ fcoin_ws.sub(topics)
 ```
 
 
-
-## 获取所有的ticker数据
+## 获取当前系统指数
 
 ### HTTP 请求
+`GET https://XXX/v2/market/indexes`
 
-`GET https://api.fcoin.com/v2/market/all-tickers`
 
-#### 查询参数(HTTP 请求)
 
-无
+## 获取某个指数的最近历史值
+### HTTP 请求
+`GET https://XXX/v2/market/indexes/$indexname`
+
+
+## 获取汇率
+### HTTP 请求
+`GET https://XXX/v2/market/fex`

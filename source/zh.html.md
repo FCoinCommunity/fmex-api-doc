@@ -15,10 +15,9 @@ includes:
   - zh/markets
   - zh/accounts
   - zh/orders
-  - zh/order_errors
-  - zh/otc
-  - zh/leveraged
-  - zh/errors
+  - zh/positions
+
+
 
 
 search: true

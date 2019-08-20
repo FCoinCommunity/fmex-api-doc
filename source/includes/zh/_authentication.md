@@ -46,13 +46,13 @@ FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名
 
 ### HTTP_REQUEST_URI
 
-`https://api.fcoin.com/v2/` 为 v2 API 的请求前缀
+`https://XXX/` 为 API 的请求前缀
 
-后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://api.fcoin.com/v2/orders?param1=value1`
+后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://XXX/orders?param1=value1`
 
 对于请求的 URI 中的参数，需要按照按照字母表排序！
 
-即如果请求的 URI 为 `https://api.fcoin.com/v2/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://api.fcoin.com/v2/orders?a=value3&b=value2&c=value1`，
+即如果请求的 URI 为 `https://XXX/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
 请注意，原请求 URI 中的三个参数顺序为 `c, b, a`，排序后为 `a, b, c`。
 
 ### TIMESTAMP
@@ -96,7 +96,7 @@ password=password&username=username
 > 对于如下的请求：
 
 ```
-POST https://api.fcoin.com/v2/orders
+POST https://XXX/orders
 
 {
   "type": "limit",
@@ -112,7 +112,7 @@ timestamp: 1523069544359
 > 签名前的准备数据如下：
 
 ```
-POSThttps://api.fcoin.com/v2/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
+POSThttps://XXX/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
 ```
 
 > 进行 Base64 编码，得到：
