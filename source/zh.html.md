@@ -3,7 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - python
-  - javascript
+  # - javascript
 
 toc_footers:
   - <a href='https://exchange.fcoin.com/settings/api'>申请 API 秘钥</a>
