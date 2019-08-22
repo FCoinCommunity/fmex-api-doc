@@ -353,19 +353,9 @@
 
 <p>如果为POST请求，所有请求参数以JSON形式作为Request Body传入。请求类型必须为Content-Type: application/json。</p>
 <h1 id='32c808cbe5'>认证</h1>
-<blockquote>
-<p>执行下面的代码进行用户验证：</p>
-</blockquote>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">fcoin</span>
+<p>FMex 使用 FCoin 的API key 和 API secret 进行验证，请访问 <a href="https://exchange.fcoin.com/settings/api">设置中心</a>，并注册成为开发者，获取 API key 和 API secret。</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">fcoin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fcoin'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">fcoin</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'key'</span><span class="p">,</span> <span class="s1">'secret'</span><span class="p">,</span> <span class="nx">timestamp</span><span class="p">);</span>
-</code></pre>
-<p>FCoin 使用 API key 和 API secret 进行验证，请访问 <a href="https://exchange.fcoin.com/settings/api">设置中心</a>，并注册成为开发者，获取 API key 和 API secret。</p>
-
-<p>FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名</p>
+<p>FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名</p>
 <h2 id='12907e94be'>访问限制</h2>
 <p>目前访问频率为每个用户 100次 / 10秒，未来会按照业务区分访问频率限制。</p>
 <h2 id='api'>API 签名</h2>
@@ -385,7 +375,7 @@
 
 <p>后面再加上真正要访问的资源路径，如 <code>orders?param1=value1</code>，最终即 <code>https://XXX/orders?param1=value1</code></p>
 
-<p>对于请求的 URI 中的参数，需要按照按照字母表排序！</p>
+<p>对于请求的 URI 中的参数，需要按照字母表排序！</p>
 
 <p>即如果请求的 URI 为 <code>https://XXX/orders?c=value1&amp;b=value2&amp;a=value3</code>，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 <code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>，
 请注意，原请求 URI 中的三个参数顺序为 <code>c, b, a</code>，排序后为 <code>a, b, c</code>。</p>
