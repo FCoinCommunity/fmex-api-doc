@@ -1,22 +1,9 @@
 # 认证
 
-> 执行下面的代码进行用户验证：
 
-```python
-import fcoin
+FMex 使用 FCoin 的API key 和 API secret 进行验证，请访问 [设置中心](https://exchange.fcoin.com/settings/api)，并注册成为开发者，获取 API key 和 API secret。
 
-api = fcoin.authorize('key', 'secret', timestamp)
-```
-
-```javascript
-const fcoin = require('fcoin');
-
-let api = fcoin.authorize('key', 'secret', timestamp);
-```
-
-FCoin 使用 API key 和 API secret 进行验证，请访问 [设置中心](https://exchange.fcoin.com/settings/api)，并注册成为开发者，获取 API key 和 API secret。
-
-FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名
+FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名
 
 
 
@@ -50,7 +37,7 @@ FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名
 
 后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://XXX/orders?param1=value1`
 
-对于请求的 URI 中的参数，需要按照按照字母表排序！
+对于请求的 URI 中的参数，需要按照字母表排序！
 
 即如果请求的 URI 为 `https://XXX/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
 请注意，原请求 URI 中的三个参数顺序为 `c, b, a`，排序后为 `a, b, c`。
