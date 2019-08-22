@@ -30,7 +30,7 @@
         'bankruptcyPrice': 0.0, #破产价格，以该价格平仓，扣除taker手续费后，其权益恰好为0
         'liquidationPrice': 0.0, #强平价格，以该价格平仓，扣除taker手续费后，其剩余权益恰好为仓位价值 x 维持保证金率
         'entryPrice': 11017.0, #开仓均价，每次仓位增加或减少时，开仓均价都会调整
-        'symbol': 'XBTC', #仓位合约代码，例如XBTC
+        'symbol': 'BTCUSD_P', #仓位合约代码，例如BTCUSD_P
         'closed': True, #仓位是否关闭
         'minimumMaintenanceMarginRate': 0.005 #最小维持保证金，如果仓位保证金降低到此，将立刻触发强平
       }

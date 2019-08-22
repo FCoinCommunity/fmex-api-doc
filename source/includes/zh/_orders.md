@@ -50,7 +50,7 @@
 
 参数 | 是否必须 | 描述
 --------- | ------- | -----------
-`symbol`|	Y	|	合约代码，例如"XBTC"
+`symbol`|	Y	|	合约代码，例如"BTCUSD_P"
 `type	`|	Y	|	订单类型，参见OrderType
 `direction`	|	Y		|订单方向，参见Direction
 `source`|			""	|订单来源标识，例如"WEB", "APP"，字母和数字组合
