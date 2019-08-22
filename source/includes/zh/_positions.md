@@ -38,7 +38,7 @@
   }
 }
 ```
-## 设置仓位杠杠
+## 设置仓位杠杆
 ### HTTP Request
 
 `POST https://XXX/v3/contracts/positions/$symbol/leverage`
@@ -47,7 +47,7 @@ symbol：URL参数，该仓位的Symbol名称
 ### 请求参数
 参数 | 是否必须 | 描述
 --------- | ------- | -----------
-leverage| 必填| 0～最大允许值，0=全仓，1～最大允许值=逐仓杠杠倍数
+leverage| 必填| 0～最大允许值，0=全仓，1～最大允许值=逐仓杠杆倍数
 
 ### API响应：
 ```

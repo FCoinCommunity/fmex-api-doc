@@ -28,12 +28,12 @@ API请求参数：无
 API路径：`POST /v3/contracts/transfer/out/request`
 
 ### 请求参数
-|字段名称|字段类型|是否必须|默认值|描述|
-|:------|:------:|:------|:------|:------|
-currency|string|Y|币种名称，例如"BTC"
-transferFrom|enum|Y|转账来源，必须为"CONTRACTS"
-transferTo|enum|Y|转账目标，必须为"WALLET"
-amount|decimal|Y|转账金额，例如：1.024
+|字段名称|是否必须|描述|
+|:------|:------|:------|
+currency|Y|币种名称，例如"BTC"
+transferFrom|Y|转账来源，必须为"CONTRACTS"
+transferTo|Y|转账目标，必须为"WALLET"
+amount|Y|转账金额，例如：1.024
 ### 请求示例：
 ```
 {

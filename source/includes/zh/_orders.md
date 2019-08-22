@@ -57,7 +57,7 @@
 `price`	|	仅限价单	|	限价单报价
 `quantity`	|	Y	|	订单数量，至少为1
 `triggerOn`		|	|	订单触发价格，如果不填，则立刻执行
-`trailingDistance`	|		|	止盈止损订单触发距离，如果不填，则不会按止盈止损
+`trailingDistance`	|		|	止盈止损订单触发距离，如果不填，则不会按止盈止损执行
 `fillOrKill	`|		false|	是否设置FOK订单
 `immediateOrCancel`		|	false	|是否设置IOC订单
 `postOnly	`	|	false|	是否设置PostOnly订单
@@ -198,8 +198,8 @@ triggerOn与trailingDistance不能同时填写；
 
 参数 | 是否必须 | 描述
 --------- | ------- | -----------
-range | N | 查询月份，格式为YYYYMM，例如"201907"，默认为""，表示当前月份。
-symbol | N | 用于过滤查询条件，仅筛选指定symbol的订单，默认为""，表示所有symbol。
+range | N | 查询月份，格式为YYYYMM，例如"201907"，默认为空，表示当前月份。
+symbol | N | 用于过滤查询条件，仅筛选指定symbol的订单，默认为空，表示所有symbol。
 offsetId | N | 传入当前页的起始id，默认为0，表示第一页。
 limit | N | 返回结果集的最大记录数量，范围1～100，默认为100。
 
