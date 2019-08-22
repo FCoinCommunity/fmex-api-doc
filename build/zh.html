@@ -322,7 +322,7 @@
                     <a href="#9208604e00" class="toc-h2 toc-link" data-title="">获取仓位列表</a>
                   </li>
                   <li>
-                    <a href="#f14cee5a67" class="toc-h2 toc-link" data-title="">设置仓位杠杠</a>
+                    <a href="#dcfca0d743" class="toc-h2 toc-link" data-title="">设置仓位杠杆</a>
                   </li>
                   <li>
                     <a href="#9abbc07c5f" class="toc-h2 toc-link" data-title="">设置仓位保证金</a>
@@ -471,7 +471,7 @@ timestamp: 1523069544359
 <h1 id='8e4b902c12'>行情</h1><h2 id='35c492adbd'>行情概述</h2>
 <p>行情是一个全公开的 API, 当前同时提供了 HTTP 和 WebSocket 的 API.
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
-为尽可能行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 <code>support@fmex.com</code></p>
+为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 <code>support@fmex.com</code></p>
 
 <p>所有 HTTP 请求的 URL base 为: <code>https://XXX/v2/market</code></p>
 
@@ -904,7 +904,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='weboskcet'>Weboskcet 订阅</h3>
+</span></code></pre><h3 id='websokcet'>WebSokcet 订阅</h3>
 <p>发送 <strong>sub 指令</strong>，topic: <code>candle.$resolution.$symbol</code>   (请参考 <code>WebSocket 订阅</code>)</p>
 
 <ul>
@@ -952,39 +952,29 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <table><thead>
 <tr>
 <th style="text-align: left">字段名称</th>
-<th style="text-align: center">字段类型</th>
 <th style="text-align: left">是否必须</th>
-<th style="text-align: left">默认值</th>
 <th style="text-align: left">描述</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">currency</td>
-<td style="text-align: center">string</td>
 <td style="text-align: left">Y</td>
 <td style="text-align: left">币种名称，例如&quot;BTC&quot;</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">transferFrom</td>
-<td style="text-align: center">enum</td>
 <td style="text-align: left">Y</td>
 <td style="text-align: left">转账来源，必须为&quot;CONTRACTS&quot;</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">transferTo</td>
-<td style="text-align: center">enum</td>
 <td style="text-align: left">Y</td>
 <td style="text-align: left">转账目标，必须为&quot;WALLET&quot;</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
-<td style="text-align: center">decimal</td>
 <td style="text-align: left">Y</td>
 <td style="text-align: left">转账金额，例如：1.024</td>
-<td style="text-align: left"></td>
 </tr>
 </tbody></table>
 <h3 id='4978996777'>请求示例：</h3><pre class="highlight plaintext"><code>{
@@ -1243,7 +1233,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <tr>
 <td><code>trailingDistance</code></td>
 <td></td>
-<td>止盈止损订单触发距离，如果不填，则不会按止盈止损</td>
+<td>止盈止损订单触发距离，如果不填，则不会按止盈止损执行</td>
 </tr>
 <tr>
 <td><code>fillOrKill</code></td>
@@ -1394,12 +1384,12 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <tr>
 <td>range</td>
 <td>N</td>
-<td>查询月份，格式为YYYYMM，例如&quot;201907&quot;，默认为&quot;&quot;，表示当前月份。</td>
+<td>查询月份，格式为YYYYMM，例如&quot;201907&quot;，默认为空，表示当前月份。</td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>N</td>
-<td>用于过滤查询条件，仅筛选指定symbol的订单，默认为&quot;&quot;，表示所有symbol。</td>
+<td>用于过滤查询条件，仅筛选指定symbol的订单，默认为空，表示所有symbol。</td>
 </tr>
 <tr>
 <td>offsetId</td>
@@ -1497,7 +1487,7 @@ range为查询月份，例如：201908</p>
     ]
   }
 }
-</code></pre><h2 id='f14cee5a67'>设置仓位杠杠</h2><h3 id='http-request-2'>HTTP Request</h3>
+</code></pre><h2 id='dcfca0d743'>设置仓位杠杆</h2><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://XXX/v3/contracts/positions/$symbol/leverage</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
@@ -1512,7 +1502,7 @@ range为查询月份，例如：201908</p>
 <tr>
 <td>leverage</td>
 <td>必填</td>
-<td>0～最大允许值，0=全仓，1～最大允许值=逐仓杠杠倍数</td>
+<td>0～最大允许值，0=全仓，1～最大允许值=逐仓杠杆倍数</td>
 </tr>
 </tbody></table>
 <h3 id='api-2'>API响应：</h3><pre class="highlight plaintext"><code>{
