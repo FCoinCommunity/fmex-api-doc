@@ -961,14 +961,14 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td style="text-align: left">币种名称，例如&quot;BTC&quot;</td>
 </tr>
 <tr>
-<td style="text-align: left">transferFrom</td>
+<td style="text-align: left">transfer_from</td>
 <td style="text-align: left">Y</td>
-<td style="text-align: left">转账来源，必须为&quot;CONTRACTS&quot;</td>
+<td style="text-align: left">转账来源，必须为&quot;contracts&quot;</td>
 </tr>
 <tr>
-<td style="text-align: left">transferTo</td>
+<td style="text-align: left">transfer_to</td>
 <td style="text-align: left">Y</td>
-<td style="text-align: left">转账目标，必须为&quot;WALLET&quot;</td>
+<td style="text-align: left">转账目标，必须为&quot;wallet&quot;</td>
 </tr>
 <tr>
 <td style="text-align: left">amount</td>
@@ -978,42 +978,39 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 </tbody></table>
 <h3 id='4978996777'>请求示例：</h3><pre class="highlight plaintext"><code>{
     "currency":"BTC",
-    "transferFrom":"CONTRACTS",
-    "transferTo":"WALLET",
+    "transfer_from":"CONTRACTS",
+    "transfer_to":"WALLET",
     "amount":1,
 }
 </code></pre><h3 id='api-2'>API响应：</h3><pre class="highlight plaintext"><code>{
-  "status":0,
-  "data":{
-        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
-        "transferFrom":"CONTRACTS",
-        "transferTo":"WALLET",
-        "amount":0.01,
-        "done":false,  // 是否已完成
-        "createdAt":1566280321419,
-        "updatedAt":1566280321419,
-        "error":false,  // 是否有错误
-        "currency":"BTC"
-        }
+  "status": 0,
+  "data": {
+    "transfer_from": "contracts",
+    "transfer_to": "wallet",
+    "amount": 0.1,
+    "transfer_id": "179363219767363",
+    "currency": "BTC"
+  }
 }
+
 
 </code></pre><h2 id='gt'>查询一个转出操作（合约-&gt;钱包）的当前执行状态</h2>
 <p>API路径：<code>GET /v3/contracts/transfer/out/{transferId}/status</code></p>
 
 <p>API请求参数：无</p>
 <h3 id='api-3'>API响应：</h3><pre class="highlight plaintext"><code>{
-  "status":0,
-  "data":{
-        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
-        "transferFrom":"CONTRACTS",
-        "transferTo":"WALLET",
-        "amount":0.01,
-        "done":false,  // 是否已完成
-        "createdAt":1566280321419,
-        "updatedAt":1566280321419,
-        "error":false,  // 是否有错误
-        "currency":"BTC"
-        }
+  'status': 0,
+  'data': {
+    'transfer_id': '179364285120578',
+    'transfer_from': 'contracts',
+    'transfer_to': 'wallet',
+    'amount': 0.1,
+    'done': True,
+    'created_at': 1567682689265,
+    'updated_at': 1567682689473,
+    'error': False,
+    'currency': 'BTC'
+  }
 }
 </code></pre><h2 id='20ad34123e'>查询转账日志</h2>
 <p>API路径：<code>GET /v3/contracts/transfer/logs</code></p>
@@ -1026,13 +1023,13 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     'nextOffsetId': 0,
     'results': [
       {
-        'transferId': '167600369696833',
-        'transferFrom': 'CONTRACTS',
-        'transferTo': 'WALLET',
+        'transfer_id': '167600369696833',
+        'transfer_from': 'CONTRACTS',
+        'transfer_to': 'WALLET',
         'amount': 0.01,
         'done': True,
-        'createdAt': 1566280321419,
-        'updatedAt': 1566280321851,
+        'created_at': 1566280321419,
+        'updated_at': 1566280321851,
         'error': False,
         'currency': 'BTC'
       }
@@ -1055,12 +1052,12 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>订单ID</td>
 </tr>
 <tr>
-<td><code>sequenceId</code></td>
+<td><code>sequence_id</code></td>
 <td>long</td>
 <td>定序ID</td>
 </tr>
 <tr>
-<td><code>marginCurrencyId</code></td>
+<td><code>margin_currency_id</code></td>
 <td>long</td>
 <td>保证金Currency ID</td>
 </tr>
@@ -1082,7 +1079,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <tr>
 <td><code>features</code></td>
 <td>long</td>
-<td>订单特性，每个bit表示一种特性：0x01=FOK，0x02=PostOnly，0x04=Hidden，0x08=IOC，0x8000=爆仓单</td>
+<td>订单特性，每个bit表示一种特性：0x01=FOK，0x02=post_only，0x04=Hidden，0x08=IOC，0x8000=爆仓单</td>
 </tr>
 <tr>
 <td><code>price</code></td>
@@ -1095,17 +1092,17 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>订单数量</td>
 </tr>
 <tr>
-<td><code>unfilledQuantity</code></td>
+<td><code>unfilled_quantity</code></td>
 <td>long</td>
 <td>未成交数量</td>
 </tr>
 <tr>
-<td><code>makerFeeRate</code></td>
+<td><code>maker_fee_rate</code></td>
 <td>decimal</td>
 <td>作为Maker的费率</td>
 </tr>
 <tr>
-<td><code>takerFeeRate</code></td>
+<td><code>taker_fee_rate</code></td>
 <td>decimal</td>
 <td>作为Taker的费率</td>
 </tr>
@@ -1115,27 +1112,27 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>该订单累计已收取的手续费</td>
 </tr>
 <tr>
-<td><code>triggerOn</code></td>
+<td><code>trigger_on</code></td>
 <td>decimal</td>
 <td>Stop订单的触发价格，非Stop订单触发价格始终为0</td>
 </tr>
 <tr>
-<td><code>trailingBasePrice</code></td>
+<td><code>trailing_base_price</code></td>
 <td>decimal</td>
 <td>TrailingStop订单的基准价格，非此类型订单则始终为0</td>
 </tr>
 <tr>
-<td><code>trailingDistance</code></td>
+<td><code>trailing_distance</code></td>
 <td>decimal</td>
 <td>TrailingStop订单的触发价格距离，非此类型订单则始终为0</td>
 </tr>
 <tr>
-<td><code>createdAt</code></td>
+<td><code>created_at</code></td>
 <td>long</td>
 <td>订单创建时间</td>
 </tr>
 <tr>
-<td><code>updatedAt</code></td>
+<td><code>updated_at</code></td>
 <td>long</td>
 <td>订单最后修改时间</td>
 </tr>
@@ -1225,29 +1222,29 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>订单数量，至少为1</td>
 </tr>
 <tr>
-<td><code>triggerOn</code></td>
+<td><code>trigger_on</code></td>
 <td></td>
 <td>订单触发价格，如果不填，则立刻执行</td>
 </tr>
 <tr>
-<td><code>trailingDistance</code></td>
+<td><code>trailing_distance</code></td>
 <td></td>
 <td>止盈止损订单触发距离，如果不填，则不会按止盈止损执行</td>
 </tr>
 <tr>
-<td><code>fillOrKill</code></td>
+<td><code>fill_or_kill</code></td>
 <td>false</td>
 <td>是否设置FOK订单</td>
 </tr>
 <tr>
-<td><code>immediateOrCancel</code></td>
+<td><code>immediate_or_cancel</code></td>
 <td>false</td>
 <td>是否设置IOC订单</td>
 </tr>
 <tr>
-<td><code>postOnly</code></td>
+<td><code>post_only</code></td>
 <td>false</td>
-<td>是否设置PostOnly订单</td>
+<td>是否设置post_only订单</td>
 </tr>
 <tr>
 <td><code>hidden</code></td>
@@ -1255,9 +1252,9 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>是否设置Hidden订单</td>
 </tr>
 <tr>
-<td><code>reduceOnly</code></td>
+<td><code>reduce_only</code></td>
 <td>false</td>
-<td>是否设置ReduceOnly订单</td>
+<td>是否设置reduce_only订单</td>
 </tr>
 </tbody></table>
 
@@ -1265,17 +1262,17 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 <p>订单类型如果为LIMIT，则必须填写price；</p>
 
-<p>triggerOn与trailingDistance不能同时填写；</p>
+<p>trigger_on与trailing_distance不能同时填写；</p>
 
-<p>若fillOrKill=true，则无法设置immediateOrCancel、postOnly、hidden和reduceOnly；</p>
+<p>若fill_or_kill=true，则无法设置immediate_or_cancel、post_only、hidden和reduce_only；</p>
 
-<p>若immediateOrCancel=true，则无法设置fillOrKill、postOnly、hidden和reduceOnly；</p>
+<p>若immediate_or_cancel=true，则无法设置fill_or_kill、post_only、hidden和reduce_only；</p>
 
-<p>若postOnly=true，则无法设置fillOrKill、immediateOrCancel和reduceOnly；</p>
+<p>若post_only=true，则无法设置fill_or_kill、immediate_or_cancel和reduce_only；</p>
 
-<p>若hidden=true，则无法设置fillOrKill和immediateOrCancel；</p>
+<p>若hidden=true，则无法设置fill_or_kill和immediate_or_cancel；</p>
 
-<p>只有MARKET订单与IOC订单可以设置reduceOnly=true。</p>
+<p>只有MARKET订单与IOC订单可以设置reduce_only=true。</p>
 <h3 id='api'>API响应：</h3><pre class="highlight plaintext"><code>{
   "status": 0,
   "data": {
@@ -1284,21 +1281,21 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     "type": "LIMIT",  #订单类型LIMIT/MARKET
     "status": "PENDING",  #订单状态
     "direction": "SHORT", #订单方向LONG/SHORT
-    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/PostOnly
+    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/post_only
     "price": 100.0,     #限价价格，仅限LIMIT单
     "quantity": 200,    #数量
-    "unfilledQuantity": 200, #未成交数量
-    "makerFeeRate": -0.00025,#maker费率
-    "takerFeeRate": 0.001,   #taker费率
+    "unfilled_quantity": 200, #未成交数量
+    "maker_fee_rate": -0.00025,#maker费率
+    "taker_fee_rate": 0.001,   #taker费率
     "fee": 0,                #订单已累积收取的fee
-    "triggerDirection": "LONG",#触发方向
-    "triggerOn": 0,
-    "trailingBasePrice": 0,#触发基础价格
-    "trailingDistance": 0,#触发距离
-    "createdAt": 1566283234499, #订单创建时间戳
-    "updatedAt": 1566283234499, #更新时间戳
-    "frozenMargin": 0.034188034188034184,#冻结margin
-    "frozenQuantity": 20000,#冻结数量
+    "trigger_direction": "LONG",#触发方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#触发基础价格
+    "trailing_distance": 0,#触发距离
+    "created_at": 1566283234499, #订单创建时间戳
+    "updated_at": 1566283234499, #更新时间戳
+    "frozen_margin": 0.034188034188034184,#冻结margin
+    "frozen_quantity": 20000,#冻结数量
     "hidden": false #是否隐藏
   }
 }
@@ -1315,21 +1312,21 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     "type": "LIMIT",  #订单类型LIMIT/MARKET
     "status": "PENDING",  #订单状态
     "direction": "SHORT", #订单方向LONG/SHORT
-    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/PostOnly
+    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/post_only
     "price": 100.0,     #限价价格，仅限LIMIT单
     "quantity": 200,    #数量
-    "unfilledQuantity": 200, #未成交数量
-    "makerFeeRate": -0.00025,#maker费率
-    "takerFeeRate": 0.001,   #taker费率
+    "unfilled_quantity": 200, #未成交数量
+    "maker_fee_rate": -0.00025,#maker费率
+    "taker_fee_rate": 0.001,   #taker费率
     "fee": 0,                #订单已累积收取的fee
-    "triggerDirection": "LONG",#触发方向
-    "triggerOn": 0,
-    "trailingBasePrice": 0,#触发基础价格
-    "trailingDistance": 0,#触发距离
-    "createdAt": 1566283234499, #订单创建时间戳
-    "updatedAt": 1566283234499, #更新时间戳
-    "frozenMargin": 0.034188034188034184,#冻结margin
-    "frozenQuantity": 20000,#冻结数量
+    "trigger_direction": "LONG",#触发方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#触发基础价格
+    "trailing_distance": 0,#触发距离
+    "created_at": 1566283234499, #订单创建时间戳
+    "updated_at": 1566283234499, #更新时间戳
+    "frozen_margin": 0.034188034188034184,#冻结margin
+    "frozen_quantity": 20000,#冻结数量
     "hidden": false #是否隐藏
   }
 }
@@ -1351,18 +1348,18 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
         'features': 0,
         'price': 15677.0,
         'quantity': 265,
-        'unfilledQuantity': 265,
-        'makerFeeRate': -0.00025,
-        'takerFeeRate': 0.001,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
         'fee': 0,
-        'triggerDirection': 'LONG',
-        'triggerOn': 0,
-        'trailingBasePrice': 0,
-        'trailingDistance': 0,
-        'createdAt': 1566275535810,
-        'updatedAt': 1566275535810,
-        'frozenMargin': 0.000169037443388403,
-        'frozenQuantity': 265,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
         'hidden': False
       }
     ]
@@ -1417,16 +1414,16 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
         'features': 0,
         'price': 5286.0,
         'quantity': 332,
-        'unfilledQuantity': 0,
-        'makerFeeRate': -0.00025,
-        'takerFeeRate': 0.001,
+        'unfilled_quantity': 0,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
         'fee': -1.570185395384e-05,
-        'triggerDirection': 'LONG',
-        'triggerOn': 0.0,
-        'trailingBasePrice': 0.0,
-        'trailingDistance': 0.0,
-        'createdAt': 1565787520849,
-        'updatedAt': 1565787520849
+        'trigger_direction': 'LONG',
+        'trigger_on': 0.0,
+        'trailing_base_price': 0.0,
+        'trailing_distance': 0.0,
+        'created_at': 1565787520849,
+        'updated_at': 1565787520849
       },
       {...}
     ]
@@ -1438,7 +1435,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <p><code>GET https://XXX/v3/contracts/orders/$order_id/matches?range=$range</code></p>
 
 <p>说明：
-order_id为订单id
+order_id为订单id,
 range为查询月份，例如：201908</p>
 <h3 id='1f9ac54b15-5'>请求参数</h3>
 <p>无</p>
@@ -1451,7 +1448,7 @@ range为查询月份，例如：201908</p>
         'price': 13403.0,
         'quantity': 994.0,
         'fee': -1.8540625233156e-05,
-        'createdAt': 1566275534853
+        'created_at': 1566275534853
       }
     ]
   }
@@ -1468,20 +1465,20 @@ range为查询月份，例如：201908</p>
     'results': [
       {
         'direction': 'SHORT',  #仓位方向
-        'updatedAt': 1566271860000,  #仓位最近修改的毫秒时间戳
+        'updated_at': 1566271860000,  #仓位最近修改的毫秒时间戳
         'quantity': 0,  #持有合约数量，必须为正，若为0，表示已全部平仓
         'leverage': 0, #仓位设定杠杆率，不一定等于实际杠杆率
         'riskLevel': 0, #风险等级
-        'maxQuantity': 100000, #持有合约数量最大值
-        'realizedPNL': -0.036307524734501204, #已实现盈亏，已实现盈亏仅作为统计展示给用户，表示自开仓以来该仓位的盈亏
-        'takerFeeRate': 0.001, #开仓时确定的仓位平仓taker费率
+        'max_quantity': 100000, #持有合约数量最大值
+        'realized_pnl': -0.036307524734501204, #已实现盈亏，已实现盈亏仅作为统计展示给用户，表示自开仓以来该仓位的盈亏
+        'taker_fee_rate': 0.001, #开仓时确定的仓位平仓taker费率
         'margin': 0.0, #仓位保证金，必须为正 
-        'bankruptcyPrice': 0.0, #破产价格，以该价格平仓，扣除taker手续费后，其权益恰好为0
-        'liquidationPrice': 0.0, #强平价格，以该价格平仓，扣除taker手续费后，其剩余权益恰好为仓位价值 x 维持保证金率
-        'entryPrice': 11017.0, #开仓均价，每次仓位增加或减少时，开仓均价都会调整
+        'bankruptcy_price': 0.0, #破产价格，以该价格平仓，扣除taker手续费后，其权益恰好为0
+        'liquidation_price': 0.0, #强平价格，以该价格平仓，扣除taker手续费后，其剩余权益恰好为仓位价值 x 维持保证金率
+        'entry_price': 11017.0, #开仓均价，每次仓位增加或减少时，开仓均价都会调整
         'symbol': 'BTCUSD_P', #仓位合约代码，例如BTCUSD_P
         'closed': True, #仓位是否关闭
-        'minimumMaintenanceMarginRate': 0.005 #最小维持保证金，如果仓位保证金降低到此，将立刻触发强平
+        'minimum_maintenance_margin_rate': 0.005 #最小维持保证金，如果仓位保证金降低到此，将立刻触发强平
       }
     ]
   }
@@ -1547,7 +1544,7 @@ range为查询月份，例如：201908</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>riskLevel</td>
+<td>risk_level</td>
 <td>必填</td>
 <td>0～最大允许值</td>
 </tr>
@@ -1555,7 +1552,7 @@ range为查询月份，例如：201908</p>
 <h3 id='api-4'>API响应：</h3><pre class="highlight plaintext"><code>{
   'status': 0,
   'data': {
-    'riskLevel': 0
+    'risk_level': 0
   }
 }
 </code></pre>
