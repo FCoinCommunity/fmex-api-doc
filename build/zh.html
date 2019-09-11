@@ -1197,7 +1197,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <tr>
 <td><code>symbol</code></td>
 <td>Y</td>
-<td>合约代码，例如&quot;XBTC&quot;</td>
+<td>合约代码，例如&quot;BTCUSD_P&quot;</td>
 </tr>
 <tr>
 <td><code>type</code></td>
@@ -1479,7 +1479,7 @@ range为查询月份，例如：201908</p>
         'bankruptcyPrice': 0.0, #破产价格，以该价格平仓，扣除taker手续费后，其权益恰好为0
         'liquidationPrice': 0.0, #强平价格，以该价格平仓，扣除taker手续费后，其剩余权益恰好为仓位价值 x 维持保证金率
         'entryPrice': 11017.0, #开仓均价，每次仓位增加或减少时，开仓均价都会调整
-        'symbol': 'XBTC', #仓位合约代码，例如XBTC
+        'symbol': 'BTCUSD_P', #仓位合约代码，例如BTCUSD_P
         'closed': True, #仓位是否关闭
         'minimumMaintenanceMarginRate': 0.005 #最小维持保证金，如果仓位保证金降低到此，将立刻触发强平
       }

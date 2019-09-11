@@ -7,23 +7,23 @@
 属性 | 类型 | 含义解释
 ---------- | ------- | -------
 `id`	|long	|订单ID
-`sequenceId`|	long|	定序ID
-`marginCurrencyId`	|long|	保证金Currency ID
+`sequence_id`|	long|	定序ID
+`margin_currency_id`	|long|	保证金Currency ID
 `direction`|	enum|	仓位方向LONG/SHORT
 `type`|	enum	|订单类型LIMIT/MARKET
 `status`	|enum	|参见订单状态说明
-`features`	|long	|订单特性，每个bit表示一种特性：0x01=FOK，0x02=PostOnly，0x04=Hidden，0x08=IOC，0x8000=爆仓单
+`features`	|long	|订单特性，每个bit表示一种特性：0x01=FOK，0x02=post_only，0x04=Hidden，0x08=IOC，0x8000=爆仓单
 `price`	|decimal|	限价单价格（若为市价单，此处为市价单价格上限或下限）
 `quantity`|long	|订单数量
-`unfilledQuantity`|	long|	未成交数量
-`makerFeeRate`|decimal|	作为Maker的费率
-`takerFeeRate`|	decimal|	作为Taker的费率
+`unfilled_quantity`|	long|	未成交数量
+`maker_fee_rate`|decimal|	作为Maker的费率
+`taker_fee_rate`|	decimal|	作为Taker的费率
 `fee`|decimal|	该订单累计已收取的手续费
-`triggerOn`|decimal|	Stop订单的触发价格，非Stop订单触发价格始终为0
-`trailingBasePrice`|decimal|	TrailingStop订单的基准价格，非此类型订单则始终为0
-`trailingDistance`|	decimal|	TrailingStop订单的触发价格距离，非此类型订单则始终为0
-`createdAt`|long|	订单创建时间
-`updatedAt`|long	|订单最后修改时间
+`trigger_on`|decimal|	Stop订单的触发价格，非Stop订单触发价格始终为0
+`trailing_base_price`|decimal|	TrailingStop订单的基准价格，非此类型订单则始终为0
+`trailing_distance`|	decimal|	TrailingStop订单的触发价格距离，非此类型订单则始终为0
+`created_at`|long|	订单创建时间
+`updated_at`|long	|订单最后修改时间
 
 订单状态说明：
 
@@ -56,30 +56,30 @@
 `source`|			""	|订单来源标识，例如"WEB", "APP"，字母和数字组合
 `price`	|	仅限价单	|	限价单报价
 `quantity`	|	Y	|	订单数量，至少为1
-`triggerOn`		|	|	订单触发价格，如果不填，则立刻执行
-`trailingDistance`	|		|	止盈止损订单触发距离，如果不填，则不会按止盈止损执行
-`fillOrKill	`|		false|	是否设置FOK订单
-`immediateOrCancel`		|	false	|是否设置IOC订单
-`postOnly	`	|	false|	是否设置PostOnly订单
+`trigger_on`		|	|	订单触发价格，如果不填，则立刻执行
+`trailing_distance`	|		|	止盈止损订单触发距离，如果不填，则不会按止盈止损执行
+`fill_or_kill	`|		false|	是否设置FOK订单
+`immediate_or_cancel`		|	false	|是否设置IOC订单
+`post_only	`	|	false|	是否设置post_only订单
 `hidden`		|	false	|是否设置Hidden订单
-`reduceOnly	`	|	false	|是否设置ReduceOnly订单
+`reduce_only	`	|	false	|是否设置reduce_only订单
 
 
 请注意：
 
 订单类型如果为LIMIT，则必须填写price；
 
-triggerOn与trailingDistance不能同时填写；
+trigger_on与trailing_distance不能同时填写；
 
-若fillOrKill=true，则无法设置immediateOrCancel、postOnly、hidden和reduceOnly；
+若fill_or_kill=true，则无法设置immediate_or_cancel、post_only、hidden和reduce_only；
 
-若immediateOrCancel=true，则无法设置fillOrKill、postOnly、hidden和reduceOnly；
+若immediate_or_cancel=true，则无法设置fill_or_kill、post_only、hidden和reduce_only；
 
-若postOnly=true，则无法设置fillOrKill、immediateOrCancel和reduceOnly；
+若post_only=true，则无法设置fill_or_kill、immediate_or_cancel和reduce_only；
 
-若hidden=true，则无法设置fillOrKill和immediateOrCancel；
+若hidden=true，则无法设置fill_or_kill和immediate_or_cancel；
 
-只有MARKET订单与IOC订单可以设置reduceOnly=true。
+只有MARKET订单与IOC订单可以设置reduce_only=true。
 
 ### API响应：
 ```
@@ -91,21 +91,21 @@ triggerOn与trailingDistance不能同时填写；
     "type": "LIMIT",  #订单类型LIMIT/MARKET
     "status": "PENDING",  #订单状态
     "direction": "SHORT", #订单方向LONG/SHORT
-    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/PostOnly
+    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/post_only
     "price": 100.0,     #限价价格，仅限LIMIT单
     "quantity": 200,    #数量
-    "unfilledQuantity": 200, #未成交数量
-    "makerFeeRate": -0.00025,#maker费率
-    "takerFeeRate": 0.001,   #taker费率
+    "unfilled_quantity": 200, #未成交数量
+    "maker_fee_rate": -0.00025,#maker费率
+    "taker_fee_rate": 0.001,   #taker费率
     "fee": 0,                #订单已累积收取的fee
-    "triggerDirection": "LONG",#触发方向
-    "triggerOn": 0,
-    "trailingBasePrice": 0,#触发基础价格
-    "trailingDistance": 0,#触发距离
-    "createdAt": 1566283234499, #订单创建时间戳
-    "updatedAt": 1566283234499, #更新时间戳
-    "frozenMargin": 0.034188034188034184,#冻结margin
-    "frozenQuantity": 20000,#冻结数量
+    "trigger_direction": "LONG",#触发方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#触发基础价格
+    "trailing_distance": 0,#触发距离
+    "created_at": 1566283234499, #订单创建时间戳
+    "updated_at": 1566283234499, #更新时间戳
+    "frozen_margin": 0.034188034188034184,#冻结margin
+    "frozen_quantity": 20000,#冻结数量
     "hidden": false #是否隐藏
   }
 }
@@ -127,21 +127,21 @@ triggerOn与trailingDistance不能同时填写；
     "type": "LIMIT",  #订单类型LIMIT/MARKET
     "status": "PENDING",  #订单状态
     "direction": "SHORT", #订单方向LONG/SHORT
-    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/PostOnly
+    "features": 0,        #订单属性，按bit组合：FOK/IOC/HIDDEN/post_only
     "price": 100.0,     #限价价格，仅限LIMIT单
     "quantity": 200,    #数量
-    "unfilledQuantity": 200, #未成交数量
-    "makerFeeRate": -0.00025,#maker费率
-    "takerFeeRate": 0.001,   #taker费率
+    "unfilled_quantity": 200, #未成交数量
+    "maker_fee_rate": -0.00025,#maker费率
+    "taker_fee_rate": 0.001,   #taker费率
     "fee": 0,                #订单已累积收取的fee
-    "triggerDirection": "LONG",#触发方向
-    "triggerOn": 0,
-    "trailingBasePrice": 0,#触发基础价格
-    "trailingDistance": 0,#触发距离
-    "createdAt": 1566283234499, #订单创建时间戳
-    "updatedAt": 1566283234499, #更新时间戳
-    "frozenMargin": 0.034188034188034184,#冻结margin
-    "frozenQuantity": 20000,#冻结数量
+    "trigger_direction": "LONG",#触发方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#触发基础价格
+    "trailing_distance": 0,#触发距离
+    "created_at": 1566283234499, #订单创建时间戳
+    "updated_at": 1566283234499, #更新时间戳
+    "frozen_margin": 0.034188034188034184,#冻结margin
+    "frozen_quantity": 20000,#冻结数量
     "hidden": false #是否隐藏
   }
 }
@@ -167,18 +167,18 @@ triggerOn与trailingDistance不能同时填写；
         'features': 0,
         'price': 15677.0,
         'quantity': 265,
-        'unfilledQuantity': 265,
-        'makerFeeRate': -0.00025,
-        'takerFeeRate': 0.001,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
         'fee': 0,
-        'triggerDirection': 'LONG',
-        'triggerOn': 0,
-        'trailingBasePrice': 0,
-        'trailingDistance': 0,
-        'createdAt': 1566275535810,
-        'updatedAt': 1566275535810,
-        'frozenMargin': 0.000169037443388403,
-        'frozenQuantity': 265,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
         'hidden': False
       }
     ]
@@ -221,16 +221,16 @@ limit | N | 返回结果集的最大记录数量，范围1～100，默认为100�
         'features': 0,
         'price': 5286.0,
         'quantity': 332,
-        'unfilledQuantity': 0,
-        'makerFeeRate': -0.00025,
-        'takerFeeRate': 0.001,
+        'unfilled_quantity': 0,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
         'fee': -1.570185395384e-05,
-        'triggerDirection': 'LONG',
-        'triggerOn': 0.0,
-        'trailingBasePrice': 0.0,
-        'trailingDistance': 0.0,
-        'createdAt': 1565787520849,
-        'updatedAt': 1565787520849
+        'trigger_direction': 'LONG',
+        'trigger_on': 0.0,
+        'trailing_base_price': 0.0,
+        'trailing_distance': 0.0,
+        'created_at': 1565787520849,
+        'updated_at': 1565787520849
       },
       {...}
     ]
@@ -246,7 +246,7 @@ limit | N | 返回结果集的最大记录数量，范围1～100，默认为100�
 `GET https://XXX/v3/contracts/orders/$order_id/matches?range=$range`
 
 说明：
-order_id为订单id
+order_id为订单id,
 range为查询月份，例如：201908
 
 ### 请求参数
@@ -263,7 +263,7 @@ range为查询月份，例如：201908
         'price': 13403.0,
         'quantity': 994.0,
         'fee': -1.8540625233156e-05,
-        'createdAt': 1566275534853
+        'created_at': 1566275534853
       }
     ]
   }

@@ -31,15 +31,15 @@ API路径：`POST /v3/contracts/transfer/out/request`
 |字段名称|是否必须|描述|
 |:------|:------|:------|
 currency|Y|币种名称，例如"BTC"
-transferFrom|Y|转账来源，必须为"CONTRACTS"
-transferTo|Y|转账目标，必须为"WALLET"
+transfer_from|Y|转账来源，必须为"contracts"
+transfer_to|Y|转账目标，必须为"wallet"
 amount|Y|转账金额，例如：1.024
 ### 请求示例：
 ```
 {
     "currency":"BTC",
-    "transferFrom":"CONTRACTS",
-    "transferTo":"WALLET",
+    "transfer_from":"CONTRACTS",
+    "transfer_to":"WALLET",
     "amount":1,
 }
 ```
@@ -48,19 +48,16 @@ amount|Y|转账金额，例如：1.024
 ### API响应：
 ```
 {
-  "status":0,
-  "data":{
-        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
-        "transferFrom":"CONTRACTS",
-        "transferTo":"WALLET",
-        "amount":0.01,
-        "done":false,  // 是否已完成
-        "createdAt":1566280321419,
-        "updatedAt":1566280321419,
-        "error":false,  // 是否有错误
-        "currency":"BTC"
-        }
+  "status": 0,
+  "data": {
+    "transfer_from": "contracts",
+    "transfer_to": "wallet",
+    "amount": 0.1,
+    "transfer_id": "179363219767363",
+    "currency": "BTC"
+  }
 }
+
 
 ```
 ## 查询一个转出操作（合约->钱包）的当前执行状态
@@ -71,18 +68,18 @@ API请求参数：无
 ### API响应：
 ```
 {
-  "status":0,
-  "data":{
-        "transferId":"167600369696833",  // 由系统生成的唯一转账ID
-        "transferFrom":"CONTRACTS",
-        "transferTo":"WALLET",
-        "amount":0.01,
-        "done":false,  // 是否已完成
-        "createdAt":1566280321419,
-        "updatedAt":1566280321419,
-        "error":false,  // 是否有错误
-        "currency":"BTC"
-        }
+  'status': 0,
+  'data': {
+    'transfer_id': '179364285120578',
+    'transfer_from': 'contracts',
+    'transfer_to': 'wallet',
+    'amount': 0.1,
+    'done': True,
+    'created_at': 1567682689265,
+    'updated_at': 1567682689473,
+    'error': False,
+    'currency': 'BTC'
+  }
 }
 ```
 
@@ -101,13 +98,13 @@ API请求参数：无
     'nextOffsetId': 0,
     'results': [
       {
-        'transferId': '167600369696833',
-        'transferFrom': 'CONTRACTS',
-        'transferTo': 'WALLET',
+        'transfer_id': '167600369696833',
+        'transfer_from': 'CONTRACTS',
+        'transfer_to': 'WALLET',
         'amount': 0.01,
         'done': True,
-        'createdAt': 1566280321419,
-        'updatedAt': 1566280321851,
+        'created_at': 1566280321419,
+        'updated_at': 1566280321851,
         'error': False,
         'currency': 'BTC'
       }
