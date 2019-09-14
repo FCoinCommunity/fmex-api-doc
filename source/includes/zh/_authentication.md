@@ -83,7 +83,7 @@ password=password&username=username
 > 对于如下的请求：
 
 ```
-POST https://XXX/orders
+POST https://api.testnet.fmex.com/orders
 
 {
   "type": "limit",
@@ -99,7 +99,7 @@ timestamp: 1523069544359
 > 签名前的准备数据如下：
 
 ```
-POSThttps://XXX/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
+POSThttps://api.testnet.fmex.com/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
 ```
 
 > 进行 Base64 编码，得到：

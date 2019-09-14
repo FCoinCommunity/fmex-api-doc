@@ -2,9 +2,9 @@
 
 通过了解以下信息，您可以方便的使用 FMex 提供的 API 来接入 FMex 交易平台。
 
-API域名：XXX
+API域名：api.testnet.fmex.com
 
-API访问地址：https://XXX/<path>，请注意我们仅支持https访问，不支持http访问。
+API访问地址：https://api.testnet.fmex.com/<path>，请注意我们仅支持https访问，不支持http访问。
 
 API请求：仅支持GET或POST请求。
 

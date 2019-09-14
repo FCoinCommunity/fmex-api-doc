@@ -6,9 +6,9 @@
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
 为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 `support@fmex.com`
 
-所有 HTTP 请求的 URL base 为: `https://XXX/v2/market`
+所有 HTTP 请求的 URL base 为: `https://api.testnet.fmex.com/v2/market`
 
-所有 WebSocket 请求的 URL 为: `wss://XXX/v2/ws`
+所有 WebSocket 请求的 URL 为: `wss://api.testnet.fmex.com/v2/ws`
 
 下文会统一术语:
 
@@ -148,7 +148,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 ### HTTP 请求
 
-`GET https://XXX/v2/market/ticker/$symbol`
+`GET https://api.testnet.fmex.com/v2/market/ticker/$symbol`
 
 
 > HTTP 请求响应结果如下：
@@ -206,7 +206,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 ### HTTP 请求
 
-`GET https://XXX/v2/market/depth/$level/$symbol`
+`GET https://api.testnet.fmex.com/v2/market/depth/$level/$symbol`
 
 `$level` 包含的种类(大小写敏感)：
 
@@ -263,7 +263,7 @@ PS: 历史行情中, 是可以保证成交 id 保持恒定. {transaction id} 此
 
 ### HTTP 请求
 
-`GET https://XXX/v2/market/trades/$symbol`
+`GET https://api.testnet.fmex.com/v2/market/trades/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -335,7 +335,7 @@ limit |  | 默认为 20 条
 
 ### HTTP 请求
 
-`GET https://XXX/v2/market/candles/$resolution/$symbol`
+`GET https://api.testnet.fmex.com/v2/market/candles/$resolution/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -428,15 +428,15 @@ $resolution 包含的种类(大小写敏感)：
 ## 获取当前系统指数
 
 ### HTTP 请求
-`GET https://XXX/v2/market/indexes`
+`GET https://api.testnet.fmex.com/v2/market/indexes`
 
 
 
 ## 获取某个指数的最近历史值
 ### HTTP 请求
-`GET https://XXX/v2/market/indexes/$indexname`
+`GET https://api.testnet.fmex.com/v2/market/indexes/$indexname`
 
 
 ## 获取汇率
 ### HTTP 请求
-`GET https://XXX/v2/market/fex`
+`GET https://api.testnet.fmex.com/v2/market/fex`

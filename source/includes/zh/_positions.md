@@ -6,7 +6,7 @@
 
 ### HTTP Request
 
-`POST https://XXX/v3/contracts/positions`
+`POST https://api.testnet.fmex.com/v3/contracts/positions`
 
 ### 请求参数
 无
@@ -41,7 +41,7 @@
 ## 设置仓位杠杆
 ### HTTP Request
 
-`POST https://XXX/v3/contracts/positions/$symbol/leverage`
+`POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/leverage`
 
 symbol：URL参数，该仓位的Symbol名称
 ### 请求参数
@@ -63,7 +63,7 @@ leverage| 必填| 0～最大允许值，0=全仓，1～最大允许值=逐仓杠
 
 ### HTTP Request
 
-`POST https://XXX/v3/contracts/positions/$symbol/margin`
+`POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/margin`
 
 symbol：URL参数，该仓位的Symbol名称
 ### 请求参数
@@ -85,7 +85,7 @@ margin| 必填| 设置的新的仓位保证金
 
 ### HTTP Request
 
-`POST https://XXX/v3/contracts/positions/$symbol/riskLevel`
+`POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/riskLevel`
 
 symbol：URL参数，该仓位的Symbol名称
 
