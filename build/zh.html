@@ -342,9 +342,9 @@
         <h1 id='45fa4e00db'>介绍</h1>
 <p>通过了解以下信息，您可以方便的使用 FMex 提供的 API 来接入 FMex 交易平台。</p>
 
-<p>API域名：XXX</p>
+<p>API域名：api.testnet.fmex.com</p>
 
-<p>API访问地址：https://XXX/<path>，请注意我们仅支持https访问，不支持http访问。</p>
+<p>API访问地址：https://api.testnet.fmex.com/<path>，请注意我们仅支持https访问，不支持http访问。</p>
 
 <p>API请求：仅支持GET或POST请求。</p>
 
@@ -411,7 +411,7 @@ username=username
 <blockquote>
 <p>对于如下的请求：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://XXX/orders
+<pre class="highlight plaintext"><code>POST https://api.testnet.fmex.com/orders
 
 {
   "type": "limit",
@@ -426,7 +426,7 @@ timestamp: 1523069544359
 <blockquote>
 <p>签名前的准备数据如下：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POSThttps://XXX/orders1523069544359amount=100.0&amp;price=100.0&amp;side=buy&amp;symbol=btcusdt&amp;type=limit
+<pre class="highlight plaintext"><code>POSThttps://api.testnet.fmex.com/orders1523069544359amount=100.0&amp;price=100.0&amp;side=buy&amp;symbol=btcusdt&amp;type=limit
 </code></pre>
 <blockquote>
 <p>进行 Base64 编码，得到：</p>
@@ -472,9 +472,9 @@ timestamp: 1523069544359
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
 为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 <code>support@fmex.com</code></p>
 
-<p>所有 HTTP 请求的 URL base 为: <code>https://XXX/v2/market</code></p>
+<p>所有 HTTP 请求的 URL base 为: <code>https://api.testnet.fmex.com/v2/market</code></p>
 
-<p>所有 WebSocket 请求的 URL 为: <code>wss://XXX/v2/ws</code></p>
+<p>所有 WebSocket 请求的 URL 为: <code>wss://api.testnet.fmex.com/v2/ws</code></p>
 
 <p>下文会统一术语:</p>
 
@@ -603,7 +603,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"24小时内计价货币成交量, 如 btcusdt 中 usdt 的量"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h3 id='http'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/ticker/$symbol</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/ticker/$symbol</code></p>
 
 <blockquote>
 <p>HTTP 请求响应结果如下：</p>
@@ -652,7 +652,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='50f4407ea4'>获取最新的深度明细</h2><h3 id='http-2'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/depth/$level/$symbol</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/depth/$level/$symbol</code></p>
 
 <p><code>$level</code> 包含的种类(大小写敏感)：</p>
 
@@ -711,7 +711,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 <p>PS: 历史行情中, 是可以保证成交 id 保持恒定. {transaction id} 此处只作为行情更新通知, 不应依赖归档使用.</p>
 <h3 id='http-3'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/trades/$symbol</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/trades/$symbol</code></p>
 <h4 id='http-4'>查询参数(HTTP 请求)</h4>
 <table><thead>
 <tr>
@@ -789,7 +789,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='candle'>获取 Candle 信息</h2><h3 id='http-5'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/candles/$resolution/$symbol</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/candles/$resolution/$symbol</code></p>
 <h4 id='http-6'>查询参数(HTTP 请求)</h4>
 <table><thead>
 <tr>
@@ -926,11 +926,11 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='f6f2d6559d'>获取当前系统指数</h2><h3 id='http-7'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/indexes</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/indexes</code></p>
 <h2 id='164308eda4'>获取某个指数的最近历史值</h2><h3 id='http-8'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/indexes/$indexname</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/indexes/$indexname</code></p>
 <h2 id='1cc2931276'>获取汇率</h2><h3 id='http-9'>HTTP 请求</h3>
-<p><code>GET https://XXX/v2/market/fex</code></p>
+<p><code>GET https://api.testnet.fmex.com/v2/market/fex</code></p>
 <h1 id='c3d92b20c8'>账户</h1><h2 id='035f475bd4'>查询当前用户账户余额</h2>
 <p>此api用于查询用户资产</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -1182,7 +1182,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <h2 id='4a3e521c3b'>创建新的订单</h2>
 <p>此 API 用于创建新的订单。</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://XXX/v3/contracts/orders</code></p>
+<p><code>POST https://api.testnet.fmex.com/v3/contracts/orders</code></p>
 <h3 id='1f9ac54b15'>请求参数</h3>
 <table><thead>
 <tr>
@@ -1301,7 +1301,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 </code></pre><h2 id='3eedd32d80'>取消订单</h2>
 <p>此 API 用于取消订单
-<code>POST https://XXX/v3/contracts/orders/$order_id/cancel</code></p>
+<code>POST https://api.testnet.fmex.com/v3/contracts/orders/$order_id/cancel</code></p>
 <h3 id='1f9ac54b15-2'>请求参数</h3>
 <p>无</p>
 <h3 id='api-2'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1332,7 +1332,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 </code></pre><h2 id='14f3f3c64c'>查询活动订单</h2>
 <p>此 API 用于查询活动订单
-<code>POST https://XXX/v3/contracts/orders/open</code></p>
+<code>POST https://api.testnet.fmex.com/v3/contracts/orders/open</code></p>
 <h3 id='1f9ac54b15-3'>请求参数</h3>
 <p>无</p>
 <h3 id='api-3'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1368,7 +1368,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 </code></pre><h2 id='515c1e61e5'>查询历史订单</h2>
 <p>此 API 用于查询历史订单</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://XXX/v3/contracts/orders/closed</code></p>
+<p><code>GET https://api.testnet.fmex.com/v3/contracts/orders/closed</code></p>
 <h3 id='1f9ac54b15-4'>请求参数</h3>
 <table><thead>
 <tr>
@@ -1432,7 +1432,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 </code></pre><h2 id='d5c6914f15'>查询订单成交历史</h2>
 <p>此 API 用于查询订单成交历史</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://XXX/v3/contracts/orders/$order_id/matches?range=$range</code></p>
+<p><code>GET https://api.testnet.fmex.com/v3/contracts/orders/$order_id/matches?range=$range</code></p>
 
 <p>说明：
 order_id为订单id,
@@ -1456,7 +1456,7 @@ range为查询月份，例如：201908</p>
 </code></pre><h1 id='25a424cad9'>仓位</h1><h2 id='9208604e00'>获取仓位列表</h2>
 <p>此 API 获取仓位列表。</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://XXX/v3/contracts/positions</code></p>
+<p><code>POST https://api.testnet.fmex.com/v3/contracts/positions</code></p>
 <h3 id='1f9ac54b15'>请求参数</h3>
 <p>无</p>
 <h3 id='api'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1484,7 +1484,7 @@ range为查询月份，例如：201908</p>
   }
 }
 </code></pre><h2 id='dcfca0d743'>设置仓位杠杆</h2><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://XXX/v3/contracts/positions/$symbol/leverage</code></p>
+<p><code>POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/leverage</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-2'>请求参数</h3>
@@ -1508,7 +1508,7 @@ range为查询月份，例如：201908</p>
   }
 }
 </code></pre><h2 id='9abbc07c5f'>设置仓位保证金</h2><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://XXX/v3/contracts/positions/$symbol/margin</code></p>
+<p><code>POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/margin</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-3'>请求参数</h3>
@@ -1532,7 +1532,7 @@ range为查询月份，例如：201908</p>
   }
 }
 </code></pre><h2 id='21dd07728a'>设置仓位风险等级</h2><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://XXX/v3/contracts/positions/$symbol/riskLevel</code></p>
+<p><code>POST https://api.testnet.fmex.com/v3/contracts/positions/$symbol/riskLevel</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-4'>请求参数</h3>

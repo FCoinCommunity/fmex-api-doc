@@ -33,13 +33,13 @@ FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key �
 
 ### HTTP_REQUEST_URI
 
-`https://XXX/` 为 API 的请求前缀
+`https://api.testnet.fmex.com/` 为 API 的请求前缀
 
-后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://XXX/orders?param1=value1`
+后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://api.testnet.fmex.com/orders?param1=value1`
 
 对于请求的 URI 中的参数，需要按照字母表排序！
 
-即如果请求的 URI 为 `https://XXX/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
+即如果请求的 URI 为 `https://api.testnet.fmex.com/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
 请注意，原请求 URI 中的三个参数顺序为 `c, b, a`，排序后为 `a, b, c`。
 
 ### TIMESTAMP
