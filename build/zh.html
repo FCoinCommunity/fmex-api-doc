@@ -1304,7 +1304,10 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 </code></pre><h2 id='3eedd32d80'>取消订单</h2>
 <p>此 API 用于取消订单
-<code>POST https://api.testnet.fmex.com/v3/contracts/orders/$order_id/cancel</code></p>
+<code>POST https://api.testnet.fmex.com/v3/contracts/orders/&lt;order_id&gt;/cancel</code></p>
+
+<p>说明：
+order_id为订单id</p>
 <h3 id='1f9ac54b15-2'>请求参数</h3>
 <p>无</p>
 <h3 id='api-2'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1335,7 +1338,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 </code></pre><h2 id='14f3f3c64c'>查询活动订单</h2>
 <p>此 API 用于查询活动订单
-<code>POST https://api.testnet.fmex.com/v3/contracts/orders/open</code></p>
+<code>GET https://api.testnet.fmex.com/v3/contracts/orders/open</code></p>
 <h3 id='1f9ac54b15-3'>请求参数</h3>
 <p>无</p>
 <h3 id='api-3'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1370,7 +1373,10 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 </code></pre><h2 id='92d59b6aad'>查询订单详情</h2>
 <p>此 API 用于查询订单详情
-<code>GET https://api.testnet.fmex.com/v3/contracts/orders/open/&lt;id&gt;</code></p>
+<code>GET https://api.testnet.fmex.com/v3/contracts/orders/open/&lt;order_id&gt;</code></p>
+
+<p>说明：
+order_id为订单id</p>
 <h3 id='1f9ac54b15-4'>请求参数</h3>
 <p>无</p>
 <h3 id='api-4'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1470,11 +1476,10 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 </code></pre><h2 id='d5c6914f15'>查询订单成交历史</h2>
 <p>此 API 用于查询订单成交历史</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.testnet.fmex.com/v3/contracts/orders/$order_id/matches?range=$range</code></p>
+<p><code>GET https://api.testnet.fmex.com/v3/contracts/orders/&lt;order_id&gt;/matches</code></p>
 
 <p>说明：
-order_id为订单id,
-range为查询月份，例如：201908</p>
+order_id为订单id</p>
 <h3 id='1f9ac54b15-6'>请求参数</h3>
 <p>无</p>
 <h3 id='api-6'>API响应：</h3><pre class="highlight plaintext"><code>{
