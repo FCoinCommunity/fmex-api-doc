@@ -307,6 +307,9 @@
                     <a href="#14f3f3c64c" class="toc-h2 toc-link" data-title="">查询活动订单</a>
                   </li>
                   <li>
+                    <a href="#92d59b6aad" class="toc-h2 toc-link" data-title="">查询订单详情</a>
+                  </li>
+                  <li>
                     <a href="#515c1e61e5" class="toc-h2 toc-link" data-title="">查询历史订单</a>
                   </li>
                   <li>
@@ -1365,11 +1368,46 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     ]
   }
 }
+</code></pre><h2 id='92d59b6aad'>查询订单详情</h2>
+<p>此 API 用于查询订单详情
+<code>GET https://api.testnet.fmex.com/v3/contracts/orders/open/&lt;id&gt;</code></p>
+<h3 id='1f9ac54b15-4'>请求参数</h3>
+<p>无</p>
+<h3 id='api-4'>API响应：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'results': [
+      {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 15677.0,
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+      }
+    ]
+  }
+}
 </code></pre><h2 id='515c1e61e5'>查询历史订单</h2>
 <p>此 API 用于查询历史订单</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://api.testnet.fmex.com/v3/contracts/orders/closed</code></p>
-<h3 id='1f9ac54b15-4'>请求参数</h3>
+<h3 id='1f9ac54b15-5'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -1398,7 +1436,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>返回结果集的最大记录数量，范围1～100，默认为100。</td>
 </tr>
 </tbody></table>
-<h3 id='api-4'>API响应：</h3><pre class="highlight plaintext"><code>{
+<h3 id='api-5'>API响应：</h3><pre class="highlight plaintext"><code>{
   'status': 0,
   'data': {
     'range': '201908',
@@ -1437,9 +1475,9 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <p>说明：
 order_id为订单id,
 range为查询月份，例如：201908</p>
-<h3 id='1f9ac54b15-5'>请求参数</h3>
+<h3 id='1f9ac54b15-6'>请求参数</h3>
 <p>无</p>
-<h3 id='api-5'>API响应：</h3><pre class="highlight plaintext"><code>{
+<h3 id='api-6'>API响应：</h3><pre class="highlight plaintext"><code>{
   'status': 0,
   'data': {
     'results': [

@@ -113,7 +113,10 @@ trigger_on与trailing_distance不能同时填写；
 
 ## 取消订单
 此 API 用于取消订单
-`POST https://api.testnet.fmex.com/v3/contracts/orders/$order_id/cancel`
+`POST https://api.testnet.fmex.com/v3/contracts/orders/<order_id>/cancel`
+
+说明：
+order_id为订单id
 
 ### 请求参数
 无
@@ -149,7 +152,7 @@ trigger_on与trailing_distance不能同时填写；
 
 ## 查询活动订单
 此 API 用于查询活动订单
-`POST https://api.testnet.fmex.com/v3/contracts/orders/open`
+`GET https://api.testnet.fmex.com/v3/contracts/orders/open`
 ### 请求参数
 无
 ### API响应：
@@ -187,7 +190,10 @@ trigger_on与trailing_distance不能同时填写；
 ```
 ## 查询订单详情
 此 API 用于查询订单详情
-`GET https://api.testnet.fmex.com/v3/contracts/orders/open/<id>`
+`GET https://api.testnet.fmex.com/v3/contracts/orders/open/<order_id>`
+
+说明：
+order_id为订单id
 ### 请求参数
 无
 ### API响应：
@@ -281,12 +287,10 @@ limit | N | 返回结果集的最大记录数量，范围1～100，默认为100�
 
 ### HTTP Request
 
-`GET https://api.testnet.fmex.com/v3/contracts/orders/$order_id/matches?range=$range`
+`GET https://api.testnet.fmex.com/v3/contracts/orders/<order_id>/matches`
 
 说明：
-order_id为订单id,
-range为查询月份，例如：201908
-
+order_id为订单id
 ### 请求参数
 无
 
