@@ -185,6 +185,44 @@ trigger_on与trailing_distance不能同时填写；
   }
 }
 ```
+## 查询订单详情
+此 API 用于查询订单详情
+`GET https://api.testnet.fmex.com/v3/contracts/orders/open/<id>`
+### 请求参数
+无
+### API响应：
+```
+{
+  'status': 0,
+  'data': {
+    'results': [
+      {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 15677.0,
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+      }
+    ]
+  }
+}
+```
 
 
 ## 查询历史订单
@@ -269,3 +307,4 @@ range为查询月份，例如：201908
   }
 }
 ```
+
