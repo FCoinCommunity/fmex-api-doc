@@ -370,13 +370,13 @@
 <h3 id='http_method'>HTTP_METHOD</h3>
 <p><code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code> 需要大写</p>
 <h3 id='http_request_uri'>HTTP_REQUEST_URI</h3>
-<p><code>https://XXX/</code> 为 API 的请求前缀</p>
+<p><code>https://api.testnet.fmex.com/</code> 为 API 的请求前缀</p>
 
-<p>后面再加上真正要访问的资源路径，如 <code>orders?param1=value1</code>，最终即 <code>https://XXX/orders?param1=value1</code></p>
+<p>后面再加上真正要访问的资源路径，如 <code>orders?param1=value1</code>，最终即 <code>https://api.testnet.fmex.com/orders?param1=value1</code></p>
 
 <p>对于请求的 URI 中的参数，需要按照字母表排序！</p>
 
-<p>即如果请求的 URI 为 <code>https://XXX/orders?c=value1&amp;b=value2&amp;a=value3</code>，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 <code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>，
+<p>即如果请求的 URI 为 <code>https://api.testnet.fmex.com/orders?c=value1&amp;b=value2&amp;a=value3</code>，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 <code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>，
 请注意，原请求 URI 中的三个参数顺序为 <code>c, b, a</code>，排序后为 <code>a, b, c</code>。</p>
 <h3 id='timestamp'>TIMESTAMP</h3>
 <p>访问 API 时的 UNIX EPOCH 时间戳，需要和服务器之间的时间差少于 30 秒</p>
