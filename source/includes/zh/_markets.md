@@ -52,7 +52,7 @@ api.market.ping(now_ms)
 ```
 
 
-WebSocket 客户端和 WebSocket 服务器建立连接之后，推荐 WebSocket Client 每隔 *30s*（这个频率可能会变化） 向服务器发起一次 ping 请求，如果服务器长时间没有接收到客户端的 ping 请求将会主动断开连接（300s）。
+WebSocket 客户端和 WebSocket 服务器建立连接之后，推荐 WebSocket Client 每隔 *15s*（推荐10～20s） 向服务器发起一次 ping 请求，如果服务器长时间没有接收到客户端的 ping 请求将会主动断开连接。
 
 ### WebSocket 请求
 
