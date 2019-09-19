@@ -518,7 +518,7 @@ timestamp: 1523069544359
 <span class="n">now_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 <span class="n">api</span><span class="o">.</span><span class="n">market</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">now_ms</span><span class="p">)</span>
 </code></pre>
-<p>WebSocket 客户端和 WebSocket 服务器建立连接之后，推荐 WebSocket Client 每隔 <em>30s</em>（这个频率可能会变化） 向服务器发起一次 ping 请求，如果服务器长时间没有接收到客户端的 ping 请求将会主动断开连接（300s）。</p>
+<p>WebSocket 客户端和 WebSocket 服务器建立连接之后，推荐 WebSocket Client 每隔 <em>15s</em>（推荐10～20s） 向服务器发起一次 ping 请求，如果服务器长时间没有接收到客户端的 ping 请求将会主动断开连接。</p>
 <h3 id='websocket-2'>WebSocket 请求</h3>
 <p>发送 <strong>ping 指令</strong>: <code>{&quot;cmd&quot;:&quot;ping&quot;,&quot;args&quot;:[$client_ts],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
 
