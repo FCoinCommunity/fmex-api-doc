@@ -188,7 +188,7 @@ order_id为订单id
   }
 }
 ```
-## 查询订单详情
+## 查询活动订单详情
 此 API 用于查询订单详情
 `GET https://api.testnet.fmex.com/v3/contracts/orders/open/<order_id>`
 
@@ -201,8 +201,6 @@ order_id为订单id
 {
   'status': 0,
   'data': {
-    'results': [
-      {
         'id': 167560221818945,
         'sequenceId': 259092,
         'type': 'LIMIT',
@@ -224,12 +222,47 @@ order_id为订单id
         'frozen_margin': 0.000169037443388403,
         'frozen_quantity': 265,
         'hidden': False
-      }
-    ]
   }
 }
 ```
 
+## 通过订单id获取订单详情
+此 API 用于查询所有订单的详情
+`GET https://api.testnet.fmex.com/v3/contracts/orders/<order_id>`
+
+说明：
+order_id为订单id
+### 请求参数
+无
+### API响应：
+```
+{
+  'status': 0,
+  'data': {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 15677.0,
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+  }
+}
+```
 
 ## 查询历史订单
 此 API 用于查询历史订单
