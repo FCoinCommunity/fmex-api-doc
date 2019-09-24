@@ -15,6 +15,7 @@
 `features`	|long	|订单特性，每个bit表示一种特性：0x01=FOK，0x02=post_only，0x04=Hidden，0x08=IOC，0x8000=爆仓单
 `price`	|decimal|	限价单价格（若为市价单，此处为市价单价格上限或下限）
 `quantity`|long	|订单数量
+`fill_price`|decimal|成交均价
 `unfilled_quantity`|	long|	未成交数量
 `maker_fee_rate`|decimal|	作为Maker的费率
 `taker_fee_rate`|	decimal|	作为Taker的费率
@@ -257,7 +258,8 @@ order_id为订单id
         'status': 'PENDING',
         'direction': 'SHORT',
         'features': 0,
-        'price': 15677.0,
+        ‘fill_price':0   #成交均价
+        'price': 15677.0, #下单价格 
         'quantity': 265,
         'unfilled_quantity': 265,
         'maker_fee_rate': -0.00025,
