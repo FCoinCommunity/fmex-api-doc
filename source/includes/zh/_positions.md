@@ -6,7 +6,7 @@
 
 ### HTTP Request
 
-`GET https://api.testnet.fmex.com/v3/contracts/positions`
+`GET https://api.testnet.fmex.com/v3/broker/auth/contracts/positions`
 
 ### 请求参数
 无

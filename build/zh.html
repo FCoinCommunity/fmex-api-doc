@@ -1098,6 +1098,11 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <td>订单数量</td>
 </tr>
 <tr>
+<td><code>fill_price</code></td>
+<td>decimal</td>
+<td>成交均价</td>
+</tr>
+<tr>
 <td><code>unfilled_quantity</code></td>
 <td>long</td>
 <td>未成交数量</td>
@@ -1429,7 +1434,8 @@ order_id为订单id</p>
         'status': 'PENDING',
         'direction': 'SHORT',
         'features': 0,
-        'price': 15677.0,
+        ‘fill_price':0   #成交均价
+        'price': 15677.0, #下单价格 
         'quantity': 265,
         'unfilled_quantity': 265,
         'maker_fee_rate': -0.00025,
