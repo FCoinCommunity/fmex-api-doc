@@ -57,13 +57,13 @@
 `source`|			""	|订单来源标识，例如"WEB", "APP"，字母和数字组合
 `price`	|	仅限价单	|	限价单报价
 `quantity`	|	Y	|	订单数量，至少为1
-`trigger_on`		|	|	订单触发价格，如果不填，则立刻执行
-`trailing_distance`	|		|	止盈止损订单触发距离，如果不填，则不会按止盈止损执行
-`fill_or_kill	`|		false|	类型为string，是否设置FOK订单
-`immediate_or_cancel`		|	false	| 类型为string，是否设置IOC订单
-`post_only	`	|	false|	类型为string，是否设置post_only订单
-`hidden`		|	false	| 类型为string，是否设置Hidden订单
-`reduce_only	`	|	false	| 类型为string，是否设置reduce_only订单
+`trigger_on`		|	N|	订单触发价格，如果不填，则立刻执行
+`trailing_distance`	|	N	|	止盈止损订单触发距离，如果不填，则不会按止盈止损执行
+`fill_or_kill	`|		N|	类型为string，是否设置FOK订单
+`immediate_or_cancel`		|	N	| 类型为string，是否设置IOC订单
+`post_only	`	|	N|	类型为string，是否设置post_only订单
+`hidden`		|	N	| 类型为string，是否设置Hidden订单
+`reduce_only	`	|	N	| 类型为string，是否设置reduce_only订单
 
 
 请注意：
