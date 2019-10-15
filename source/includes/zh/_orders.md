@@ -55,8 +55,8 @@
 `type	`|	Y	|	订单类型，参见OrderType
 `direction`	|	Y		|订单方向，参见Direction
 `source`|			""	|订单来源标识，例如"WEB", "APP"，字母和数字组合
-`price`	|	仅限价单	|	限价单报价
-`quantity`	|	Y	|	订单数量，至少为1
+`price`	|	仅限价单	|	限价单报价,只支持1位小数
+`quantity`	|	Y	|	订单数量，整数，最小为1
 `trigger_on`		|	N |	止盈止损订单触发价格
 `trigger_direction` |	N | 止盈止损订单触发条件,"long","short"
 `trailing_distance`	|	N	|	止盈止损订单触发距离
