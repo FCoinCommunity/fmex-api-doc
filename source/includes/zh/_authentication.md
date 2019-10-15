@@ -86,11 +86,12 @@ password=password&username=username
 POST https://api.testnet.fmex.com/orders
 
 {
-  "type": "limit",
-  "side": "buy",
-  "amount": "100.0",
-  "price": "100.0",
-  "symbol": "btcusdt"
+  "symbol":"btcusd_p",
+  "type":"limit",
+  "direction":"short",
+  "source":"web",
+  "price":5500,
+  "quantity":100
 }
 
 timestamp: 1523069544359
@@ -99,21 +100,21 @@ timestamp: 1523069544359
 > 签名前的准备数据如下：
 
 ```
-POSThttps://api.testnet.fmex.com/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
+POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&price=5500&quantity=100&source=WEB&symbol=btcusd_p&type=limit
 ```
 
 > 进行 Base64 编码，得到：
 
 ```
-UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vb3JkZXJzMTUyMzA2OTU0NDM1OWFtb3VudD0xMDAuMCZwcmljZT0xMDAuMCZzaWRlPWJ1eSZzeW1ib2w9YnRjdXNkdCZ0eXBlPWxpbWl0
+UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
 ```
 
-> 拷贝在申请 API Key 时获得的秘钥（API SECRET），下面的签名结果采用 `3600d0a74aa3410fb3b1996cca2419c8` 作为示例，
+> 拷贝在申请 API Key 时获得的秘钥（API SECRET），下面的签名结果采用 `ebfaeef06e2e49e1bc7e535c2766bbe6` 作为示例，
 
 > 对得到的结果使用秘钥进行 `HMAC-SHA1` 签名，并对二进制结果进行 `Base64` 编码，得到：
 
 ```
-cylOzpWyTYPvBZWERwtPgLowSy0=
+g6vFomL3T3pOhCugUNo/UcaLxTw=
 ```
 
 > 即生成了用于向 API 服务器进行验证的最终签名
