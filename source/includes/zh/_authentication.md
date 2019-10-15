@@ -105,7 +105,7 @@ POSThttps://api.testnet.fmex.com/orders1523069544359amount=100.0&price=100.0&sid
 > 进行 Base64 编码，得到：
 
 ```
-UE9TVGh0dHBzOi8vYXBpLmZjb2luLmNvbS92Mi9vcmRlcnMxNTIzMDY5NTQ0MzU5YW1vdW50PTEwMC4wJnByaWNlPTEwMC4wJnNpZGU9YnV5JnN5bWJvbD1idGN1c2R0JnR5cGU9bGltaXQ=
+UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vb3JkZXJzMTUyMzA2OTU0NDM1OWFtb3VudD0xMDAuMCZwcmljZT0xMDAuMCZzaWRlPWJ1eSZzeW1ib2w9YnRjdXNkdCZ0eXBlPWxpbWl0
 ```
 
 > 拷贝在申请 API Key 时获得的秘钥（API SECRET），下面的签名结果采用 `3600d0a74aa3410fb3b1996cca2419c8` 作为示例，
@@ -113,7 +113,7 @@ UE9TVGh0dHBzOi8vYXBpLmZjb2luLmNvbS92Mi9vcmRlcnMxNTIzMDY5NTQ0MzU5YW1vdW50PTEwMC4w
 > 对得到的结果使用秘钥进行 `HMAC-SHA1` 签名，并对二进制结果进行 `Base64` 编码，得到：
 
 ```
-DeP6oftldIrys06uq3B7Lkh3a0U=
+cylOzpWyTYPvBZWERwtPgLowSy0=
 ```
 
 > 即生成了用于向 API 服务器进行验证的最终签名
