@@ -14,7 +14,7 @@
 ### API响应：
 ```
 {
-  'status': 0,
+  'status': 'ok',
   'data': {
     'results': [
       {
