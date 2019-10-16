@@ -373,7 +373,7 @@ $resolution 包含的种类(大小写敏感)：
 
 ```json
 {
-  "id":"candle.btcusdt.M1",
+  "id":"candle.M15.btcusdt",
   "data":[
     {
       "id":1540809840,
