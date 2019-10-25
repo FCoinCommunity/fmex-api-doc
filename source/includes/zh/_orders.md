@@ -71,7 +71,7 @@
 
 订单类型如果为LIMIT，则必须填写price；
 
-trigger_on与trailing_distance不能同时填写；
+trigger_on与trailing_distance不能同时填写
 
 若fill_or_kill=true，则无法设置immediate_or_cancel、post_only、hidden和reduce_only；
 
@@ -83,6 +83,33 @@ trigger_on与trailing_distance不能同时填写；
 
 只有MARKET订单与IOC订单可以设置reduce_only=true。
 
+举例说明
+普通止盈止损订单：
+{
+    type: "MARKET",
+    quantity: 10,
+    trigger_on: 8000,
+    trigger_direction: "LONG",
+    direction: "LONG",
+    ...
+}
+在此示例中，当价格大于等于8000，一个10张合约的市价多单委托将被提交至市场。
+如果trigger_direction为short,则表示价格小于等于8000时，一个10张合约的市价空单委托将被提交至市场。
+
+追踪止损：
+{
+    type: "MARKET",
+    quantity: 10,
+    trailing_distance: 100,
+    trigger_direction: "SHORT",
+    direction: "SHORT",
+    ...
+}
+一旦用户提交此类型的委托，10张合约的市价买委托将在当前市场价格下跌超过追踪价距100时被提交。
+
+然而，如果市场价格上涨，那么此委托将会追踪此价格，并在市场价格至最高点下跌超过追踪价距100时被执行。
+
+如果trigger_direction和direction同时为long，则表示：一旦用户提交此类型的委托，10张合约的市价买委托将在当前市场价格上涨超过追踪价距100时被提交。
 ### API响应：
 ```
 {
