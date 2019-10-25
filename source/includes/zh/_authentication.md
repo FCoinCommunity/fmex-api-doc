@@ -32,8 +32,11 @@ FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key �
 `GET`, `POST`, `DELETE`, `PUT` 需要大写
 
 ### HTTP_REQUEST_URI
-
+真实交易地址：
+`https://api.fmex.com/` 为 API 的请求前缀
+模拟交易地址
 `https://api.testnet.fmex.com/` 为 API 的请求前缀
+
 
 后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://api.testnet.fmex.com/orders?param1=value1`
 
