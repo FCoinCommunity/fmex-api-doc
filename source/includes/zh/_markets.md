@@ -6,9 +6,9 @@
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
 为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 `support@fmex.com`
 
-所有 HTTP 请求的 URL base 为: `https://api.testnet.fmex.com/v2/market`
+所有 HTTP 请求的 URL base 为: `https://api.fmex.com/v2/market`
 
-所有 WebSocket 请求的 URL 为: `wss://api.testnet.fmex.com/v2/ws`
+所有 WebSocket 请求的 URL 为: `wss://api.fmex.com/v2/ws`
 
 下文会统一术语:
 
