@@ -1,7 +1,7 @@
 # 认证
 
 
-FMex 使用 FCoin testnet 的API key 和 API secret 进行验证，请访问 [设置中心](https://exchange-testnet.fcoin.com/settings/api)，获取 API key 和 API secret。
+FMex 使用 FCoin testnet 的API key 和 API secret 进行验证，请访问 [设置中心](https://exchange.fcoin.com/settings/api)，获取 API key 和 API secret。
 
 FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key 以及签名
 
