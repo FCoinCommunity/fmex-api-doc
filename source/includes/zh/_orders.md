@@ -59,12 +59,12 @@
 `quantity`	|	Y	|	订单数量，整数，最小为1
 `trigger_on`		|	N |	止盈止损订单触发价格
 `trigger_direction` |	N | 止盈止损订单触发条件,"long","short"
-`trailing_distance`	|	N	|	止盈止损订单触发距离
-`fill_or_kill	`|		N|	类型为string，是否设置FOK订单
-`immediate_or_cancel`		|	N	| 类型为string，是否设置IOC订单
+`trailing_distance`	|	N	|	追踪止损订单触发距离
+`fill_or_kill	`|		N|	类型为string，是否设置FOK订单，全部成交或全部取消
+`immediate_or_cancel`		|	N	| 类型为string，是否设置IOC订单，立即成交或全部取消
 `post_only	`	|	N|	类型为string，是否设置post_only订单
-`hidden`		|	N	| 类型为string，是否设置Hidden订单
-`reduce_only	`	|	N	| 类型为string，是否设置reduce_only订单
+`hidden`		|	N	| 类型为string，是否设置隐藏订单
+`reduce_only	`	|	N	| 类型为string，是否设置只减仓订单
 
 
 请注意：
