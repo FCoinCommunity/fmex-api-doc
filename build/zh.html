@@ -1199,7 +1199,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <h2 id='4a3e521c3b'>创建新的订单</h2>
 <p>此 API 用于创建新的订单。</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.fmex.com/v3/contracts/orders</code></p>
+<p><code>POST /v3/contracts/orders</code></p>
 <h3 id='1f9ac54b15'>请求参数</h3>
 <table><thead>
 <tr>
@@ -1368,7 +1368,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 </code></pre><h2 id='3eedd32d80'>取消订单</h2>
 <p>此 API 用于取消订单</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.fmex.com/v3/contracts/orders/&lt;order_id&gt;/cancel</code></p>
+<p><code>POST /v3/contracts/orders/&lt;order_id&gt;/cancel</code></p>
 
 <p>说明：
 order_id为订单id</p>
@@ -1403,7 +1403,7 @@ order_id为订单id</p>
 </code></pre><h2 id='14f3f3c64c'>查询活动订单</h2>
 <p>此 API 用于查询活动订单</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/contracts/orders/open</code></p>
+<p><code>GET /v3/contracts/orders/open</code></p>
 <h3 id='1f9ac54b15-3'>请求参数</h3>
 <p>无</p>
 <h3 id='api-3'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1439,7 +1439,7 @@ order_id为订单id</p>
 </code></pre><h2 id='e7decd3f1d'>查询活动订单详情</h2>
 <p>此 API 用于查询订单详情</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/contracts/orders/open/&lt;order_id&gt;</code></p>
+<p><code>GET /v3/contracts/orders/open/&lt;order_id&gt;</code></p>
 
 <p>说明：
 order_id为订单id</p>
@@ -1474,7 +1474,7 @@ order_id为订单id</p>
 </code></pre><h2 id='id'>通过订单id获取订单详情</h2>
 <p>此 API 用于查询所有订单的详情</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/contracts/orders/&lt;order_id&gt;</code></p>
+<p><code>GET /v3/contracts/orders/&lt;order_id&gt;</code></p>
 
 <p>说明：
 order_id为订单id</p>
@@ -1510,7 +1510,7 @@ order_id为订单id</p>
 </code></pre><h2 id='515c1e61e5'>查询历史订单</h2>
 <p>此 API 用于查询历史订单</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/contracts/orders/closed</code></p>
+<p><code>GET /v3/contracts/orders/closed</code></p>
 <h3 id='1f9ac54b15-6'>请求参数</h3>
 <table><thead>
 <tr>
@@ -1574,7 +1574,7 @@ order_id为订单id</p>
 </code></pre><h2 id='d5c6914f15'>查询订单成交历史</h2>
 <p>此 API 用于查询订单成交历史</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/contracts/orders/&lt;order_id&gt;/matches</code></p>
+<p><code>GET /v3/contracts/orders/&lt;order_id&gt;/matches</code></p>
 
 <p>说明：
 order_id为订单id</p>
