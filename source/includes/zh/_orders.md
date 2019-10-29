@@ -45,7 +45,7 @@
 
 ### HTTP Request
 
-`POST https://api.fmex.com/v3/contracts/orders`
+`POST /v3/contracts/orders`
 
 ### 请求参数
 
@@ -161,7 +161,7 @@ trigger_on与trailing_distance不能同时填写
 此 API 用于取消订单
 
 ### HTTP Request
-`POST https://api.fmex.com/v3/contracts/orders/<order_id>/cancel`
+`POST /v3/contracts/orders/<order_id>/cancel`
 
 说明：
 order_id为订单id
@@ -203,7 +203,7 @@ order_id为订单id
 此 API 用于查询活动订单
 
 ### HTTP Request
-`GET https://api.fmex.com/v3/contracts/orders/open`
+`GET /v3/contracts/orders/open`
 ### 请求参数
 无
 ### API响应：
@@ -244,7 +244,7 @@ order_id为订单id
 此 API 用于查询订单详情
 
 ### HTTP Request
-`GET https://api.fmex.com/v3/contracts/orders/open/<order_id>`
+`GET /v3/contracts/orders/open/<order_id>`
 
 说明：
 order_id为订单id
@@ -285,7 +285,7 @@ order_id为订单id
 此 API 用于查询所有订单的详情
 
 ### HTTP Request
-`GET https://api.fmex.com/v3/contracts/orders/<order_id>`
+`GET /v3/contracts/orders/<order_id>`
 
 说明：
 order_id为订单id
@@ -327,7 +327,7 @@ order_id为订单id
 此 API 用于查询历史订单
 
 ### HTTP Request
-`GET https://api.fmex.com/v3/contracts/orders/closed`
+`GET /v3/contracts/orders/closed`
 
 ### 请求参数
 
@@ -378,7 +378,7 @@ limit | N | 返回结果集的最大记录数量，范围1～100，默认为100�
 此 API 用于查询订单成交历史
 
 ### HTTP Request
-`GET https://api.fmex.com/v3/contracts/orders/<order_id>/matches`
+`GET /v3/contracts/orders/<order_id>/matches`
 
 说明：
 order_id为订单id
