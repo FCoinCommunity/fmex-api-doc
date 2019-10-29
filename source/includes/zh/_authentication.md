@@ -29,7 +29,7 @@ FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key �
 
 ### HTTP_METHOD
 
-`GET`, `POST`, `DELETE`, `PUT` 需要大写
+`GET`, `POST`, 需要大写
 
 ### HTTP_REQUEST_URI
 真实交易地址：

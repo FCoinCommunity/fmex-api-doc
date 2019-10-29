@@ -148,7 +148,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 ### HTTP 请求
 
-`GET https://api.testnet.fmex.com/v2/market/ticker/$symbol`
+`GET https://api.fmex.com/v2/market/ticker/$symbol`
 
 
 > HTTP 请求响应结果如下：
@@ -206,7 +206,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 
 ### HTTP 请求
 
-`GET https://api.testnet.fmex.com/v2/market/depth/$level/$symbol`
+`GET https://api.fmex.com/v2/market/depth/$level/$symbol`
 
 `$level` 包含的种类(大小写敏感)：
 
@@ -263,7 +263,7 @@ PS: 历史行情中, 是可以保证成交 id 保持恒定. {transaction id} 此
 
 ### HTTP 请求
 
-`GET https://api.testnet.fmex.com/v2/market/trades/$symbol`
+`GET https://api.fmex.com/v2/market/trades/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -335,7 +335,7 @@ limit |  | 默认为 20 条
 
 ### HTTP 请求
 
-`GET https://api.testnet.fmex.com/v2/market/candles/$resolution/$symbol`
+`GET https://api.fmex.com/v2/market/candles/$resolution/$symbol`
 
 #### 查询参数(HTTP 请求)
 
@@ -428,15 +428,15 @@ $resolution 包含的种类(大小写敏感)：
 ## 获取当前系统指数
 
 ### HTTP 请求
-`GET https://api.testnet.fmex.com/v2/market/indexes`
+`GET https://api.fmex.com/v2/market/indexes`
 
 
 
 ## 获取某个指数的最近历史值
 ### HTTP 请求
-`GET https://api.testnet.fmex.com/v2/market/indexes/$indexname`
+`GET https://api.fmex.com/v2/market/indexes/$indexname`
 
 
 ## 获取汇率
 ### HTTP 请求
-`GET https://api.testnet.fmex.com/v2/market/fex`
+`GET https://api.fmex.com/v2/market/fex`
