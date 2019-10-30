@@ -2,33 +2,33 @@
 
 ## Market overview
 
-The market is a fully public API, which currently provides both HTTP and WebSocket APIs.
-In order to ensure more timely access to the market, it is recommended to use WebSocket to access. 
-For the real-time performance of the market as much as possible, the current public part can only obtain the most recent market information.  If there is a need to obtain the full amount or historical market information, please consult `support@fcoin.com`
+Market is a fully public API, HTTP and WebSocket API are available for now.
+WebSocket is recommended to ensure more timely access to the market.
+The current public part can only obtain the market of the latest period to ensure the real-time performance of the market as far as possible. If you need to obtain the full volume or historical market, please consult `support@fmex.com`
 
-The URL base for all HTTP requests is: `https://api.fcoin.com/v2/market`
+All HTTP request URLs base is: `https://api.fmex.com`
 
-The requested URL for all WebSocket is: `wss://api.fcoin.com/v2/ws`
+All WebSocket request URL is: `wss://api.fmex.com/v2/ws`
 
-Terminology will be consistent below:
+Controlled terminology in following text:
 
-- `topic` indicates the topic that has been subscribed.
-- `symbol` indicates the corresponding trading currency.
-- `ticker` market  and tick information include the latest transaction price, the latest  transaction volume, buy 1 sell 1, and the transaction 
-- `depth` indicates the depth of market, order, handicap.
-- `level` indicates the type of market depth. Such as `L20`, `L150`.
-- `trade` indicates the latest transactions and latest deals.
-- `candle` represents candlestick chart, candlestick, K-line.
-- `resolution` indicates the type of candlestick.. Such as `M1`, `M15`.
-- `base volume` indicates the base currency volume, such as the amount of btc in btcusdt.
-- `quote volume` represents the volume of the quote currency, such as the volume of the usdt in btcusdt.
-- `ts` indicates the time to push the server. It Is numeric field, and unix epoch in millisecond.
+- `topic` is the topic subscribed
+- `symbol` means the currency of the transaction, the topic distinguish the currencies is at the end of the topic.  
+- `ticker` market tick information include the latest closed price, the latest volume, BUY 1 & SELL 1 and the volume of the latest 24 hours.
+- `depth` means the market depth, orderbook and order book entrance.
+- `level` represents the type of market depth, such as' L20 ', 'L100'.
+- `trade` means the latest fulfilled orders and transaction.
+- `candle` means a diagram, a candle stick, a K line.
+- `resolution`  means the type of candle chart, such as' M1 ', 'M15'. 
+- `base volume` represents the volume of the base currency, such as  btc in btcusdt。
+- `quote volume` refers to the volume of the quota currency, such as the volume of usdt in btcusdt
+- `ts` represents the time of server push, which is numeric type in millisecond, unix epoch in millisecond.
 
-## WebSocket’s first connection is established.
+## WebSocket connection established firstly
 
-The server sends a welcome message
+The server sends a welcome message when the connection for the first time is successful
 
-> Server return
+The server returns information after the connection is successful:
 
 ```json
 {
@@ -37,15 +37,12 @@ The server sends a welcome message
 }
 ```
 
-- `ts`: push the current time of the server.
+> * `ts`: represents the current time of server push.
 
-## WebSocket connection retention - heartbeat
-
-After the WebSocket client establishes a connection with the WebSocket server, it is recommended that the WebSocket Client initiate a ping request to the server every 30 seconds (this frequency may change). If the server does not receive the client's ping request for a long time, it will actively disconnect (300s). 
-
-### WebSocket requests
+## WebSocket connection remains - heartbeat
 
 ```python
+# WebSocket send ping - heartbeat to server end 
 import time
 import fcoin
 
@@ -55,61 +52,106 @@ api.market.ping(now_ms)
 ```
 
 
-> Server return
+After the connection is established between the WebSocket  Client and the WebSocket server, it is recommended that the WebSocket Client make a ping request to the server every *15s* (10 ~ 20s are recommended). If the server does not receive the ping request from the Client for a long time, it will actively disconnect.
+
+### WebSocket request
+
+Send **ping commend**: `{"cmd":"ping","args":[$client_ts],"id":"$client_id"}`
+
+* `client_id`:  The server returns it as is if the client is  a custom id specified by the current request 
+* `client_ts`: current time on client end
+
+> ping command request example：
+
+```json
+{"cmd":"ping","args":[1540557696867],"id":"sample.client.id"}
+```
+
+> server return successfully ping commend：
 
 ```json
 {
+  "id":"sample.client.id",
   "type":"ping",
   "ts":1523693784042,
   "gap":112
 }
 ```
 
-- `gap`: the gap between the time that the push server processes this statement and the client's transmission.
-- `ts`: push the current time of the server.
+> * `gap`: The time gap between the push server to process this statement and the client to transmit it.
+> * `ts`:  The current time of the push server
 
-## Get push server time
+<aside class="notice">
+tip: Can obtain the time gap  between push server time and data transmission by the ts and gap the server returned by ping request 
+</aside>
 
-The gap between the push server time and data transfer time can be obtained by the ts and gap values returned by the server at the time of the ping request
+## WebSocket subscription
 
-- gap: the gap between the time that the push server processes this statement and the client's transmission.
-- ts: push the current time of the server.
+Send **sub commend**: `{"cmd":"sub","args":["$topic", ...],"id":"$client_id"}`
 
+* `client_id`: The custom id specified by the client for the current request will be returned as is by the server
+* `topic`: multiple topics to be subscribed, please separate them with English comma ', 'The maximum  can be subscribed is 20 
 
-## Get ticker data
+> sub commend request example (single topic)：
 
-To make the ticker Information Group small and fast enough, we enforced the list format.
+```json
+{"cmd":"sub","args":["ticker.ethbtc"]}
+```
 
-> The description of the corresponding field of the ticker list:
+> sub commend request example （multiple topics）：
+
+```json
+{"cmd":"sub","args":["ticker.ethbtc", "ticker.btcusdt"]}
+```
+
+> The responding result of the successful subscription are as follows：
+
+```json
+{
+  "type": "topics",
+  "topics": ["ticker.ethbtc", "ticker.btcusdt"]
+}
+```
+
+> The responding result of the failed subscription are as follows：
+
+```json
+{
+  "id":"invalid_topics_sample",
+  "status":41002,
+  "msg":"invalid sub topic, xxx.M1.xxx"
+}
+```
+
+## Obtain ticker data
+
+To make the ticker information group small and fast enough, we forced the use of a list format.
+
+> Corresponding meaning description of the ticker list:
 
 ```json
 [
-  "Latest transaction price",
-  "the most recent trading volume",
-  "The highest buy 1 price",
-  "The biggest buy 1 volume",
-  "The lowest sell 1 price",
-  "The smallest sell 1 volume",
-  "The transaction price before 24 hours",
-  "The highest price in 24 hours",
-  "The lowest price in 24 hours",
-  "The base currency volume within 24 hours, such as the amount of btc in btcusdt",
-  "Priced currency volume within 24 hours, such as the amount of usdt in btcusdt"
+  "Latest closed price",
+  "Amount of last transaction",
+  "Maximum price of buy 1",
+  "Maximum amount of buy 1",
+  "Minimum price of buy 1"",
+  "Minimum amount of buy 1",
+  "The closed price of 24 hours ago",
+  "The highest price within 24 hours",
+  "The lowest price within 24 hours",
+  "Volume of base currency in 24 hours such as the btc btcusdt",
+  "Volume of quota currency in 24 hours such as the used in btcusdt "
 ]
 ```
 
 
-### HTTP requests
+### HTTP request
 
-`GET https://api.fcoin.com/v2/market/ticker/$symbol`
+`GET https://api.fmex.com/v2/market/ticker/$symbol`
 
-```python
-import fcoin
 
-api = fcoin.authorize('key', 'secret', timestamp)
-api.market.get_ticker("ethbtc")
-
-```
+>The result of HTTP request is noticed as follow：
 
 ```json
 {
@@ -136,27 +178,9 @@ api.market.get_ticker("ethbtc")
 
 ### WebSocket subscription
 
-topic: `ticker.$symbol`
+Send **sub commend**，topic: `ticker.$symbol`  (Please refer to `WebSocket subscription`)
 
-```python
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["ticker.ethbtc", "ticker.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-> The results of a successful response to the subscription are as follows：
-
-```json
-{
-  "type": "topics",
-  "topics": ["ticker.ethbtc", "ticker.btcusdt"]
-}
-```
-
-> Regular push results:
+> The result of WebSocket subscription is noticed as follow:
 
 ```json
 {
@@ -178,58 +202,41 @@ fcoin_ws.sub(topics)
 }
 ```
 
+## Obtain the latest depth details
 
+### HTTP request
 
-## Get the latest trading details
+`GET https://api.fmex.com/v2/market/depth/$level/$symbol`
 
-### HTTP Request
-
-`GET https://api.fcoin.com/v2/market/depth/$level/$symbol`
-
-types of `$level` included:
+`$level` included types (case sensitive)：
 
 Type | Description
 -------- | --------
-`L20` | 20 -level market depth.
-`L150` | 150 -level market depth.
+`L20` | 20-level market depth 
+`L150` | 150-level market depth. 
 
-The `L20` push time will be slightly earlier than `L100`, and the push frequency will be slightly more than `L100`, depending on the specified pressure and situation.
+Among the push time of `L20` will be a bit earlier than `L150`, and the push frequency will be a bit more than `L150`, please use as appropriate for specific stress and situation.
 
-### WebSocket subscription
-
-subscription topic: `depth.$level.$symbol`
-
-```python
-import fcoin
-
-fcoin_ws = fcoin.init_ws()
-topics = ["depth.L20.ethbtc", "depth.L100.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-```javascript
-const fcoin = require('fcoin');
-
-let fcoin_ws = fcoin.init_ws()
-topics = ["depth.L20.ethbtc", "depth.L100.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-
-> The results of a successful response to the subscription are as follows：
+> The result of WebSocket subscription is noticed as follow：
 
 ```json
 {
-  "type": "topics",
-  "topics": ["depth.L20.ethbtc", "depth.L100.btcusdt"]
+  "status":0,
+  "data":{
+    "type": "depth.L20.ethbtc",
+    "ts": 1523619211000,
+    "seq": 120,
+    "bids": [0.000100000, 1.000000000, 0.000010000, 1.000000000],
+    "asks": [1.000000000, 1.000000000]
+  }
 }
 ```
 
-> Regular push results
+### WebSocket subscription
 
-The array corresponding to bids and asks must be an even number, buy (sell) 1 price, buy (sell) 1 volume, and arrange them one after the other.
+Send **sub commend**，topic: `depth.$level.$symbol`   (please refer to `WebSocket subscription`)
+
+> The result of WebSocket subscription is noticed as follow:
 
 ```json
 {
@@ -241,94 +248,78 @@ The array corresponding to bids and asks must be an even number, buy (sell) 1 pr
 }
 ```
 
-## Get the latest trading details
-
-By comparing the size of the transaction id to determine whether it is an updated transaction. {trade id} Note that the transaction id of the public market does not actually correspond to the transaction id in the clearing system due to the existence of the trade to transaction process.
-Even if the transaction is a record, there is no guarantee that the id will always be consistent when the latest transaction is re-acquired
-
-PS: in the historical market, the trading id remains constant. {transaction id} is only used as a market update notification and should not be used depending on the archive.
+> The corresponding array between bids and asks must be even number Buy (Sell)1 price,Buy (Sell)1 quantity, in order.
 
 
-### HTTP Request
 
-`GET https://api.fcoin.com/v2/market/trades/$symbol`
+## Obtain the latest transaction details 
 
-### Query parameters(HTTP Query)
+By comparing the size of the transaction id  to determine whether it is an updated transaction.
+It should be noted that due to the trade to transaction process, the transaction id of the public market does not actually correspond to the transaction id in the clearing system.
+Even if the transaction is a record, there is no guarantee that the id of the latest transaction will always be the same when retrieved. 
 
-Parameter | Default | Description
+
+PS: It's guaranteed that the transaction id is kept constant in the historical market. {transaction id} is only used as a market update notification and should not be relied on for filing.
+
+
+### HTTP request
+
+`GET https://api.fmex.com/v2/market/trades/$symbol`
+
+#### Request parameters(HTTP request)
+
+Parameters | Defaults | description
 --------- | ------- | -----------
-before |  | Query a trade before a specified id
-limit |  | the default is 20
+before |  | Query the history trade of a certain id 
+limit |  | 20  by default
 
-### WebSocket gets the most recent deal
+### WebSocket request
 
-topic: `trade.$symbol`
-limit: the number of most recent transactions
-args: [topic, limit]
+Send **req commend **: `{"cmd":"req", "args":["$topic", limit],"id":"$client_id"}`
 
-```python
-import fcoin
+* `client_id`: The custom id specified by the client for the current request will be returned as is by the server
+* `topic`: `trade.$symbol`
+* `limit`: the closed transaction number need to be obtained.
 
-fcoin_ws = fcoin.init_ws()
-topic = "trade.ethbtc"
-limit = 3
-args = [topic, limit]
-fcoin_ws.req(args, rep_handler)
-```
-
-> The result of a successful response to the request is as follows：
+> The result of WebSocket subscription is noticed as follow：
 
 ```json
-{"id":null,
- "ts":1523693400329,
- "data":[
-   {
-     "amount":1.000000000,
-     "ts":1523419946174,
-     "id":76000,
-     "side":"sell",
-     "price":4.000000000
-   },
-   {
-     "amount":1.000000000,
-     "ts":1523419114272,
-     "id":74000,
-     "side":"sell",
-     "price":4.000000000
-   },
-   {
-     "amount":1.000000000,
-     "ts":1523415182356,
-     "id":71000,
-     "side":"sell",
-     "price":3.000000000
-   }
- ]
+{
+  "id":null,
+  "ts":1523693400329,
+  "data":[
+    {
+      "amount":1.000000000,
+      "ts":1523419946174,
+      "id":76000,
+      "side":"sell",
+      "price":4.000000000
+    },
+    {
+      "amount":1.000000000,
+      "ts":1523419114272,
+      "id":74000,
+      "side":"sell",
+      "price":4.000000000
+    },
+    {
+      "amount":1.000000000,
+      "ts":1523415182356,
+      "id":71000,
+      "side":"sell",
+      "price":3.000000000
+    }
+  ]
 }
 ```
 
 ### WebSocket subscription
 
-```python
-import fcoin
+send **sub commend**，topic: `trade.$symbol`   (please refer to `WebSocket subsription`)
 
-fcoin_ws = fcoin.init_ws()
-topics = ["trade.ethbtc", "trade.btcusdt"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
+* `symbol`: corresponding trading pairs
 
-> The results of a successful response to the subscription are as follows：
-
-```json
-{
-  "type": "topics",
-  "topics": ["trade.ethbtc"]
-}
-```
-
-
-> Regular push results
+> The result of WebSocket subscription is noticed as follow:
 
 ```json
 {
@@ -341,59 +332,83 @@ fcoin_ws.sub(topics)
 }
 ```
 
-## Get Candle information
+## Obtain Candle information
 
-### HTTP Request
+### HTTP request
 
-`GET https://api.fcoin.com/v2/market/candles/$resolution/$symbol`
+`GET https://api.fmex.com/v2/market/candles/$resolution/$symbol`
 
-### Query parameters(HTTP Query)
+#### Request parameters(HTTP request)
 
-Parameter | default | description
+Parameters | Defaults | Description
 --------- | ------- | -----------
-before |  | Query a candle before a specified id
-limit |  | the default is 20
+before |  | Query the history Candle of a certain id 
+limit |  | 20 by defaults
 
-Types contained in $resolution
+$resolution including types(case sensitive)：
 
-Type     | Description
+Type     | description
 -------- | --------
- `M1`    | 1 minute
- `M3`    | 3 minutes
- `M5`    | 5 minutes
- `M15`   | 15 minutes
- `M30`   | 30 minutes
- `H1`    | 1 hour
- `H4`    | 4 hours
- `H6`    | 6 hours
- `D1`    | 1 day
+ `M1`    | 1 Minute
+ `M3`    | 3 Minutes
+ `M5`    | 5 Minutes
+ `M15`   | 15 Minutes
+ `M30`   | 30 Minutes
+ `H1`    | 1 Hour
+ `H4`    | 4 Hours
+ `H6`    | 6 Hours
+ `D1`    | 1 Day
  `W1`    | 1 Week
- `MN`    | 1 month
+ `MN`    | 1 Month
 
-### Candle data subscribed in Weboskcet
+### WebSocket request
 
-topic: `candle.$resolution.$symbol`
+Send **req commend**: `{"cmd":"req","args":["$topic",limit,before],"id":"$client_id"}`
 
-```python
-import fcoin
+- `client_id`: The custom id specified by the client for the current request will be returned as is by the server
+- `topic`: `candle.$resolution.$symbol`
+- `limit`: The candle number needs to be obtained
+- `before`: Query the history Candle of a certain id 
 
-fcoin_ws = fcoin.init_ws()
-topics = ["candle.M1.ethbtc", "depth.L20.ethbtc", "trade.ethbtc"]
-fcoin_ws.handle(print)
-fcoin_ws.sub(topics)
-```
-
-> The results of a successful response to the subscription are as follows：
-
+>The responding result of the successful WebSocket request is as follow：
 
 ```json
 {
-  "type": "topics",
-  "topics": ["candle.M1.ethbtc"]
+  "id":"candle.M15.btcusdt",
+  "data":[
+    {
+      "id":1540809840,
+      "seq":24793830600000,
+      "high":6491.74,
+      "low":6489.24,
+      "open":6491.24,
+      "close":6490.07,
+      "count":26,
+      "base_vol":8.2221,
+      "quote_vol":53371.531286
+    },
+    {
+      "id":1540809900,
+      "seq":24793879800000,
+      "high":6490.47,
+      "low":6487.62,
+      "open":6490.09,
+      "close":6487.62,
+      "count":23,
+      "base_vol":10.8527,
+      "quote_vol":70430.840624
+    }
+  ]
 }
 ```
 
-> The notification message format for a regular subscription is as follows:
+### WebSokcet subscription
+
+Send **sub commend**，topic: `candle.$resolution.$symbol`   (please refer to `WebSocket subsription`)
+
+* `resolution`： Same as HTTP request resolution parameter
+
+>The notice of the WebSocket subscription result is as follow:
 
 ```json
 {
@@ -409,3 +424,20 @@ fcoin_ws.sub(topics)
   "quote_vol":0
 }
 ```
+
+
+## Obtain the current system index
+
+### HTTP request
+`GET https://api.fmex.com/v2/market/indexes`
+
+
+
+## Obtain the latest value of a certain index
+### HTTP request
+`GET https://api.fmex.com/v2/market/indexes/$indexname`
+
+
+## Obtain fee rate
+### HTTP request
+`GET https://api.fmex.com/v2/market/fex`

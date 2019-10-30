@@ -15,10 +15,7 @@ includes:
   - en/markets
   - en/accounts
   - en/orders
-  - en/order_errors
-  - en/otc
-  - en/leveraged
-  - en/errors
+  - en/positions
 
 search: true
 ---

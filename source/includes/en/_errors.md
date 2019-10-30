@@ -1,13 +1,13 @@
-# Order error code
+# Error code
 
-Error Code | Interpretation
+Error code | Meaning
 ---------- | -------
-400 | Bad Request -- 错误的请求
-401 | Unauthorized -- API key 或者签名，时间戳有误
-403 | Forbidden -- 禁止访问
-404 | Not Found -- 未找到请求的资源
-405 | Method Not Allowed -- 使用的 HTTP 方法不适用于请求的资源
-406 | Not Acceptable -- 请求的内容格式不是 JSON
-429 | Too Many Requests -- 请求受限，请降低请求频率
-500 | Internal Server Error -- 服务内部错误，请稍后再进行尝试
-503 | Service Unavailable -- 服务不可用，请稍后再进行尝试
+400 | Bad Request -- Bad Request
+401 | Unauthorized -- Wrong API key, signature or timestamp 
+403 | Forbidden -- Forbidden 
+404 | Not Found -- Not Found Requested Materials 
+405 | Method Not Allowed -- The HTTP method used does not apply to the requested resource
+406 | Not Acceptable -- The requested content format is not JSON
+429 | Too Many Requests -- Request limited, please reduce the request frequency
+500 | Internal Server Error -- Internal server error occurred, please try again later 
+503 | Service Unavailable -- Service not available, please try again later.

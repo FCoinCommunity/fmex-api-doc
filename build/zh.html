@@ -484,7 +484,7 @@ timestamp: 1523069544359
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
 为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 <code>support@fmex.com</code></p>
 
-<p>所有 HTTP 请求的 URL base 为: <code>https://api.fmex.com/v2/market</code></p>
+<p>所有 HTTP 请求的 URL base 为: <code>https://api.fmex.com/</code></p>
 
 <p>所有 WebSocket 请求的 URL 为: <code>wss://api.fmex.com/v2/ws</code></p>
 
@@ -1597,7 +1597,7 @@ order_id为订单id</p>
 </code></pre><h1 id='25a424cad9'>仓位</h1><h2 id='9208604e00'>获取仓位列表</h2>
 <p>此 API 获取仓位列表。</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.fmex.com/v3/broker/auth/contracts/positions</code></p>
+<p><code>GET /v3/broker/auth/contracts/positions</code></p>
 <h3 id='1f9ac54b15'>请求参数</h3>
 <p>无</p>
 <h3 id='api'>API响应：</h3><pre class="highlight plaintext"><code>{
@@ -1625,7 +1625,7 @@ order_id为订单id</p>
   }
 }
 </code></pre><h2 id='dcfca0d743'>设置仓位杠杆</h2><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.fmex.com/v3/contracts/positions/$symbol/leverage</code></p>
+<p><code>POST /v3/contracts/positions/$symbol/leverage</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-2'>请求参数</h3>
@@ -1653,7 +1653,7 @@ order_id为订单id</p>
   }
 }
 </code></pre><h2 id='9abbc07c5f'>设置仓位保证金</h2><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.fmex.com/v3/contracts/positions/$symbol/margin</code></p>
+<p><code>POST /v3/contracts/positions/$symbol/margin</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-3'>请求参数</h3>
@@ -1681,7 +1681,7 @@ order_id为订单id</p>
   }
 }
 </code></pre><h2 id='21dd07728a'>设置仓位风险等级</h2><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.fmex.com/v3/contracts/positions/$symbol/riskLevel</code></p>
+<p><code>POST /v3/contracts/positions/$symbol/riskLevel</code></p>
 
 <p>symbol：URL参数，该仓位的Symbol名称</p>
 <h3 id='1f9ac54b15-4'>请求参数</h3>

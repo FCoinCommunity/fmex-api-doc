@@ -1,74 +1,65 @@
-# Certification
+# Autennication
 
-> Execute the following code for user identification：
 
-```python
-import fcoin
+FMex uses API key and API secret of FCoin testnet for authentication，please access "settings"(https://exchange.fcoin.com/settings/api) to obtain API key and API secret.
 
-api = fcoin.authorize('key', 'secret', timestamp)
-```
-
-```javascript
-const fcoin = require('fcoin');
-
-let api = fcoin.authorize('key', 'secret', timestamp);
-```
-
-FCoin uses API key and API secret for identification，Please visit the settings center and register as a developer to obtain API key and API secret.
-
-In  addition to the public API, API key and signature are also included in FCoin's API request
+FMex uses API request of  FCoin, all other API require API key and signature expect public API.
 
 
 
 
-## Access restrictions
+## Access limitations
 
-The current access frequency is 100 times / 10 seconds per user, and the access frequency limit will be differentiated according to the service in the future.
+The access frequency is 100 times / 10 seconds per user at present. And access frequency will be restricted according to the business in the future.
+
 
 
 
 
 ## API signature
 
-The data prepared before signing is as follows：
+The data prepared before signature is as follows:
 
 `HTTP_METHOD` + `HTTP_REQUEST_URI` + `TIMESTAMP` + `POST_BODY`
 
-After the connection is established, Base64 encoding is performed. The encoded data is HMAC-SHA1 signed, and the signature is subjected to secondary Base64 encoding. The various parts are explained as follows：
+
+After the connection is completed, conduct 'Base64' encoding, sign 'hmac-sha1' for the encoded data, and conduct 'Base64' encoding twice for the signature. Each part is explained as follows:
 
 <aside class="warning">
-Please note that twice `Base64` encoding is required!
+Please be noted that 'Base64' encoding needs to be done twice!
 </aside>
 
 ### HTTP_METHOD
 
-`GET`, `POST`, `DELETE`, `PUT` requires capitalization
+`GET`, `POST`, `DELETE`, `PUT` must be in capital letters
 
 ### HTTP_REQUEST_URI
 
-`https://api.fcoin.com/v2/` is the prefix for v2 API request
+`https://api.testnet.fmex.com/` is the prefix of API request
 
-Add the resource path you really want to access, such as `orders?param1=value1`, and finally `https://api.fcoin.com/v2/orders?param1=value1`
+The actual resource path to access needs to be added, such as `orders?param1=value1`，this final shall be `https://api.testnet.fmex.com/orders?param1=value1`
 
-The parameters in the requested URI need to be sorted by alphabetically.
+Please alphabetize the parameters in the requested URI.
 
-That is, if the requested URI is `https://api.fcoin.com/v2/orders?c=value1&b=value2&a=value3`, then the request parameters should be sorted alphabetically before signing, and the final signed URI is `https://api.fcoin.com/v2/orders?a=value3&b=value2&c=value1`. Please note that the order of the three parameters in the original request URI is `c, b, a`, and then `a, b, c` after ordering.
+If the request URI is `https://api.testnet.fmex.com/orders?c=value1&b=value2&a=value3`，then the request parameters should be alphabetized first when signing, and the final URI for signing is `https://XXX/orders?
+a=value3&b=value2&c=value1`，
+Please be noted that the three parameters in the original request URI are in order 'c, b, a' and  'a, b, c' after alphabetizing.
 
 ### TIMESTAMP
 
-When accessing the API, the time difference between the UNIX EPOCH timestamp and the server should be no more than 30 seconds.
+The UNIX EPOCH timestamp for accessing API needs to at less than 30 seconds from the server
 
 ### POST_BODY
 
-If it is a POST request, the POST request data also needs to be signed：
+If it is a 'POST' request, the 'POST' request data also needs to be signed. The signature rules are as follows:
+The keys of all requests are sorted alphabetically, then the url is parameterized and connected by using '&'.
 
-All the requested keys are sorted in alphabetical order, followed by url parameterization, and connected with `&`.
 
 <aside class="warning">
-Please note that the key values of POST_BODY need to be sorted alphabetically!
+Please alphabetize the key assignments of POST_BODY!
 </aside>
 
-> If the requested data is：
+> If the request data is:
 
 ```json
 {
@@ -77,65 +68,65 @@ Please note that the key values of POST_BODY need to be sorted alphabetically!
 }
 ```
 
-> then sort the key alphabetically and parameterize the url, ie：
+> therefore, first to alphabetize Key and then parameterized the url  which is：
 
 ```
 password=password
 username=username
 ```
 
-> Because `p` is sorted before `u` in the alphabet, `password` is placed before `username` and then connected with `&`, ie:
+> Because 'p' is sorted before 'u' in the alphabet, 'password' should be placed before 'username' and then connected with '&', that is:
 
 ```
 password=password&username=username
 ```
 
-## Full example
+## Complete example
 
-> For the following requests：
+> for the following request:
+
 
 ```
-POST https://api.fcoin.com/v2/orders
+POST https://api.testnet.fmex.com/orders
 
 {
-  "type": "limit",
-  "side": "buy",
-  "amount": "100.0",
-  "price": "100.0",
-  "symbol": "btcusdt"
+  "symbol":"btcusd_p",
+  "type":"limit",
+  "direction":"short",
+  "source":"web",
+  "price":5500,
+  "quantity":100
 }
 
 timestamp: 1523069544359
 ```
 
-> The preparated data before signing is as follows：
+> The prepared data before signing are as follows: 
 
 ```
-POSThttps://api.fcoin.com/v2/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
+POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&price=5500&quantity=100&source=WEB&symbol=btcusd_p&type=limit
 ```
 
-> Perform Base64 encoding to obtain：
+> Conduct Base64 code，then you will get：
 
 ```
-UE9TVGh0dHBzOi8vYXBpLmZjb2luLmNvbS92Mi9vcmRlcnMxNTIzMDY5NTQ0MzU5YW1vdW50PTEwMC4wJnByaWNlPTEwMC4wJnNpZGU9YnV5JnN5bWJvbD1idGN1c2R0JnR5cGU9bGltaXQ=
+UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
 ```
 
-> Copy the key obtained when applying for the API Key (API SECRET). The following signature result is taken `3600d0a74aa3410fb3b1996cca2419c8` as an example，
+>copy SECRET (API SECRET)when applying for API Key, using ` ebfaeef06e2e49e1bc7e535c2766bbe6 ` as an example for the signature results ，
 
-> The obtained result is `HMAC-SHA1` signed with the secret key, and the binary result is `Base64` encoded, to obtain：
-
+> Use private key for `HMAC-SHA1` signature  for the obtained result, conduct Base64 encode to the binary result then you will get:
 ```
-DeP6oftldIrys06uq3B7Lkh3a0U=
+g6vFomL3T3pOhCugUNo/UcaLxTw=
 ```
 
-> That is, the final signature is generated for verification to the API server
-
+> Then generates the final signature used for API server authentication
 ## Parameter name
 
 * `FC-ACCESS-KEY`
 * `FC-ACCESS-SIGNATURE`
 * `FC-ACCESS-TIMESTAMP`
 
-## Description
+##  instructions
 
-You can use the developer tools (not yet open) for online joint debugging testing
+You can use [developer tool]() (not available yet) for online debugging,
