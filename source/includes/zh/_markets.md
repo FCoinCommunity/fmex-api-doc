@@ -425,11 +425,32 @@ $resolution 包含的种类(大小写敏感)：
 ```
 
 
-## 获取当前系统指数
+## 获取当前系统指数所有指数
 
 ### HTTP 请求
 `GET https://api.fmex.com/v2/market/indexes`
 
+指数含义：
+
+.btcins1d   风险准备金1D
+
+.btcins1h   风险准备金1H
+
+.btcusd_spot    指数价格
+
+.btcusdfair   标记价格
+
+.btcusdfr   预估资金费率
+
+.btcusdfr8h   资金费率8H
+
+.btcusdlr1d   利息差率指数
+
+.btcusdpi   溢价指数
+
+.btcusdpi8h   溢价8H指数
+
+.btcusdpimax    最大溢价边界值指数
 
 
 ## 获取某个指数的最近历史值
