@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://exchange-testnet.fcoin.com/settings/api'>申请 API 秘钥</a>
+  - <a href='https://exchange.fcoin.com/settings/api'>申请 API 秘钥</a>
 
 includes:
   - jp/introduction
@@ -15,10 +15,7 @@ includes:
   - jp/markets
   - jp/accounts
   - jp/orders
-  - jp/order_errors
-  - jp/otc
-  - jp/leveraged
-  - jp/errors
+  - jp/positions
 
 search: true
 ---

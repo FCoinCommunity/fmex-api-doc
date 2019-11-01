@@ -1,22 +1,9 @@
 # 認証
 
-> 下記コードを使用して、ユーザー認証を行います：
 
-```python
-import fcoin
+FMex は FCoin testnet のAPIキーとAPIシークレットを使用して、認証を行います。 [設定センター](https://exchange.fcoin.com/settings/api)にアクセスし、APIキーとAPIシークレットを取得できます。
 
-api = fcoin.authorize('key', 'secret', timestamp)
-```
-
-```javascript
-const fcoin = require('fcoin');
-
-let api = fcoin.authorize('key', 'secret', timestamp);
-```
-
-FCoinはAPI キーとAPIシークレットを使用して、認証を行います。 設定センターにて，開発者にご登録してください。ご登録いただいた後、API キーとAPI シークレット情報をご利用いただけます。
-
-FCoinのAPI利用について，公開API以外に、API キー及び署名が必要となります。
+FMex は FCoin のAPIリクエストを使用しています。公開API以外に、APIキー及び署名が必要となります。
 
 
 
@@ -27,32 +14,32 @@ FCoinのAPI利用について，公開API以外に、API キー及び署名が�
 
 
 
-
-## API 署名
+## API署名
 
 署名を行うため、あらかじめ下記データをご用意してください：
 
 `HTTP_METHOD` + `HTTP_REQUEST_URI` + `TIMESTAMP` + `POST_BODY`
 
-接続が確立後， Base64エンコーディングが必要です。エンコーディング後のデータに対して、 HMAC-SHA1 署名を行います。また、デジタル署名に対して、Base64エンコーディングを2回実施します。各ステップの詳細内容について、ご説明します：
+接続が確立後、`Base64`エンコーディングが必要です。エンコーディング後のデータに対して、 `HMAC-SHA1`署名を行います。また、署名に対して、 `Base64`エンコーディングを2回実施します。各ステップの詳細内容について、ご説明します：
 
 <aside class="warning">
-注意事項： `Base64`エンコーディングは2回実施する必要があります！
+ご注意： `Base64`エンコーディングは2回実施する必要があります！
 </aside>
 
 ### HTTP_METHOD
 
-`GET`, `POST`, `DELETE`, `PUT` は必ず大文字にしてください
+`GET`, `POST`, `DELETE`, `PUT` は必ず大文字にしてください。
 
 ### HTTP_REQUEST_URI
 
-`https://api.fcoin.com/v2/` v2 APIのリクエストの接頭辞
+`https://api.testnet.fmex.com/` はAPIリクエストの接頭辞です。
 
-その後に、アクセスしたいリソースパスを記入してください。例： `orders?param1=value1`の場合は，最終形は `https://api.fcoin.com/v2/orders?param1=value1`となります
+その後に、アクセスしたいリソースパスを記入してください。例： `orders?param1=value1`の場合は，最終形は`https://api.testnet.fmex.com/orders?param1=value1`となります。
 
 リクエストされたURIのパラメータについては、アルファベット順に並べ替える必要があります！
 
-すなわち、リクエストされたURIは`https://api.fcoin.com/v2/orders?c=value1&b=value2&a=value3`の場合，デジタル署名する際に、リクエスト・パラメータをアルファベット順にソートさせ、デジタル署名の最終URIは `https://api.fcoin.com/v2/orders?a=value3&b=value2&c=value1`となります。 元のリクエスト中には、URI中の三つのパラメータの順番は `c`, `b`, `a`だが，ソート後、順番は `a`, `b`, `c`になっております。ご注意ください。
+すなわち、リクエストされたURIは`https://api.testnet.fmex.com/orders?c=value1&b=value2&a=value3`の場合，デジタル署名する際に、リクエスト・パラメータをアルファベット順にソートさせ、デジタル署名の最終URIは`https://XXX/orders?a=value3&b=value2&c=value1`となります。
+元のリクエスト中には、URI中の三つのパラメータの順番は`c, b, a`ですが、ソート後、順番は`a, b, c`になっております。ご注意ください。
 
 ### TIMESTAMP
 
@@ -60,9 +47,9 @@ APIを利用してアクセスする時のUNIX EPOCHタイムスタンプは、�
 
 ### POST_BODY
 
-POST リクエストの場合は，POST リクエストデータへのデジタル署名も必要です。デジタル署名のルールはご説明します：
+`POST` リクエストの場合は、`POST` リクエストデータへのデジタル署名も必要です。デジタル署名のルールはご説明します：
 
-リクエストされたすべてのキーはアルファベット順に並べ替えられた後、urlパラメータ化されます。 &を使用して、繋ぎます。
+リクエストされたすべてのキーはアルファベット順に並べ替えられた後、urlパラメータ化されます。 `&`を使用して、繋ぎます。 
 
 <aside class="warning">
 POST_BODYのキーの値は、アルファベット順にソートする必要があります。ご注意ください！
@@ -84,7 +71,7 @@ password=password
 username=username
 ```
 
-> アルファベットの順番には、`p`はuの前にあるため、`password`は`username`の前に置かれるべき、その次、＆を使用して接続します。すなわち：
+> アルファベットの順番には、`p`が`u`の前にあるため、`password`は`username` の前に置かれるべき、その次、`&`を使用して接続します。すなわち：
 
 ```
 password=password&username=username
@@ -92,17 +79,18 @@ password=password&username=username
 
 ## デモンストレーション
 
-> 下記のリクエストの場合は：
+> 下記リクエストデータの場合は：
 
 ```
-POST https://api.fcoin.com/v2/orders
+POST https://api.testnet.fmex.com/orders
 
 {
-  "type": "limit",
-  "side": "buy",
-  "amount": "100.0",
-  "price": "100.0",
-  "symbol": "btcusdt"
+  "symbol":"btcusd_p",
+  "type":"limit",
+  "direction":"short",
+  "source":"web",
+  "price":5500,
+  "quantity":100
 }
 
 timestamp: 1523069544359
@@ -111,26 +99,26 @@ timestamp: 1523069544359
 > デジタル署名を行うため、あらかじめ下記データをご用意してください：
 
 ```
-POSThttps://api.fcoin.com/v2/orders1523069544359amount=100.0&price=100.0&side=buy&symbol=btcusdt&type=limit
+POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&price=5500&quantity=100&source=WEB&symbol=btcusd_p&type=limit
 ```
 
-> Base64エンコーディングし、下記データになります：
+> Base64 エンコーディングし、下記データになります：
 
 ```
-UE9TVGh0dHBzOi8vYXBpLmZjb2luLmNvbS92Mi9vcmRlcnMxNTIzMDY5NTQ0MzU5YW1vdW50PTEwMC4wJnByaWNlPTEwMC4wJnNpZGU9YnV5JnN5bWJvbD1idGN1c2R0JnR5cGU9bGltaXQ=
+UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
 ```
 
-> API キーを申請した際に取得したキー（API シークレット）をコピーし，以下のデジタル署名結果は、例として `3600d0a74aa3410fb3b1996cca2419c8` を使用しています，
+> API キーを申請した際に取得したキー（API シークレット）をコピーし，以下のデジタル署名結果は、例として `ebfaeef06e2e49e1bc7e535c2766bbe6` を使用しています。
 
-> 結果に対して、秘密鍵を使用して、 `HMAC-SHA1` デジタル署名し、バイナリ結果に対して`Base64` エンコーディング後、下記になります：
+> 結果に対して、秘密鍵を使用して、`HMAC-SHA1`デジタル署名し、バイナリ結果に対して`Base64` エンコーディング後、下記になります：
 
 ```
-DeP6oftldIrys06uq3B7Lkh3a0U=
+g6vFomL3T3pOhCugUNo/UcaLxTw=
 ```
 
-> すなわち、APIサーバーへ検証するための最終的なデジタル署名が生成されます
+> すなわち、APIサーバーへ検証するための最終的なデジタル署名が生成されます。
 
-## パラメータ名
+## パラメータの名称
 
 * `FC-ACCESS-KEY`
 * `FC-ACCESS-SIGNATURE`
