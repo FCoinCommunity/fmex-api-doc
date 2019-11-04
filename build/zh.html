@@ -264,7 +264,7 @@
                     <a href="#candle" class="toc-h2 toc-link" data-title="candle">获取 Candle 信息</a>
                   </li>
                   <li>
-                    <a href="#f6f2d6559d" class="toc-h2 toc-link" data-title="">获取当前系统指数</a>
+                    <a href="#02d90e4564" class="toc-h2 toc-link" data-title="">获取当前系统指数所有指数</a>
                   </li>
                   <li>
                     <a href="#164308eda4" class="toc-h2 toc-link" data-title="">获取某个指数的最近历史值</a>
@@ -937,8 +937,30 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='f6f2d6559d'>获取当前系统指数</h2><h3 id='http-7'>HTTP 请求</h3>
+</span></code></pre><h2 id='02d90e4564'>获取当前系统指数所有指数</h2><h3 id='http-7'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/indexes</code></p>
+
+<p>指数含义：</p>
+
+<p>.btcins1d   风险准备金1D</p>
+
+<p>.btcins1h   风险准备金1H</p>
+
+<p>.btcusd_spot    指数价格</p>
+
+<p>.btcusdfair   标记价格</p>
+
+<p>.btcusdfr   预估资金费率</p>
+
+<p>.btcusdfr8h   资金费率8H</p>
+
+<p>.btcusdlr1d   利息差率指数</p>
+
+<p>.btcusdpi   溢价指数</p>
+
+<p>.btcusdpi8h   溢价8H指数</p>
+
+<p>.btcusdpimax    最大溢价边界值指数</p>
 <h2 id='164308eda4'>获取某个指数的最近历史值</h2><h3 id='http-8'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/indexes/$indexname</code></p>
 <h2 id='1cc2931276'>获取汇率</h2><h3 id='http-9'>HTTP 请求</h3>
