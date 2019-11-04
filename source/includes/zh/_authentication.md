@@ -38,11 +38,11 @@ FMex 使用 FCoin 的 API 请求，除公开的 API 外都需要携带 API key �
 `https://api.testnet.fmex.com/` 为 API 的请求前缀
 
 
-后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://api.testnet.fmex.com/orders?param1=value1`
+后面再加上真正要访问的资源路径，如 `orders?param1=value1`，最终即 `https://api.fmex.com/orders?param1=value1`
 
 对于请求的 URI 中的参数，需要按照字母表排序！
 
-即如果请求的 URI 为 `https://api.testnet.fmex.com/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
+即如果请求的 URI 为 `https://api.fmex.com/orders?c=value1&b=value2&a=value3`，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 `https://XXX/orders?a=value3&b=value2&c=value1`，
 请注意，原请求 URI 中的三个参数顺序为 `c, b, a`，排序后为 `a, b, c`。
 
 ### TIMESTAMP
@@ -86,7 +86,7 @@ password=password&username=username
 > 对于如下的请求：
 
 ```
-POST https://api.testnet.fmex.com/orders
+POST https://api.fmex.com/orders
 
 {
   "symbol":"btcusd_p",
@@ -103,13 +103,13 @@ timestamp: 1523069544359
 > 签名前的准备数据如下：
 
 ```
-POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&price=5500&quantity=100&source=WEB&symbol=btcusd_p&type=limit
+POSTPOSThttps://api.fmex.com/v3/contracts/orders1571109222426direction=short&price=5500&quantity=100&source=WEB&symbol=btcusd_p&type=limit
 ```
 
 > 进行 Base64 编码，得到：
 
 ```
-UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
+UE9TVGh0dHBzOi8vYXBpLmZtZXguY29tL3YzL2NvbnRyYWN0cy9vcmRlcnMxNTcxMTA5MjIyNDI2ZGlyZWN0aW9uPXNob3J0JnByaWNlPTU1MDAmcXVhbnRpdHk9MTAwJnNvdXJjZT1XRUImc3ltYm9sPWJ0Y3VzZF9wJnR5cGU9bGltaXQ=
 ```
 
 > 拷贝在申请 API Key 时获得的秘钥（API SECRET），下面的签名结果采用 `ebfaeef06e2e49e1bc7e535c2766bbe6` 作为示例，
@@ -117,17 +117,14 @@ UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDky
 > 对得到的结果使用秘钥进行 `HMAC-SHA1` 签名，并对二进制结果进行 `Base64` 编码，得到：
 
 ```
-g6vFomL3T3pOhCugUNo/UcaLxTw=
+s37ML6NwRLqMco75wCqsXFVz5iw=
 ```
 
 > 即生成了用于向 API 服务器进行验证的最终签名
 
-## 参数名称
+## header 参数名称
 
 * `FC-ACCESS-KEY`
 * `FC-ACCESS-SIGNATURE`
 * `FC-ACCESS-TIMESTAMP`
 
-## 说明
-
-可以使用[开发者工具]()（暂未开放）进行在线联调测试。
