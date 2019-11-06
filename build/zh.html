@@ -212,10 +212,7 @@
                     <a href="#05e32f581f" class="toc-h2 toc-link" data-title="">完整示例</a>
                   </li>
                   <li>
-                    <a href="#480d10db69" class="toc-h2 toc-link" data-title="">参数名称</a>
-                  </li>
-                  <li>
-                    <a href="#26670dda42" class="toc-h2 toc-link" data-title="">说明</a>
+                    <a href="#header" class="toc-h2 toc-link" data-title="header">header 参数名称</a>
                   </li>
               </ul>
           </li>
@@ -383,11 +380,11 @@
 模拟交易地址
 <code>https://api.testnet.fmex.com/</code> 为 API 的请求前缀</p>
 
-<p>后面再加上真正要访问的资源路径，如 <code>orders?param1=value1</code>，最终即 <code>https://api.testnet.fmex.com/orders?param1=value1</code></p>
+<p>后面再加上真正要访问的资源路径，如 <code>orders?param1=value1</code>，最终即 <code>https://api.fmex.com/orders?param1=value1</code></p>
 
 <p>对于请求的 URI 中的参数，需要按照字母表排序！</p>
 
-<p>即如果请求的 URI 为 <code>https://api.testnet.fmex.com/orders?c=value1&amp;b=value2&amp;a=value3</code>，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 <code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>，
+<p>即如果请求的 URI 为 <code>https://api.fmex.com/orders?c=value1&amp;b=value2&amp;a=value3</code>，则进行签名时，应先将请求参数按照字母表排序，最终进行签名的 URI 为 <code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>，
 请注意，原请求 URI 中的三个参数顺序为 <code>c, b, a</code>，排序后为 <code>a, b, c</code>。</p>
 <h3 id='timestamp'>TIMESTAMP</h3>
 <p>访问 API 时的 UNIX EPOCH 时间戳，需要和服务器之间的时间差少于 30 秒</p>
@@ -422,7 +419,7 @@ username=username
 <blockquote>
 <p>对于如下的请求：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://api.testnet.fmex.com/orders
+<pre class="highlight plaintext"><code>POST https://api.fmex.com/orders
 
 {
   "symbol":"btcusd_p",
@@ -438,31 +435,29 @@ timestamp: 1523069544359
 <blockquote>
 <p>签名前的准备数据如下：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&amp;price=5500&amp;quantity=100&amp;source=WEB&amp;symbol=btcusd_p&amp;type=limit
+<pre class="highlight plaintext"><code>POSTPOSThttps://api.fmex.com/v3/contracts/orders1571109222426direction=short&amp;price=5500&amp;quantity=100&amp;source=WEB&amp;symbol=btcusd_p&amp;type=limit
 </code></pre>
 <blockquote>
 <p>进行 Base64 编码，得到：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
+<pre class="highlight plaintext"><code>UE9TVGh0dHBzOi8vYXBpLmZtZXguY29tL3YzL2NvbnRyYWN0cy9vcmRlcnMxNTcxMTA5MjIyNDI2ZGlyZWN0aW9uPXNob3J0JnByaWNlPTU1MDAmcXVhbnRpdHk9MTAwJnNvdXJjZT1XRUImc3ltYm9sPWJ0Y3VzZF9wJnR5cGU9bGltaXQ=
 </code></pre>
 <blockquote>
 <p>拷贝在申请 API Key 时获得的秘钥（API SECRET），下面的签名结果采用 <code>ebfaeef06e2e49e1bc7e535c2766bbe6</code> 作为示例，</p>
 
 <p>对得到的结果使用秘钥进行 <code>HMAC-SHA1</code> 签名，并对二进制结果进行 <code>Base64</code> 编码，得到：</p>
 </blockquote>
-<pre class="highlight plaintext"><code>g6vFomL3T3pOhCugUNo/UcaLxTw=
+<pre class="highlight plaintext"><code>s37ML6NwRLqMco75wCqsXFVz5iw=
 </code></pre>
 <blockquote>
 <p>即生成了用于向 API 服务器进行验证的最终签名</p>
 </blockquote>
-<h2 id='480d10db69'>参数名称</h2>
+<h2 id='header'>header 参数名称</h2>
 <ul>
 <li><code>FC-ACCESS-KEY</code></li>
 <li><code>FC-ACCESS-SIGNATURE</code></li>
 <li><code>FC-ACCESS-TIMESTAMP</code></li>
 </ul>
-<h2 id='26670dda42'>说明</h2>
-<p>可以使用<a href="#">开发者工具</a>（暂未开放）进行在线联调测试。</p>
 <h1 id='a716ef8f2b'>公开接口</h1><h2 id='b42bf4cdb4'>获取交易所当前所有交易对</h2>
 <p>此 API 用于获取交易所当前所有交易对。</p>
 <h3 id='http-request'>HTTP Request</h3>
