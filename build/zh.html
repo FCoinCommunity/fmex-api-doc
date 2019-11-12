@@ -1626,9 +1626,11 @@ order_id为订单id</p>
         'updated_at': 1566271860000,  #仓位最近修改的毫秒时间戳
         'quantity': 0,  #持有合约数量，必须为正，若为0，表示已全部平仓
         'leverage': 0, #仓位设定杠杆率，不一定等于实际杠杆率
+        'margin_leverage':0, #实际杠杆率
         'riskLevel': 0, #风险等级
         'max_quantity': 100000, #持有合约数量最大值
         'realized_pnl': -0.036307524734501204, #已实现盈亏，已实现盈亏仅作为统计展示给用户，表示自开仓以来该仓位的盈亏
+        'unrealized_pnl':0,#未实现盈亏
         'taker_fee_rate': 0.001, #开仓时确定的仓位平仓taker费率
         'margin': 0.0, #仓位保证金，必须为正 
         'bankruptcy_price': 0.0, #破产价格，以该价格平仓，扣除taker手续费后，其权益恰好为0
