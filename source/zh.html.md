@@ -16,7 +16,7 @@ includes:
   - zh/accounts
   - zh/orders
   - zh/positions
-
+  - zh/automated
 
 
 

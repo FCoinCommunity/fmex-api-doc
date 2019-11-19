@@ -16,6 +16,7 @@ includes:
   - en/accounts
   - en/orders
   - en/positions
+  - en/automated
 
 search: true
 ---
