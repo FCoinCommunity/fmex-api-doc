@@ -7,7 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://exchange.fcoin.com/setting/api'>Apply API Key</a>
-
+  - <a href='https://exchange-testnet.fcoin.com/setting/api'> testnet Apply API Key</a>
 includes:
   - en/introduction
   - en/authentication
