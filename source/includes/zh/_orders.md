@@ -193,7 +193,8 @@ order_id为订单id
     "updated_at": 1566283234499, #更新时间戳
     "frozen_margin": 0.034188034188034184,#冻结margin
     "frozen_quantity": 20000,#冻结数量
-    "hidden": false #是否隐藏
+    "hidden": false, #是否隐藏
+    "trailing": false
   }
 }
 ```
@@ -213,27 +214,26 @@ order_id为订单id
   'data': {
     'results': [
       {
-        'id': 167560221818945,
-        'sequenceId': 259092,
-        'type': 'LIMIT',
-        'status': 'PENDING',
-        'direction': 'SHORT',
-        'features': 0,
-        'price': 15677.0,
-        'quantity': 265,
-        'unfilled_quantity': 265,
-        'maker_fee_rate': -0.00025,
-        'taker_fee_rate': 0.001,
-        'fee': 0,
-        'trigger_direction': 'LONG',
-        'trigger_on': 0,
-        'trailing_base_price': 0,
-        'trailing_distance': 0,
-        'created_at': 1566275535810,
-        'updated_at': 1566275535810,
-        'frozen_margin': 0.000169037443388403,
-        'frozen_quantity': 265,
-        'hidden': False
+        "id": 203090171912,
+        "features": 0,
+        "price": 1127.00,
+        "fee": -0.000196850393700787,
+        "fill_price": 1127.0,
+        "quantity": 200,
+        "unfilled_quantity": 100,
+        "maker_fee_rate": -0.000250000000000000,
+        "taker_fee_rate": 0.000650000000000000,
+        "type": "limit",
+        "status": "partial_filled",
+        "direction": "long",
+        "trigger_direction": "long",
+        "trigger_on": 0,
+        "trailing_base_price": 0,
+        "trailing_distance": 0,
+        "created_at": 1577158837098,
+        "updated_at": 1577167476836,
+        "symbol": "BTCUSD_P",
+        "trailing": false
       }
     ]
   }
@@ -255,27 +255,26 @@ order_id为订单id
 {
   'status': 0,
   'data': {
-        'id': 167560221818945,
-        'sequenceId': 259092,
-        'type': 'LIMIT',
-        'status': 'PENDING',
-        'direction': 'SHORT',
-        'features': 0,
-        'price': 15677.0,
-        'quantity': 265,
-        'unfilled_quantity': 265,
-        'maker_fee_rate': -0.00025,
-        'taker_fee_rate': 0.001,
-        'fee': 0,
-        'trigger_direction': 'LONG',
-        'trigger_on': 0,
-        'trailing_base_price': 0,
-        'trailing_distance': 0,
-        'created_at': 1566275535810,
-        'updated_at': 1566275535810,
-        'frozen_margin': 0.000169037443388403,
-        'frozen_quantity': 265,
-        'hidden': False
+    'id': 20309017941912,
+    'features': 0,
+    'price': 126.0,
+    'fee': 0,
+    'fill_price': 0.0,
+    'quantity': 200,
+    'unfilled_quantity': 200,
+    'maker_fee_rate': -0.00025,
+    'taker_fee_rate': 0.00065,
+    'type': 'limit',
+    'status': 'pending',
+    'direction': 'long',
+    'trigger_direction': 'long',
+    'trigger_on': 0,
+    'trailing_base_price': 0,
+    'trailing_distance': 0,
+    'created_at': 1577158837767,
+    'updated_at': 1577158837767,
+    'symbol': 'BTCUSD_P',
+    'trailing': False
   }
 }
 ```
@@ -296,28 +295,26 @@ order_id为订单id
 {
   'status': 0,
   'data': {
-        'id': 167560221818945,
-        'sequenceId': 259092,
-        'type': 'LIMIT',
-        'status': 'PENDING',
-        'direction': 'SHORT',
-        'features': 0,
-        ‘fill_price':0   #成交均价
-        'price': 15677.0, #下单价格 
-        'quantity': 265,
-        'unfilled_quantity': 265,
-        'maker_fee_rate': -0.00025,
-        'taker_fee_rate': 0.001,
-        'fee': 0,
-        'trigger_direction': 'LONG',
-        'trigger_on': 0,
-        'trailing_base_price': 0,
-        'trailing_distance': 0,
-        'created_at': 1566275535810,
-        'updated_at': 1566275535810,
-        'frozen_margin': 0.000169037443388403,
-        'frozen_quantity': 265,
-        'hidden': False
+    'id': 20309017941912,
+    'features': 0,
+    'price': 126.0,
+    'fee': 0,
+    'fill_price': 0.0,
+    'quantity': 200,
+    'unfilled_quantity': 200,
+    'maker_fee_rate': -0.00025,
+    'taker_fee_rate': 0.00065,
+    'type': 'limit',
+    'status': 'pending',
+    'direction': 'long',
+    'trigger_direction': 'long',
+    'trigger_on': 0,
+    'trailing_base_price': 0,
+    'trailing_distance': 0,
+    'created_at': 1577158837767,
+    'updated_at': 1577158837767,
+    'symbol': 'BTCUSD_P',
+    'trailing': False
   }
 }
 ```
