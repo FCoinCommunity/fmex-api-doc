@@ -286,6 +286,9 @@
                   <li>
                     <a href="#20ad34123e" class="toc-h2 toc-link" data-title="">查询转账日志</a>
                   </li>
+                  <li>
+                    <a href="#29903d277b" class="toc-h2 toc-link" data-title="">分页查询合约每日交易量</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1068,6 +1071,47 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
       }
     ]
   }
+}
+</code></pre><h2 id='29903d277b'>分页查询合约每日交易量</h2>
+<p>GET /v3/broker/auth/contracts/trade_volumes</p>
+<h3 id='1f9ac54b15-2'>请求参数</h3>
+<table><thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>has_prev Boolean</td>
+<td>是否包含前一页，该参数由前端控制，原样返回</td>
+</tr>
+<tr>
+<td>id String</td>
+<td>最后一次分页的ID,非必传</td>
+</tr>
+<tr>
+<td>page_size Integer</td>
+<td>请求数量(1-40),默认为40</td>
+</tr>
+<tr>
+<td>symbol String</td>
+<td>交易对,例如 BTCUSD_P</td>
+</tr>
+</tbody></table>
+<h3 id='306fc38aa3'>响应结果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+        "content": [
+            {
+                "id": "1574352000000", 
+                "amount": "0.141933059938008458"
+            }
+        ],
+        "current_elements": 1,
+        "has_prev": false,
+        "has_next": false,
+        "next_page_id": "1574352000000"
+    }
 }
 </code></pre><h1 id='81b3798beb'>订单</h1><h2 id='804ca63a95'>订单模型说明</h2>
 <p>订单模型由以下属性构成：</p>
