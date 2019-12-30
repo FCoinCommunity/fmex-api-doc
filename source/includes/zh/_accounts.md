@@ -120,7 +120,7 @@ GET /v3/broker/auth/contracts/trade_volumes
 ### 请求参数
 
 |  属性  | 类型|  含义| 
-|  ----  |  -----|-----|  
+|:------|:------|:------|
 |has_prev  |Boolean| 是否包含前一页，该参数由前端控制，原样返回
 |id  |String|最后一次分页的ID,非必传
 |page_size  |Integer| 请求数量(1-40),默认为40
