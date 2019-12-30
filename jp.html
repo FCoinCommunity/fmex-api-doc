@@ -1,0 +1,1721 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>FMex API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+.highlight .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .gr {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+.highlight .k, .highlight .kd, .highlight .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+.highlight .o, .highlight .ow {
+  color: #4df4ff;
+}
+.highlight .p, .highlight .pi {
+  color: #4df4ff;
+}
+.highlight .gd {
+  color: #cc0000;
+}
+.highlight .gi {
+  color: #b2fd6d;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+.highlight .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+.highlight .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+.highlight .s, .highlight .sb, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .sr, .highlight .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+.highlight .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+.highlight .nb {
+  font-weight: bold;
+}
+.highlight .ni {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .w {
+  color: #BBBBBB;
+}
+.highlight .nf {
+  color: #a8e1fe;
+}
+.highlight .py {
+  color: #a8e1fe;
+}
+.highlight .na {
+  color: #a8e1fe;
+}
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="jp" data-languages="[&quot;python&quot;,&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <a href='https://fmex.com'><img src="images/logo.png" class="logo" alt="Logo" /></a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" />
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#b8bbaebbc1" class="toc-h1 toc-link" data-title="">紹介</a>
+          </li>
+          <li>
+            <a href="#1bff7d7a22" class="toc-h1 toc-link" data-title="">認証</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1308356abb" class="toc-h2 toc-link" data-title="">アクセス制限</a>
+                  </li>
+                  <li>
+                    <a href="#api" class="toc-h2 toc-link" data-title="api">API署名</a>
+                  </li>
+                  <li>
+                    <a href="#53184fb5c1" class="toc-h2 toc-link" data-title="">デモンストレーション</a>
+                  </li>
+                  <li>
+                    <a href="#1ab96bbc8a" class="toc-h2 toc-link" data-title="">パラメータの名称</a>
+                  </li>
+                  <li>
+                    <a href="#f6c2c8d0f4" class="toc-h2 toc-link" data-title="">説明</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#9370e99f4f" class="toc-h1 toc-link" data-title="">公開インターフェース</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#be15bcbfb5" class="toc-h2 toc-link" data-title="">取引通貨ペアの照会</a>
+                  </li>
+                  <li>
+                    <a href="#6379b76879" class="toc-h2 toc-link" data-title="">サーバー時刻の照会</a>
+                  </li>
+                  <li>
+                    <a href="#908c1cb803" class="toc-h2 toc-link" data-title="">取扱い仮想通貨の照会</a>
+                  </li>
+                  <li>
+                    <a href="#a9ef2ab1f9" class="toc-h2 toc-link" data-title="">インデックスリストの取得</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#c06c016e90" class="toc-h1 toc-link" data-title="">マーケット情報</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#1d5c0c7a90" class="toc-h2 toc-link" data-title="">マーケット情報概説</a>
+                  </li>
+                  <li>
+                    <a href="#websocket" class="toc-h2 toc-link" data-title="websocket">WebSocket 初回接続の確立</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-heartbeat" class="toc-h2 toc-link" data-title="websocket-heartbeat">WebSocket 接続の維持 - heartbeat</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-3" class="toc-h2 toc-link" data-title="websocket">WebSocket サブスクリプション</a>
+                  </li>
+                  <li>
+                    <a href="#ticker" class="toc-h2 toc-link" data-title="ticker">ticker データの取得</a>
+                  </li>
+                  <li>
+                    <a href="#0f17f02c1b" class="toc-h2 toc-link" data-title="">最新デプス詳細の取得</a>
+                  </li>
+                  <li>
+                    <a href="#1eb58bf5cf" class="toc-h2 toc-link" data-title="">最新取引詳細の取得</a>
+                  </li>
+                  <li>
+                    <a href="#candle" class="toc-h2 toc-link" data-title="candle">Candle 情報の取得</a>
+                  </li>
+                  <li>
+                    <a href="#ca6bce13a0" class="toc-h2 toc-link" data-title="">現在のシステムインデックスの照会</a>
+                  </li>
+                  <li>
+                    <a href="#1bee4a2054" class="toc-h2 toc-link" data-title="">あるインデックスの最新の履歴値を照会する</a>
+                  </li>
+                  <li>
+                    <a href="#65c4fc1cdc" class="toc-h2 toc-link" data-title="">為替レートの照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#7a36931ac7" class="toc-h1 toc-link" data-title="">アカウント</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4ba9019979" class="toc-h2 toc-link" data-title="">現在アカウントの残高を照会する</a>
+                  </li>
+                  <li>
+                    <a href="#729d86265e" class="toc-h2 toc-link" data-title="">証拠金をウォレットに振替する</a>
+                  </li>
+                  <li>
+                    <a href="#1-gt" class="toc-h2 toc-link" data-title="1-gt">現在、1つの振替動作（コントラクト-&gt;ウォレット）の実行状態を照会する</a>
+                  </li>
+                  <li>
+                    <a href="#5306fddcc8" class="toc-h2 toc-link" data-title="">振替履歴の照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#662dbb2d11" class="toc-h1 toc-link" data-title="">注文</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#ff90035cf7" class="toc-h2 toc-link" data-title="">注文モデルに関する説明</a>
+                  </li>
+                  <li>
+                    <a href="#d05dbb7e5c" class="toc-h2 toc-link" data-title="">新規注文</a>
+                  </li>
+                  <li>
+                    <a href="#5c2f5be4cc" class="toc-h2 toc-link" data-title="">注文のキャンセル</a>
+                  </li>
+                  <li>
+                    <a href="#activity-orders" class="toc-h2 toc-link" data-title="activity-orders">Activity Ordersの照会</a>
+                  </li>
+                  <li>
+                    <a href="#activity-orders-2" class="toc-h2 toc-link" data-title="activity-orders">Activity Ordersの詳細の照会</a>
+                  </li>
+                  <li>
+                    <a href="#id" class="toc-h2 toc-link" data-title="id">注文IDで注文の詳細を取得する</a>
+                  </li>
+                  <li>
+                    <a href="#256be30338" class="toc-h2 toc-link" data-title="">注文履歴の照会</a>
+                  </li>
+                  <li>
+                    <a href="#f14b9f8eab" class="toc-h2 toc-link" data-title="">成約注文履歴の照会</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#1e092278c2" class="toc-h1 toc-link" data-title="">ポジション</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#0733c25b91" class="toc-h2 toc-link" data-title="">ポジションのリストの照会</a>
+                  </li>
+                  <li>
+                    <a href="#67c0a0bd43" class="toc-h2 toc-link" data-title="">ポジションレバレッジの設定</a>
+                  </li>
+                  <li>
+                    <a href="#6cc2284b67" class="toc-h2 toc-link" data-title="">ポジション証拠金の設定</a>
+                  </li>
+                  <li>
+                    <a href="#7698083fc7" class="toc-h2 toc-link" data-title="">ポジションのリスクレベルの設定</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#4e48b56751" class="toc-h1 toc-link" data-title="">取引ボット</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://exchange.fcoin.com/settings/api'>申请 API 密钥</a></li>
+            <li><a href='https://exchange-testnet.fcoin.com/settings/api'>testnet 申请api 密钥</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='b8bbaebbc1'>紹介</h1>
+<p>以下の情報を理解することにより、FMexが提供するAPIを使用してFMex取引プラットフォームに簡単にアクセスできます。</p>
+
+<p>実際取引APIドメイン名：api.fmex.com</p>
+
+<p>テストネットAPIドメイン名：api.testnet.fmex.com</p>
+
+<p>APIアクセスアドレス：https://api.fmex.com/<path> 。また、httpsアクセスのみをサポートし、httpアクセスはサポートしていないので、ご注意ください。</p>
+
+<p>APIリクエスト：GETまたはPOSTリクエストのみがサポートされています。</p>
+
+<p>GETリクエストの場合、すべてのリクエスト・パラメータはqueryStringで送信してください。たとえば：/v1/contracts/orders/open?symbol=BTCUSD_P</p>
+
+<p>POSTリクエストの場合、すべてのリクエスト・パラメータはRequest BodyとしてJSONで送信されます。 リクエストタイプはContent-Type: application/json でなければなりません。</p>
+<h1 id='1bff7d7a22'>認証</h1>
+<p>FMex は FCoin testnet のAPIキーとAPIシークレットを使用して、認証を行います。 <a href="https://exchange.fcoin.com/settings/api">設定センター</a>にアクセスし、APIキーとAPIシークレットを取得できます。</p>
+
+<p>FMex は FCoin のAPIリクエストを使用しています。公開API以外に、APIキー及び署名が必要となります。</p>
+<h2 id='1308356abb'>アクセス制限</h2>
+<p>現在、アクセスの頻度はユーザーごとに100回 / 10秒，将来はサービスごと、アクセスの頻度を制限する予定です。</p>
+<h2 id='api'>API署名</h2>
+<p>署名を行うため、あらかじめ下記データをご用意してください：</p>
+
+<p><code>HTTP_METHOD</code> + <code>HTTP_REQUEST_URI</code> + <code>TIMESTAMP</code> + <code>POST_BODY</code></p>
+
+<p>接続が確立後、<code>Base64</code>エンコーディングが必要です。エンコーディング後のデータに対して、 <code>HMAC-SHA1</code>署名を行います。また、署名に対して、 <code>Base64</code>エンコーディングを2回実施します。各ステップの詳細内容について、ご説明します：</p>
+
+<aside class="warning">
+ご注意： `Base64`エンコーディングは2回実施する必要があります！
+</aside>
+<h3 id='http_method'>HTTP_METHOD</h3>
+<p><code>GET</code>, <code>POST</code>, <code>DELETE</code>, <code>PUT</code> は必ず大文字にしてください。</p>
+<h3 id='http_request_uri'>HTTP_REQUEST_URI</h3>
+<p><code>https://api.testnet.fmex.com/</code> はAPIリクエストの接頭辞です。</p>
+
+<p>その後に、アクセスしたいリソースパスを記入してください。例： <code>orders?param1=value1</code>の場合は，最終形は<code>https://api.testnet.fmex.com/orders?param1=value1</code>となります。</p>
+
+<p>リクエストされたURIのパラメータについては、アルファベット順に並べ替える必要があります！</p>
+
+<p>すなわち、リクエストされたURIは<code>https://api.testnet.fmex.com/orders?c=value1&amp;b=value2&amp;a=value3</code>の場合，デジタル署名する際に、リクエスト・パラメータをアルファベット順にソートさせ、デジタル署名の最終URIは<code>https://XXX/orders?a=value3&amp;b=value2&amp;c=value1</code>となります。
+元のリクエスト中には、URI中の三つのパラメータの順番は<code>c, b, a</code>ですが、ソート後、順番は<code>a, b, c</code>になっております。ご注意ください。</p>
+<h3 id='timestamp'>TIMESTAMP</h3>
+<p>APIを利用してアクセスする時のUNIX EPOCHタイムスタンプは、サーバーとの時間差は30秒以内でなければなりません。</p>
+<h3 id='post_body'>POST_BODY</h3>
+<p><code>POST</code> リクエストの場合は、<code>POST</code> リクエストデータへのデジタル署名も必要です。デジタル署名のルールはご説明します：</p>
+
+<p>リクエストされたすべてのキーはアルファベット順に並べ替えられた後、urlパラメータ化されます。 <code>&amp;</code>を使用して、繋ぎます。 </p>
+
+<aside class="warning">
+POST_BODYのキーの値は、アルファベット順にソートする必要があります。ご注意ください！
+</aside>
+
+<blockquote>
+<p>下記リクエストデータの場合は：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"passowrd"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>先に、キーをアルファベット順にソートし、urlパラメータ化します。すなわち：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>password=password
+username=username
+</code></pre>
+<blockquote>
+<p>アルファベットの順番には、<code>p</code>が<code>u</code>の前にあるため、<code>password</code>は<code>username</code> の前に置かれるべき、その次、<code>&amp;</code>を使用して接続します。すなわち：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>password=password&amp;username=username
+</code></pre><h2 id='53184fb5c1'>デモンストレーション</h2>
+<blockquote>
+<p>下記リクエストデータの場合は：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://api.testnet.fmex.com/orders
+
+{
+  "symbol":"btcusd_p",
+  "type":"limit",
+  "direction":"short",
+  "source":"web",
+  "price":5500,
+  "quantity":100
+}
+
+timestamp: 1523069544359
+</code></pre>
+<blockquote>
+<p>デジタル署名を行うため、あらかじめ下記データをご用意してください：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POSThttps://api.testnet.fmex.com/v3/contracts/orders1571109222426direction=short&amp;price=5500&amp;quantity=100&amp;source=WEB&amp;symbol=btcusd_p&amp;type=limit
+</code></pre>
+<blockquote>
+<p>Base64 エンコーディングし、下記データになります：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>UE9TVGh0dHBzOi8vYXBpLnRlc3RuZXQuZm1leC5jb20vdjMvY29udHJhY3RzL29yZGVyczE1NzExMDkyMjI0MjZkaXJlY3Rpb249c2hvcnQmcHJpY2U9NTUwMCZxdWFudGl0eT0xMDAmc291cmNlPVdFQiZzeW1ib2w9YnRjdXNkX3AmdHlwZT1saW1pdA==
+</code></pre>
+<blockquote>
+<p>API キーを申請した際に取得したキー（API シークレット）をコピーし，以下のデジタル署名結果は、例として <code>ebfaeef06e2e49e1bc7e535c2766bbe6</code> を使用しています。</p>
+
+<p>結果に対して、秘密鍵を使用して、<code>HMAC-SHA1</code>デジタル署名し、バイナリ結果に対して<code>Base64</code> エンコーディング後、下記になります：</p>
+</blockquote>
+<pre class="highlight plaintext"><code>g6vFomL3T3pOhCugUNo/UcaLxTw=
+</code></pre>
+<blockquote>
+<p>すなわち、APIサーバーへ検証するための最終的なデジタル署名が生成されます。</p>
+</blockquote>
+<h2 id='1ab96bbc8a'>パラメータの名称</h2>
+<ul>
+<li><code>FC-ACCESS-KEY</code></li>
+<li><code>FC-ACCESS-SIGNATURE</code></li>
+<li><code>FC-ACCESS-TIMESTAMP</code></li>
+</ul>
+<h2 id='f6c2c8d0f4'>説明</h2>
+<p>デベロッパーツール（準備中）を使用して、オンライン検証を行えます。</p>
+<h1 id='9370e99f4f'>公開インターフェース</h1><h2 id='be15bcbfb5'>取引通貨ペアの照会</h2>
+<p>このAPIを使用して、取引通貨のペアを取得できます。</p>
+<h3 id='http'>HTTP リクエスト</h3>
+<p><code>GET /v2/public/contracts/symbols</code></p>
+<h2 id='6379b76879'>サーバー時刻の照会</h2>
+<p>このAPIを使用して、サーバー時刻を取得できます。</p>
+<h3 id='http-2'>HTTP リクエスト</h3>
+<p><code>GET /v2/public/server-time</code></p>
+<h2 id='908c1cb803'>取扱い仮想通貨の照会</h2>
+<p>このAPIを使用して、取扱い仮想通貨を取得できます。</p>
+<h3 id='http-3'>HTTP リクエスト</h3>
+<p><code>GET /v2/public/contracts/currencies</code></p>
+<h2 id='a9ef2ab1f9'>インデックスリストの取得</h2>
+<p>このAPIを使用して、インデックスリストを取得できます。</p>
+<h3 id='http-4'>HTTP リクエスト</h3>
+<p><code>GET /v2/public/indexes/symbols</code></p>
+<h1 id='c06c016e90'>マーケット情報</h1><h2 id='1d5c0c7a90'>マーケット情報概説</h2>
+<p>マーケット情報は、公開APIを通じて取得できます。現在、HTTPとWebSocketの両方のAPIを提供しています。マーケット情報の情報をタイムリーに取得するために、WebSocketを使用してアクセスすることことをお勧めします。マーケット情報のリアルタイムパフォーマンスを可能な限り高めるために、現在の公開している部分は最新のマーケットデータのみを取得することができます。もし全部の情報、または履歴情報を取得する必要がある場合は、support@fmex.comまでご連絡ください。</p>
+
+<p>全てのHTTPリクエストのURLベースは: <code>https://api.fmex.com/</code>です。</p>
+
+<p>全てのWebSocketリクエストのURLは: <code>wss://api.fmex.com/v2/ws</code>です。</p>
+
+<p>用語は以下のように統一されます：</p>
+
+<ul>
+<li><code>topic</code> サブスクリプションのテーマを示します。</li>
+<li><code>symbol</code> 対応する取引通貨を示します.すべての通貨の区別に関するtopicは、topicの最後にあります。</li>
+<li><code>ticker</code> マーケット情報のtickデータ、最新の買い売りの成約価格、最新の出来高、買い注文一つ売り注文一つ、24時間の出来高が含まれています。</li>
+<li><code>depth</code> マーケット情報のデプス、オーダーブック、気配値を示します。</li>
+<li><code>level</code> マーケット情報のデプスのタイプを示します。 例えば、 <code>L20</code>、 <code>L100</code>。</li>
+<li><code>trade</code> 最新の成約と取引を示します。</li>
+<li><code>candle</code> ローソクチャート、ローソク足、平均足を示します。</li>
+<li><code>resolution</code> ローソクチャートの種類を示します。例えば、<code>M1</code>, <code>M15</code>。</li>
+<li><code>base volume</code> 基準通貨の出来高を示します。例えば、btcusdt で btc の出来高。</li>
+<li><code>quote volume</code> 評価通貨の取引量を示します。例えば、btcusdt で usdt の出来高。</li>
+<li><code>ts</code> プッシュサーバーの時刻を示します。ミリ秒単位の数値フィールドです。 unix epoch in millisecond.</li>
+</ul>
+<h2 id='websocket'>WebSocket 初回接続の確立</h2>
+<p>接続に成功すると、サーバーからウェルカムメッセージが送信されます。</p>
+
+<blockquote>
+<p>サーバーからのレスポンス:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"hello"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693784042</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<ul>
+<li><code>ts</code>: サーバーの現在時間をプッシュします。</li>
+</ul>
+</blockquote>
+<h2 id='websocket-heartbeat'>WebSocket 接続の維持 - heartbeat</h2><pre class="highlight python tab-python"><code><span class="c"># WebSocket サーバー ping に送信し、ハートビートを維持する</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">fcoin</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">fcoin</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'key'</span><span class="p">,</span> <span class="s">'secret'</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+<span class="n">now_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="n">api</span><span class="o">.</span><span class="n">market</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">now_ms</span><span class="p">)</span>
+</code></pre>
+<p>WebSocketクライアント側はWebSocketサーバーとの接続を確立した後、お勧めとして、WebSocket Client  <em>15s</em>ごとに（すすめは10～20s） サーバーへpingリクエストを送ります。サーバーがクライアントのping要求を長時間受信しなかった場合、サーバーはアクティブに切断します。</p>
+<h3 id='websocket-2'>WebSocket リクエスト</h3>
+<p><strong>ping コマンドを送信します</strong>: <code>{&quot;cmd&quot;:&quot;ping&quot;,&quot;args&quot;:[$client_ts],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: 現在のリクエストに対してクライアントが指定したカスタム id、サーバーはそのまま戻ります。</li>
+<li><code>client_ts</code>: クライアントの現在時刻</li>
+</ul>
+
+<blockquote>
+<p>ping コマンドリクエストのデモンストレーション：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"ping"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="mi">1540557696867</span><span class="p">],</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"sample.client.id"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>ping コマンドが成功したら、サーバーからのレスポンス：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"sample.client.id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693784042</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gap"</span><span class="p">:</span><span class="mi">112</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<ul>
+<li><code>gap</code>: サーバーがこのステートメントを処理してからクライアントが送信するまでの時間差</li>
+<li><code>ts</code>:  サーバーの現在時刻</li>
+</ul>
+</blockquote>
+
+<aside class="notice">
+tip: pingをリクエストするときにサーバーによって返されるtsおよびgap値によって、サーバー時間とデータ転送時間の差を取得できます。
+</aside>
+<h2 id='websocket-3'>WebSocket サブスクリプション</h2>
+<p><strong>sub コマンドを送信する</strong>: <code>{&quot;cmd&quot;:&quot;sub&quot;,&quot;args&quot;:[&quot;$topic&quot;, ...],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: 現在のリクエストに対してクライアントが指定したカスタムIDです。サーバーはそのまま戻ります。</li>
+<li><code>topic</code>: サブスクリプション待ちの topicについては、複数ある場合は英文字の「,」を使用して分けてください。最大20個までサブスクリプションできます。</li>
+</ul>
+
+<blockquote>
+<p>sub コマンドリクエストのデモンストレーション（単数のtopicの場合）：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"ticker.ethbtc"</span><span class="p">]}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>sub コマンドリクエストのデモンストレーション（複数のtopicの場合）：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"ticker.ethbtc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">]}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>サブスクリプションが成功したレスポンス：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"topics"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ticker.ethbtc"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>サブスクリプションが失敗したレスポンス：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"invalid_topics_sample"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">41002</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"invalid sub topic, xxx.M1.xxx"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='ticker'>ticker データの取得</h2>
+<p>ticker情報ブロックを十分小さく、迅速に取得するために、強制的にリスト表式を使用しています。</p>
+
+<blockquote>
+<p>ticker リストの該当フィールドへの説明:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"最新成約価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最新の取引出来高"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最高の買い注文の価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最高の買い注文の出来高"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最安の売り注文の価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"最安の売り注文の出来高"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間前の成約価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間内最高の価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24小时内最安の価格"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間内の基準通貨出来高、例えば、btcusdt の btc の出来高"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"24時間内の評価通貨の出来高、例えば、btcusdt の usdt の出来高"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/ticker/$symbol</code></p>
+
+<blockquote>
+<p>HTTP リクエストへのレスポンス：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="mf">7140.890000000000000000</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-4'>WebSocket サブスクリプション</h3>
+<p><strong>sub コマンドを送信する</strong>，topic: <code>ticker.$symbol</code>  ( <code>WebSocket サブスクリプション</code>を参考する)</p>
+
+<blockquote>
+<p>WebSocket 通常のサブスクリプションの通知メッセージのフォーマットは次のとおりです:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='0f17f02c1b'>最新デプス詳細の取得</h2><h3 id='http-2'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/depth/$level/$symbol</code></p>
+
+<p><code>$level</code> 下記種類を含みます（大文字と小文字を区別）：</p>
+
+<table><thead>
+<tr>
+<th>タイプ</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>L20</code></td>
+<td>レベル20のマーケット情報</td>
+</tr>
+<tr>
+<td><code>L150</code></td>
+<td>レベル150のマーケット情報</td>
+</tr>
+</tbody></table>
+
+<p>その中 <code>L20</code> の通知時間は <code>L150</code>より早く、通知の頻度も <code>L150</code>より多いです, 実際な圧力と状況に基づき、必要に応じて使用してください。</p>
+
+<blockquote>
+<p>HTTP リクエストのレスポンス：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth.L20.ethbtc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1523619211000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.000100000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">0.000010000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-5'>WebSocket サブスクリプション</h3>
+<p><strong>sub コマンドを送信する</strong>，topic: <code>depth.$level.$symbol</code>   ( <code>WebSocket サブスクリプションを参照してください</code>)</p>
+
+<blockquote>
+<p>WebSocket サブスクリプションからのレスポンス:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth.L20.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1523619211000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.000100000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">0.000010000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w"> </span><span class="mf">1.000000000</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>bidsとasksに対応する配列は、偶数でなければならず、1つの価格を購入（売却）し、1つの数量を購入（売却）し、順次後ろに並べる必要があります。</p>
+</blockquote>
+<h2 id='1eb58bf5cf'>最新取引詳細の取得</h2>
+<p>取引idのサイズを比較することによって、更新された取引かどうかを判断できます。{trade id} に気をつけてください。普通では、traceからtransactionまでのプロセスがあるため、公開マーケット情報での取引idは、決済システム中の取引idとは必ず一致するわけではありません。ご留意いただきたい。取引記録が1つであっても、最新の取引が再取得されたときに、IDが常に一致しているという保証はできません。</p>
+
+<p>PS:  過去のマーケット情報では、取引IDが１つであることが保証できます。ここで、{transaction id}はマーケット情報の更新通知としてのみ使用され、アーカイブに使用しないでください。</p>
+<h3 id='http-3'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/trades/$symbol</code></p>
+<h4 id='http-4'>パラメータの照会(HTTP リクエスト)の照会</h4>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>before</td>
+<td></td>
+<td>あるIDの前のTradeを照会します</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>デフォルトは20です</td>
+</tr>
+</tbody></table>
+<h3 id='websocket-6'>WebSocket リクエスト</h3>
+<p><strong>req コマンドを送信する</strong>: <code>{&quot;cmd&quot;:&quot;req&quot;, &quot;args&quot;:[&quot;$topic&quot;, limit],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: 現在のリクエストに対してクライアントが指定したカスタムIDです。サーバーはそのまま返します。</li>
+<li><code>topic</code>: <code>trade.$symbol</code></li>
+<li><code>limit</code>: 取得する必要がある最近のトランザクションの数</li>
+</ul>
+
+<blockquote>
+<p>WebSocket リクエストが成功したレスポンスは次のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523693400329</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419946174</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">76000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419114272</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">74000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523415182356</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">71000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">3.000000000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-7'>WebSocket サブスクリプション</h3>
+<p><strong>sub コマンドを送信する</strong>，topic: <code>trade.$symbol</code>   ( <code>WebSocket サブスクリプションを参照してください</code>)</p>
+
+<ul>
+<li><code>symbol</code>: 対応する取引ペア</li>
+</ul>
+
+<blockquote>
+<p>WebSocket 通常のサブスクリプションの通知メッセージのフォーマットは次のとおりです:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"trade.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">76000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1523419946174</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='candle'>Candle 情報の取得</h2><h3 id='http-5'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/candles/$resolution/$symbol</code></p>
+<h4 id='http-6'>パラメータ(HTTP リクエスト)の照会</h4>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>before</td>
+<td></td>
+<td>あるIDの前の Candleを照会します</td>
+</tr>
+<tr>
+<td>limit</td>
+<td></td>
+<td>デフォルトは20です</td>
+</tr>
+</tbody></table>
+
+<p>$resolution 下記種類を含みます（大文字と小文字を区別）：</p>
+
+<table><thead>
+<tr>
+<th>タイプ</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>M1</code></td>
+<td>1 分</td>
+</tr>
+<tr>
+<td><code>M3</code></td>
+<td>3 分</td>
+</tr>
+<tr>
+<td><code>M5</code></td>
+<td>5 分</td>
+</tr>
+<tr>
+<td><code>M15</code></td>
+<td>15 分</td>
+</tr>
+<tr>
+<td><code>M30</code></td>
+<td>30 分</td>
+</tr>
+<tr>
+<td><code>H1</code></td>
+<td>1 時間</td>
+</tr>
+<tr>
+<td><code>H4</code></td>
+<td>4 時間</td>
+</tr>
+<tr>
+<td><code>H6</code></td>
+<td>6 時間</td>
+</tr>
+<tr>
+<td><code>D1</code></td>
+<td>1 日</td>
+</tr>
+<tr>
+<td><code>W1</code></td>
+<td>1 週</td>
+</tr>
+<tr>
+<td><code>MN</code></td>
+<td>1 ヶ月</td>
+</tr>
+</tbody></table>
+<h3 id='websocket-8'>WebSocket リクエスト</h3>
+<p><strong>req コマンドを送信する</strong>: <code>{&quot;cmd&quot;:&quot;req&quot;,&quot;args&quot;:[&quot;$topic&quot;,limit,before],&quot;id&quot;:&quot;$client_id&quot;}</code></p>
+
+<ul>
+<li><code>client_id</code>: 現在のリクエストに対してクライアントが指定したカスタムIDです。サーバーはそのまま返します。</li>
+<li><code>topic</code>: <code>candle.$resolution.$symbol</code></li>
+<li><code>limit</code>: 取得する必要があるcandleの数</li>
+<li><code>before</code>: あるIDの前のCandleを照会する</li>
+</ul>
+
+<blockquote>
+<p>WebSocket リクエストが成功したレスポンスは次のとおりです：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"candle.M15.btcusdt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1540809840</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">24793830600000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">6491.74</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">6489.24</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">6491.24</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">6490.07</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mf">8.2221</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mf">53371.531286</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1540809900</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">24793879800000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">6490.47</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">6487.62</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">6490.09</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">6487.62</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mf">10.8527</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mf">70430.840624</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websokcet'>WebSokcet サブスクリプション</h3>
+<p><strong>sub コマンドを送信する</strong>，topic: <code>candle.$resbolution.$symbol</code>   ( <code>WebSocket サブスクリプションを参照してください</code>)</p>
+
+<ul>
+<li><code>resolution</code>：  HTTP リクエストと同じの resolution パラメータ</li>
+</ul>
+
+<blockquote>
+<p>WebSocket サブスクリプションの通知メッセージは次のとおりです:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"candle.M1.ethbtc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1523691480</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">11400000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">2.000000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='ca6bce13a0'>現在のシステムインデックスの照会</h2><h3 id='http-7'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/indexes</code></p>
+<h2 id='1bee4a2054'>あるインデックスの最新の履歴値を照会する</h2><h3 id='http-8'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/indexes/$indexname</code></p>
+<h2 id='65c4fc1cdc'>為替レートの照会</h2><h3 id='http-9'>HTTP リクエスト</h3>
+<p><code>GET /v2/market/fex</code></p>
+<h1 id='7a36931ac7'>アカウント</h1><h2 id='4ba9019979'>現在アカウントの残高を照会する</h2>
+<p>このapiは、ユーザーの資産リストを照会するために使用されます。</p>
+<h3 id='http'>HTTP リクエスト</h3>
+<p>APIパス：<code>GET /v3/contracts/accounts</code></p>
+
+<p>APIリクエスト・パラメータ：無し</p>
+<h3 id='api'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  "status":0,
+  "data":
+        {通貨: [利用可能な残高, 注文に利用した金額, ポジションの証拠金金額]
+          "BTC":[2.796888254907565438,0E-18,0E-18]
+          }
+        }
+}
+</code></pre><h2 id='729d86265e'>証拠金をウォレットに振替する</h2><h3 id='http-2'>HTTP リクエスト</h3>
+<p>APIパス：<code>POST /v3/contracts/transfer/out/request</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">フィールド名称</th>
+<th style="text-align: left">必要性</th>
+<th style="text-align: left">内容説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left">Y</td>
+<td style="text-align: left">通貨名称、例えば「BTC」</td>
+</tr>
+<tr>
+<td style="text-align: left">transfer_from</td>
+<td style="text-align: left">Y</td>
+<td style="text-align: left">送金側、「contracts」にしなければなりません。</td>
+</tr>
+<tr>
+<td style="text-align: left">transfer_to</td>
+<td style="text-align: left">Y</td>
+<td style="text-align: left">送金先、「wallet」にしなければなりません。</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">Y</td>
+<td style="text-align: left">送金金額、例えば：1.024</td>
+</tr>
+</tbody></table>
+<h3 id='746bbe501d'>デモンストレーション：</h3><pre class="highlight plaintext"><code>{
+    "currency":"BTC",
+    "transfer_from":"CONTRACTS",
+    "transfer_to":"WALLET",
+    "amount":1,
+}
+</code></pre><h3 id='api-2'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  "status": 0,
+  "data": {
+    "transfer_from": "contracts",
+    "transfer_to": "wallet",
+    "amount": 0.1,
+    "transfer_id": "179363219767363",
+    "currency": "BTC"
+  }
+}
+
+
+</code></pre><h2 id='1-gt'>現在、1つの振替動作（コントラクト-&gt;ウォレット）の実行状態を照会する</h2>
+<p>APIパス：<code>GET /v3/contracts/transfer/out/{transferId}/status</code></p>
+
+<p>APIリクエスト・パラメータ：無し</p>
+<h3 id='api-3'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'transfer_id': '179364285120578',
+    'transfer_from': 'contracts',
+    'transfer_to': 'wallet',
+    'amount': 0.1,
+    'done': True,
+    'created_at': 1567682689265,
+    'updated_at': 1567682689473,
+    'error': False,
+    'currency': 'BTC'
+  }
+}
+</code></pre><h2 id='5306fddcc8'>振替履歴の照会</h2>
+<p>APIパス：<code>GET /v3/contracts/transfer/logs</code></p>
+
+<p>APIリクエスト・パラメータ：無し</p>
+<h3 id='api-4'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'hasMore': False,
+    'nextOffsetId': 0,
+    'results': [
+      {
+        'transfer_id': '167600369696833',
+        'transfer_from': 'CONTRACTS',
+        'transfer_to': 'WALLET',
+        'amount': 0.01,
+        'done': True,
+        'created_at': 1566280321419,
+        'updated_at': 1566280321851,
+        'error': False,
+        'currency': 'BTC'
+      }
+    ]
+  }
+}
+</code></pre><h1 id='662dbb2d11'>注文</h1><h2 id='ff90035cf7'>注文モデルに関する説明</h2>
+<p>注文モデルは、次の属性で構成されています：</p>
+
+<table><thead>
+<tr>
+<th>属性</th>
+<th>タイプ</th>
+<th>意味</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>long</td>
+<td>注文ID</td>
+</tr>
+<tr>
+<td><code>sequence_id</code></td>
+<td>long</td>
+<td>シーケンスID</td>
+</tr>
+<tr>
+<td><code>margin_currency_id</code></td>
+<td>long</td>
+<td>証拠金Currency ID</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td>enum</td>
+<td>ポジションの方向LONG/SHORT</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>enum</td>
+<td>注文タイプLIMIT/MARKET</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>enum</td>
+<td>注文状態に関する説明をご参照ください</td>
+</tr>
+<tr>
+<td><code>features</code></td>
+<td>long</td>
+<td>注文特性、各bitはぞれぞれの特性を表す：0x01=FOK、0x02=post_only、0x04=Hidden、0x08=IOC、0x8000=清算注文</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>decimal</td>
+<td>指値注文価格（成行注文の場合、市場価格の上限または下限を示す。）</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td>long</td>
+<td>注文数量</td>
+</tr>
+<tr>
+<td><code>fill_price</code></td>
+<td>decimal</td>
+<td>成約の平均価格</td>
+</tr>
+<tr>
+<td><code>unfilled_quantity</code></td>
+<td>long</td>
+<td>未成約の数量</td>
+</tr>
+<tr>
+<td><code>maker_fee_rate</code></td>
+<td>decimal</td>
+<td>Makerの手数料レート</td>
+</tr>
+<tr>
+<td><code>taker_fee_rate</code></td>
+<td>decimal</td>
+<td>Takerの手数料レート</td>
+</tr>
+<tr>
+<td><code>fee</code></td>
+<td>decimal</td>
+<td>この注文で徴収された手数料</td>
+</tr>
+<tr>
+<td><code>trigger_on</code></td>
+<td>decimal</td>
+<td>Stop注文のトリガー価格です。Stop以外の注文のトリガー価格は常に0です。</td>
+</tr>
+<tr>
+<td><code>trailing_base_price</code></td>
+<td>decimal</td>
+<td>TrailingStop注文の基準価格です。このタイプ以外の注文は常に0です。</td>
+</tr>
+<tr>
+<td><code>trailing_distance</code></td>
+<td>decimal</td>
+<td>TrailingStop注文のトリガー価格との距離です。このタイプ以外の注文は常に0です。</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>long</td>
+<td>注文作成のタイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>long</td>
+<td>注文更新のタイムスタンプ</td>
+</tr>
+</tbody></table>
+
+<p>注文状態に関する説明：</p>
+
+<table><thead>
+<tr>
+<th>属性</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>PENDING</code></td>
+<td>成約待ち</td>
+</tr>
+<tr>
+<td><code>PARTIAL_FILLED</code></td>
+<td>部分成約</td>
+</tr>
+<tr>
+<td><code>FULLY_FILLED</code></td>
+<td>全部成約</td>
+</tr>
+<tr>
+<td><code>PARTIAL_CANCELLED</code></td>
+<td>部分キャンセル</td>
+</tr>
+<tr>
+<td><code>FULLY_CANCELLED</code></td>
+<td>全部キャンセル</td>
+</tr>
+<tr>
+<td><code>STOP_PENDING</code></td>
+<td>stop注文はトリガーを待っています</td>
+</tr>
+<tr>
+<td><code>STOP_FAILED</code></td>
+<td>stop注文はトリガーされたが、実行が失敗しました（例：証拠金凍結が失敗になりました）</td>
+</tr>
+<tr>
+<td><code>STOP_CANCELLED</code></td>
+<td>stop注文はトリガーされないため、キャンセルされました</td>
+</tr>
+</tbody></table>
+<h2 id='d05dbb7e5c'>新規注文</h2>
+<p>このAPIを使用して、新規注文を出すことができます。</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v3/contracts/orders</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>必須かどうか</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>symbol</code></td>
+<td>Y</td>
+<td>契約コード、例えば&quot;BTCUSD_P&quot;</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Y</td>
+<td>注文タイプ、OrderTypeをご参照ください</td>
+</tr>
+<tr>
+<td><code>direction</code></td>
+<td>Y</td>
+<td>注文方向、Directionをご参照ください</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>&quot;&quot;</td>
+<td>注文ソースマーク、例えば&quot;WEB&quot;、&quot;APP&quot;、文字と数字の組み合わせ</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>指値注文のみ</td>
+<td>指値注文価格、小数点以下1桁のみサポートする</td>
+</tr>
+<tr>
+<td><code>quantity</code></td>
+<td>Y</td>
+<td>注文数量、整数であり、最小値は1である</td>
+</tr>
+<tr>
+<td><code>trigger_on</code></td>
+<td>N</td>
+<td>利食いと損切り注文のトリガー価格</td>
+</tr>
+<tr>
+<td><code>trigger_direction</code></td>
+<td>N</td>
+<td>利食いと損切り注文のトリガー条件、&quot;long&quot;、&quot;short&quot;</td>
+</tr>
+<tr>
+<td><code>trailing_distance</code></td>
+<td>N</td>
+<td>トレーリング損切り注文のトリガー価格までの距離</td>
+</tr>
+<tr>
+<td><code>fill_or_kill</code></td>
+<td>N</td>
+<td>タイプはstringであり、FOK注文を設定するかどうか</td>
+</tr>
+<tr>
+<td><code>immediate_or_cancel</code></td>
+<td>N</td>
+<td>タイプはstringであり、IOC注文を設定するかどうか</td>
+</tr>
+<tr>
+<td><code>post_only</code></td>
+<td>N</td>
+<td>タイプはstringであり、post_only注文を設定するかどうか</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td>N</td>
+<td>タイプはstringであり、Hidden注文を設定するかどうか</td>
+</tr>
+<tr>
+<td><code>reduce_only</code></td>
+<td>N</td>
+<td>タイプはstringであり、reduce_only注文を設定するかどうか</td>
+</tr>
+</tbody></table>
+
+<p>ご注意：</p>
+
+<p>注文タイプが「LIMIT」の場合、priceを入力する必要があります。</p>
+
+<p>trigger_onとtrailing_distanceを同時に入力することができません。</p>
+
+<p>fill_or_kill=trueの場合、immediate_or_cancel、post_only、hidden及びreduce_onlyを設定することができません。</p>
+
+<p>immediate_or_cancel=trueの場合、fill_or_kill、post_only、hidden及びreduce_onlyを設定することができません。</p>
+
+<p>post_only=trueの場合、fill_or_kill、immediate_or_cancel及びreduce_onlyを設定することができません。</p>
+
+<p>hidden=trueの場合、fill_or_killとimmediate_or_cancelを設定することができません。</p>
+
+<p>MARKET注文とIOC注文のみ、reduce_only=trueを設定できます。</p>
+
+<p>例を挙げて、普通の利食いと損切り注文の場合：</p>
+
+<p>{</p>
+
+<p>type: &quot;MARKET&quot;,</p>
+
+<p>quantity: 10,</p>
+
+<p>trigger_on: 8000,</p>
+
+<p>trigger_direction: &quot;LONG&quot;,</p>
+
+<p>direction: &quot;LONG&quot;,</p>
+
+<p>... }</p>
+
+<p>この例の中で、価格が8000及びそれ以上になる場合、10USDT相当する成行ロングの契約はマーケットに出されます。trigger_directionがshortであり、つまり、価格が8000以下である場合、10USDT相当する成行ショートの契約はマーケットに出されます。</p>
+
+<p>trailing stopの場合：</p>
+
+<p>{</p>
+
+<p>type: &quot;MARKET&quot;,</p>
+
+<p>quantity: 10,</p>
+
+<p>trailing_distance: 100,</p>
+
+<p>trigger_direction: &quot;SHORT&quot;,</p>
+
+<p>direction: &quot;SHORT&quot;,</p>
+
+<p>... }</p>
+
+<p>ユーザーがこのタイプの注文を出すと、10USDT相当する成行ロングの注文は最新価格がtrailing_distanceより100USDT以上下がる場合、出されます。</p>
+
+<p>ただし、最新価格が上がる場合、この注文はこの価格に追いつけ、さらに、最新価格が最高価格になり、trailing_distanceより100USDT以上下がる場合、執行されます。</p>
+
+<p>trigger_direction及びdirectionが同時にlongである場合、つまり：ユーザーがこのタイプの注文を出すと、10USDT相当する成行ロングの注文は、最新価格がtrailing_distanceより100USDT以上上がる場合、出されます。</p>
+<h3 id='api'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  "status": 0,
+  "data": {
+    "id": 167624805711936,  #APIによって計算された分散型のID
+    "sequenceId": 260087,  #sequenceによって計算されたsequenceId
+    "type": "LIMIT",  #注文タイプ LIMIT/MARKET
+    "status": "PENDING",  #注文状態
+    "direction": "SHORT", #注文方向LONG/SHORT
+    "features": 0,        #注文特性、bitにより組み合わせ：FOK/IOC/HIDDEN/post_only
+    "price": 100.0,     #指値価格、LIMIT注文に限定されています
+    "quantity": 200,    #数量
+    "unfilled_quantity": 200, #未成約数量
+    "maker_fee_rate": -0.00025,#maker取引手数料レート
+    "taker_fee_rate": 0.001,   #taker取引手数料レート
+    "fee": 0,                #注文で徴収されたfee
+    "trigger_direction": "LONG",#トリガーの方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#トリガーの基準価格
+    "trailing_distance": 0,#トリガー価格までの距離
+    "created_at": 1566283234499, #注文作成のタイムスタンプ
+    "updated_at": 1566283234499, #注文更新のタイムスタンプ
+    "frozen_margin": 0.034188034188034184,#凍結されたmargin
+    "frozen_quantity": 20000,#凍結数量
+    "hidden": false #Hidden注文にするかどうか
+  }
+}
+</code></pre><h2 id='5c2f5be4cc'>注文のキャンセル</h2>
+<p>このAPIを使用して、注文をキャンセルできます。</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v3/contracts/orders/&lt;order_id&gt;/cancel</code></p>
+
+<p>说明：
+order_idは注文のidです。</p>
+<h3 id='4c4f7e67fc-2'>リクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api-2'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  "status": 0,
+  "data": {
+    "id": 167624805711936,  #APIによって計算された分散型のID
+    "sequenceId": 260087,  #sequenceによって計算されたsequenceId
+    "type": "LIMIT",  #注文タイプLIMIT/MARKET
+    "status": "PENDING",  #注文状態
+    "direction": "SHORT", #注文方向LONG/SHORT
+    "features": 0,        #注文属性、bitにより組み合わせ：FOK/IOC/HIDDEN/post_only
+    "price": 100.0,     #指値価格、LIMIT注文だけ
+    "quantity": 200,    #数量
+    "unfilled_quantity": 200, #未成約数量
+    "maker_fee_rate": -0.00025,#maker手数料レート
+    "taker_fee_rate": 0.001,   #taker手数料レート
+    "fee": 0,                #注文で徴収されたfee
+    "trigger_direction": "LONG",#トリガーの方向
+    "trigger_on": 0,
+    "trailing_base_price": 0,#トリガーの基準価格
+    "trailing_distance": 0,#トリガー価格までの距離
+    "created_at": 1566283234499, #注文作成のタイムスタンプ
+    "updated_at": 1566283234499, #注文更新のタイムスタンプ
+    "frozen_margin": 0.034188034188034184,#凍結されたmargin
+    "frozen_quantity": 20000,#凍結数量
+    "hidden": false #Hidden注文にするかどうか
+  }
+}
+</code></pre><h2 id='activity-orders'>Activity Ordersの照会</h2>
+<p>このAPIを使用して、Activity Ordersを照会できます。</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v3/contracts/orders/open</code></p>
+<h3 id='4c4f7e67fc-3'>リクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api-3'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'results': [
+      {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 15677.0,
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+      }
+    ]
+  }
+}
+</code></pre><h2 id='activity-orders-2'>Activity Ordersの詳細の照会</h2>
+<p>このAPIを使用し、Activity Ordersの詳細を照会できます。</p>
+<h3 id='http'>HTTP リクエスト</h3>
+<p><code>GET /v3/contracts/orders/open/&lt;order_id&gt;</code></p>
+
+<p>説明：
+order_idは注文idです。</p>
+<h3 id='c8670bd0db'>パリクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api-4'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 15677.0,
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+  }
+}
+</code></pre><h2 id='id'>注文IDで注文の詳細を取得する</h2>
+<p>このAPIを使用し、すべての注文の詳細を照会できます</p>
+<h3 id='http-2'>HTTP リクエスト</h3>
+<p><code>GET /v3/contracts/orders/&lt;order_id&gt;</code></p>
+
+<p>説明：
+order_idは注文idです。</p>
+<h3 id='4c4f7e67fc-4'>リクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api-5'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+        'id': 167560221818945,
+        'sequenceId': 259092,
+        'type': 'LIMIT',
+        'status': 'PENDING',
+        'direction': 'SHORT',
+        'features': 0,
+        ‘fill_price':0   #成約の平均価格
+        'price': 15677.0, #注文価格 
+        'quantity': 265,
+        'unfilled_quantity': 265,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': 0,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0,
+        'trailing_base_price': 0,
+        'trailing_distance': 0,
+        'created_at': 1566275535810,
+        'updated_at': 1566275535810,
+        'frozen_margin': 0.000169037443388403,
+        'frozen_quantity': 265,
+        'hidden': False
+  }
+}
+</code></pre><h2 id='256be30338'>注文履歴の照会</h2>
+<p>このAPIを使用し、注文履歴を照会できます。</p>
+<h3 id='http-3'>HTTP リクエスト</h3>
+<p><code>GET /v3/contracts/orders/closed</code></p>
+<h3 id='4c4f7e67fc-5'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>必須かどうか</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>range</td>
+<td>N</td>
+<td>月を照会する。形式はYYYYMMです。例、「201907」。デフォルトは空で、現在の月を示します。</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>N</td>
+<td>照会条件のフィルタリングに使用され、指定されたsymbolの注文のみをフィルタリングします。デフォルトは空で、すべてのsymbolを示します。</td>
+</tr>
+<tr>
+<td>offsetId</td>
+<td>N</td>
+<td>現在のページの開始idを入力します。デフォルトは0で、最初のページを示します。</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>N</td>
+<td>1〜100の範囲で結果集合内の履歴の最大値を返信します。デフォルトは100です。</td>
+</tr>
+</tbody></table>
+<h3 id='api-6'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'range': '201908',
+    'hasMore': True,
+    'nextOffsetId': 163466438508609,
+    'results': [
+      {
+        'id': 163466455285825,
+        'sequenceId': 79260,
+        'type': 'LIMIT',
+        'status': 'FULLY_FILLED',
+        'direction': 'SHORT',
+        'features': 0,
+        'price': 5286.0,
+        'quantity': 332,
+        'unfilled_quantity': 0,
+        'maker_fee_rate': -0.00025,
+        'taker_fee_rate': 0.001,
+        'fee': -1.570185395384e-05,
+        'trigger_direction': 'LONG',
+        'trigger_on': 0.0,
+        'trailing_base_price': 0.0,
+        'trailing_distance': 0.0,
+        'created_at': 1565787520849,
+        'updated_at': 1565787520849
+      },
+      {...}
+    ]
+  }
+}
+</code></pre><h2 id='f14b9f8eab'>成約注文履歴の照会</h2>
+<p>このAPIを使用して、成約注文の履歴を照会できます。</p>
+<h3 id='http-4'>HTTP リクエスト</h3>
+<p><code>GET /v3/contracts/orders/&lt;order_id&gt;/matches</code></p>
+
+<p>説明：
+order_idは注文idです。</p>
+<h3 id='4c4f7e67fc-6'>リクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api-7'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'results': [
+      {
+        'taker': False,
+        'price': 13403.0,
+        'quantity': 994.0,
+        'fee': -1.8540625233156e-05,
+        'created_at': 1566275534853
+      }
+    ]
+  }
+}
+</code></pre><h1 id='1e092278c2'>ポジション</h1><h2 id='0733c25b91'>ポジションのリストの照会</h2>
+<p>このAPIを使用して、ポジションのリストを取得できます。</p>
+<h3 id='http'>HTTP リクエスト</h3>
+<p><code>GET /v3/broker/auth/contracts/positions</code></p>
+<h3 id='4c4f7e67fc'>リクエスト・パラメータ</h3>
+<p>無し</p>
+<h3 id='api'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 'ok',
+  'data': {
+    'results': [
+      {
+        'direction': 'SHORT',  #ポジションの方向
+        'updated_at': 1566271860000,  #最後にポジションの変更タイムスタンプ（ミリ秒レベル）
+        'quantity': 0,  #保有している契約の数量です。プラスでなければなりません。0の場合は、すべてのポジションが清算されたことを示します。
+        'leverage': 0, #ポジションで設定されたレバレッジ比率です。それは、実際のレバレッジ比率と必ずしも同じではありません。
+        'riskLevel': 0, #リスクレベル
+        'max_quantity': 100000, #保有可能な契約数量の最大限
+        'realized_pnl': -0.036307524734501204, #実現損益。実現損益は統計データとしてユーザーに提示され、ポジションが構築されてからの損益を示します。
+        'taker_fee_rate': 0.001, #ポジションを構築したときに決定されたポジション解消用のtaker手数料レート
+        'margin': 0.0, #ポジションの証拠金です。プラスでなければなりません。
+        'bankruptcy_price': 0.0, #破産価格。この価格でポジションを解消し、takerとしての手数料を差し引いた後、その権益は0です。
+        'liquidation_price': 0.0, #清算価格、この価格でポジションを解消し、takerとしての手数料を差し引いた後、残りの権益は「ポジションと維持証拠金の積」です。
+        'entry_price': 11017.0, #ポジション構築の平均価格。ポジション構築の平均価格は、ポジションが増減するたびに調整されます。
+        'symbol': 'BTCUSD_P', #ポジションの契約コード、たとえば、BTCUSD_P。
+        'closed': True, #ポジションが解消されるかどうか
+        'minimum_maintenance_margin_rate': 0.005 #維持証拠金の最小限。ポジション証拠金が維持証拠金の最小限になると、即時に清算されます。
+      }
+    ]
+  }
+}
+</code></pre><h2 id='67c0a0bd43'>ポジションレバレッジの設定</h2><h3 id='http-2'>HTTP リクエスト</h3>
+<p><code>POST /v3/contracts/positions/$symbol/leverage</code></p>
+
+<p>symbol：URLパラメータ、ポジションのSymbol名</p>
+<h3 id='583066c0e6'>無し</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>必須かどうか</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>leverage</td>
+<td>必須</td>
+<td>0～最大許容値、0=クロース、1～最大許容値=分離でレバレッジの倍数</td>
+</tr>
+</tbody></table>
+<h3 id='82a81e9abf'>リクエストのデモンストレーション</h3>
+<p>{
+  &#39;leverage&#39;: 0
+}</p>
+<h3 id='api-2'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'leverage': 0
+  }
+}
+</code></pre><h2 id='6cc2284b67'>ポジション証拠金の設定</h2><h3 id='http-3'>HTTP リクエスト</h3>
+<p><code>POST /v3/contracts/positions/$symbol/margin</code></p>
+
+<p>symbol：URLパラメータ、ポジションのSymbol名称</p>
+<h3 id='4c4f7e67fc-2'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>必要かどうか</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>margin</td>
+<td>必要</td>
+<td>改めてポジション証拠金を設定する</td>
+</tr>
+</tbody></table>
+<h3 id='82a81e9abf-2'>リクエストのデモンストレーション</h3>
+<p>{
+  &#39;margin&#39;: 0
+}</p>
+<h3 id='api-3'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'margin': 0
+  }
+}
+</code></pre><h2 id='7698083fc7'>ポジションのリスクレベルの設定</h2><h3 id='http-4'>HTTP リクエスト</h3>
+<p><code>POST /v3/contracts/positions/$symbol/riskLevel</code></p>
+
+<p>symbol：URLパラメータ、ポジションのSymbol名称</p>
+<h3 id='4c4f7e67fc-3'>リクエスト・パラメータ</h3>
+<table><thead>
+<tr>
+<th>パラメータ</th>
+<th>必要かどうか</th>
+<th>説明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>risk_level</td>
+<td>必要　</td>
+<td>0～最大許容値</td>
+</tr>
+</tbody></table>
+<h3 id='82a81e9abf-3'>リクエストのデモンストレーション</h3>
+<p>{
+  &#39;risk_level&#39;: 0
+}</p>
+<h3 id='api-4'>APIレスポンス：</h3><pre class="highlight plaintext"><code>{
+  'status': 0,
+  'data': {
+    'risk_level': 0
+  }
+}
+</code></pre><h1 id='4e48b56751'>取引ボット</h1>
+<p>次のは、FMexを対応した取引ボット及びサービスです。</p>
+
+<ul>
+<li>FMZ発明者高頻度取引<br>発明者高頻度取引(<a href=‘https://www.fmz.com/’>fmz.com</a>)はアジア範囲で唯一の商品先物と仮想通貨を対応している高頻度取引プラットフォームです。業務は高頻度取引ソフトウェアプラットフォームの開発と高頻度取引戦略の研究や関連のサービスです。現在、市場で50つ以上の大手取引所にサービスを提供しています。JavaScript、Python、C++、My language、ビジュアルプログラミング言語という五つのプログラミング言語をサポートしています。</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
