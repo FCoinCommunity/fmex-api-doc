@@ -119,12 +119,12 @@ GET /v3/broker/auth/contracts/trade_volumes
 
 ### 请求参数
 
-|  属性  | 类型|  含义| 
-|:------|:------|:------|
-|has_prev  |Boolean| 是否包含前一页，该参数由前端控制，原样返回
-|id  |String|最后一次分页的ID,非必传
-|page_size  |Integer| 请求数量(1-40),默认为40
-|symbol  |String| 交易对,例如 BTCUSD_P
+|  属性  | 类型|  是否必须 |含义| 
+|:------|:------|:------|:------|
+|has_prev  |Boolean| N|是否包含前一页，该参数由前端控制，原样返回
+|id  |String|N|最后一次分页的ID,非必传
+|page_size  |Integer| N|请求数量(1-40),默认为40
+|symbol  |String| N|交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日交易量,如果不指定symbol则查询所有symbol日交易量
  
 ### 响应结果
  
