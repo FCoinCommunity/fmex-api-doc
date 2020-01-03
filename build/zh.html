@@ -1079,28 +1079,33 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <tr>
 <th style="text-align: left">属性</th>
 <th style="text-align: left">类型</th>
+<th style="text-align: left">是否必须</th>
 <th style="text-align: left">含义</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left">has_prev</td>
 <td style="text-align: left">Boolean</td>
+<td style="text-align: left">N</td>
 <td style="text-align: left">是否包含前一页，该参数由前端控制，原样返回</td>
 </tr>
 <tr>
 <td style="text-align: left">id</td>
 <td style="text-align: left">String</td>
+<td style="text-align: left">N</td>
 <td style="text-align: left">最后一次分页的ID,非必传</td>
 </tr>
 <tr>
 <td style="text-align: left">page_size</td>
 <td style="text-align: left">Integer</td>
+<td style="text-align: left">N</td>
 <td style="text-align: left">请求数量(1-40),默认为40</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">String</td>
-<td style="text-align: left">交易对,例如 BTCUSD_P</td>
+<td style="text-align: left">N</td>
+<td style="text-align: left">交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日交易量,如果不指定symbol则查询所有symbol日交易量</td>
 </tr>
 </tbody></table>
 <h3 id='306fc38aa3'>响应结果</h3><pre class="highlight plaintext"><code>{
