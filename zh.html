@@ -292,7 +292,7 @@
               </ul>
           </li>
           <li>
-            <a href="#81b3798beb" class="toc-h1 toc-link" data-title="">订单</a>
+            <a href="#dfe799947f" class="toc-h1 toc-link" data-title="">交易</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#804ca63a95" class="toc-h2 toc-link" data-title="">订单模型说明</a>
@@ -317,6 +317,9 @@
                   </li>
                   <li>
                     <a href="#d5c6914f15" class="toc-h2 toc-link" data-title="">查询订单成交历史</a>
+                  </li>
+                  <li>
+                    <a href="#29903d277b" class="toc-h2 toc-link" data-title="">分页查询合约每日交易量</a>
                   </li>
               </ul>
           </li>
@@ -1123,7 +1126,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
         "next_page_id": "1574352000000"
     }
 }
-</code></pre><h1 id='81b3798beb'>订单</h1><h2 id='804ca63a95'>订单模型说明</h2>
+</code></pre><h1 id='dfe799947f'>交易</h1><h2 id='804ca63a95'>订单模型说明</h2>
 <p>订单模型由以下属性构成：</p>
 
 <table><thead>
@@ -1665,6 +1668,57 @@ order_id为订单id</p>
       }
     ]
   }
+}
+</code></pre><h2 id='29903d277b'>分页查询合约每日交易量</h2>
+<p>GET /v3/broker/auth/contracts/trade_volumes</p>
+<h3 id='1f9ac54b15-8'>请求参数</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">属性</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">是否必须</th>
+<th style="text-align: left">含义</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">has_prev</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">N</td>
+<td style="text-align: left">是否包含前一页，该参数由前端控制，原样返回</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">N</td>
+<td style="text-align: left">最后一次分页的ID,非必传</td>
+</tr>
+<tr>
+<td style="text-align: left">page_size</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">N</td>
+<td style="text-align: left">请求数量(1-40),默认为40</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">N</td>
+<td style="text-align: left">交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日交易量,如果不指定symbol则查询所有symbol日交易量</td>
+</tr>
+</tbody></table>
+<h3 id='306fc38aa3'>响应结果</h3><pre class="highlight plaintext"><code>{
+    "status": "ok",
+    "data": {
+        "content": [
+            {
+                "id": "1574352000000", 
+                "amount": "0.141933059938008458"
+            }
+        ],
+        "current_elements": 1,
+        "has_prev": false,
+        "has_next": false,
+        "next_page_id": "1574352000000"
+    }
 }
 </code></pre><h1 id='25a424cad9'>仓位</h1><h2 id='9208604e00'>获取仓位列表</h2>
 <p>此 API 获取仓位列表。</p>
