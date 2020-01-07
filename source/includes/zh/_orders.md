@@ -415,19 +415,40 @@ GET /v3/broker/auth/contracts/trade_volumes
 ### 响应结果
  
 ```
+请求参数示例:
+ 1. 指定symbol
 {
     "status": "ok",
     "data": {
         "content": [
-            {
-                "id": "1574352000000", 
-                "amount": "0.141933059938008458"
+            {		
+                "id": "1574352000000", # 分页id, 也代表时间
+                "base_vol":"2.4853453948753947", # 交易量,指定symbol时返回
+                "quote_vol":"30", # 合约张数,指定symbol时返回
+                "amount": "0.141933059938008458" # 交易量折合(单位btc)
             }
         ],
         "current_elements": 1,
         "has_prev": false,
         "has_next": false,
-        "next_page_id": "1574352000000"
+        "next_page_id": "1574352000000" # 下一页id
+    }
+}
+
+2.未指定symbol
+{
+    "status": "ok",
+    "data": {
+        "content": [
+            {		
+                "id": "1574352000000", # 分页id, 也代表时间
+                "amount": "0.141933059938008458" # 交易量折合(单位btc)
+            }
+        ],
+        "current_elements": 1,
+        "has_prev": false,
+        "has_next": false,
+        "next_page_id": "1574352000000" # 下一页id
     }
 }
 ```
@@ -447,7 +468,7 @@ GET /v3/broker/auth/contracts/user_fees
 ### 响应结果
  
 ```
-请求参数示例:
+返回参数示例:
  1. 指定symbol
 	{
 	    "status": "ok",
