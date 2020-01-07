@@ -431,3 +431,82 @@ GET /v3/broker/auth/contracts/trade_volumes
     }
 }
 ```
+
+### 分页查询合约每日手续费
+GET /v3/broker/auth/contracts/user_fees
+
+### 请求参数
+
+  |属性 | 是否必须|  含义|
+ |:------|:------|:------|
+  |has_prev |N| 是否包含前一页，该参数由调用方提供，原样返回
+  |id |N|最后一次分页的ID
+  |page_size |N| 请求数量(1-40),默认为40
+ |symbol |N| 交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日手续费（指定symbol时还会返回手续费详情）,如果不指定symbol则查询所有symbol日手续费
+ 
+### 响应结果
+ 
+```
+请求参数示例:
+ 1. 指定symbol
+	{
+	    "status": "ok",
+	    "data": {
+	        "content": [
+	            {
+	             "id": 1574352000000 # 分页id, 也代表时间
+	             "currency": btc,      # 币种
+	             "in_fees": 0.00000059938,         # maker 手续费
+	             "in_fees_amount": 0.00000059938,  #  maker 手续费折合(单位btc)
+	             "out_fees": 0.000060059938,       # taker 手续费
+	             "out_fees_amount": 0.000060059938 # taker 手续费折合(单位btc)
+	            }
+	        ],
+	        "current_elements": 1,
+	        "has_prev": false,
+	        "has_next": false,
+	        "next_page_id": "1574352000000"
+	    }
+	}
+
+2.未指定symbol
+   {
+	    "status": "ok",
+	    "data": {
+	        "content": [
+	            {
+	             "id": 1574352000000 # 分页id, 也代表时间
+	             "in_fees_amount": 0.00000059938,  # maker 手续费折合(单位btc)
+	             "out_fees_amount": 0.000060059938 # taker 手续费折合(单位btc)
+	            }
+	        ],
+	        "current_elements": 1,
+	        "has_prev": false,
+	        "has_next": false,
+	        "next_page_id": "1574352000000"
+	    }
+	}
+```
+
+### 根据时间查询手续费详情
+GET /v3/broker/auth/contracts/user_fees/{timestamp}
+
+  URL 参数  timestamp :  每日开始时间戳,单位毫秒
+  
+### 响应结果
+ 
+```
+	{
+	  "status": "ok"
+	  "data": [
+	    {
+	      "currency": btc,     # 币种
+		   "in_fees": 0.00000059938,         # maker 手续费
+         "in_fees_amount": 0.00000059938,  #  maker 手续费折合(单位btc)
+         "out_fees": 0.000060059938,       # taker 手续费
+         "out_fees_amount": 0.000060059938 # taker 手续费折合(单位btc)
+	      "symbol": btcusd_p   # symbol
+	    }
+	  ]
+	}
+```
