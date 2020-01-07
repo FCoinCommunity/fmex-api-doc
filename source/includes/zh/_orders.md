@@ -432,17 +432,17 @@ GET /v3/broker/auth/contracts/trade_volumes
 }
 ```
 
-### 分页查询合约每日手续费
+## 分页查询合约每日手续费
 GET /v3/broker/auth/contracts/user_fees
 
 ### 请求参数
 
-  |属性 | 是否必须|  含义|
- |:------|:------|:------|
-  |has_prev |N| 是否包含前一页，该参数由调用方提供，原样返回
-  |id |N|最后一次分页的ID
-  |page_size |N| 请求数量(1-40),默认为40
- |symbol |N| 交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日手续费（指定symbol时还会返回手续费详情）,如果不指定symbol则查询所有symbol日手续费
+|属性 | 是否必须|  含义|
+|:------|:------|:------|
+|has_prev |N| 是否包含前一页，该参数由调用方提供，原样返回
+|id |N|最后一次分页的ID
+|page_size |N| 请求数量(1-40),默认为40
+|symbol |N| 交易对,例如 BTCUSD_P, 如果指定symbol,查询的是某symbol日手续费（指定symbol时还会返回手续费详情）,如果不指定symbol则查询所有symbol日手续费
  
 ### 响应结果
  
@@ -488,7 +488,7 @@ GET /v3/broker/auth/contracts/user_fees
 	}
 ```
 
-### 根据时间查询手续费详情
+## 根据时间查询手续费详情
 GET /v3/broker/auth/contracts/user_fees/{timestamp}
 
   URL 参数  timestamp :  每日开始时间戳,单位毫秒
