@@ -176,6 +176,42 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 }
 ```
 
+## 获取 所有交易对的ticker 数据
+### HTTP 请求
+
+`GET https://api.fmex.com/v2/market/all-tickers`
+
+> HTTP 请求响应结果如下：
+
+```json
+{
+    "status": 0,
+    "data": {
+        "type": "all-tickers",
+        "ts": 1578466373871,
+        "tickers": [
+            {
+                "symbol": "btcusd_p",
+                "seq": 1516333243320,
+                "ticker": [
+                    8325,
+                    1,
+                    8325,
+                    49517,
+                    8325.5,
+                    11207,
+                    7867.5,
+                    8456.5,
+                    7731,
+                    94200972,
+                    11635.419473734316223965
+                ]
+            }
+        ]
+    }
+}
+```
+
 ### WebSocket 订阅
 
 发送 **sub 指令**，topic: `ticker.$symbol`  (请参考 `WebSocket 订阅`)
