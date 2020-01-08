@@ -252,6 +252,9 @@
                     <a href="#ticker" class="toc-h2 toc-link" data-title="ticker">获取 ticker 数据</a>
                   </li>
                   <li>
+                    <a href="#ticker-2" class="toc-h2 toc-link" data-title="ticker">获取 所有交易对的ticker 数据</a>
+                  </li>
+                  <li>
                     <a href="#50f4407ea4" class="toc-h2 toc-link" data-title="">获取最新的深度明细</a>
                   </li>
                   <li>
@@ -648,6 +651,38 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='ticker-2'>获取 所有交易对的ticker 数据</h2><h3 id='http-2'>HTTP 请求</h3>
+<p><code>GET https://api.fmex.com/v2/market/all-tickers</code></p>
+
+<blockquote>
+<p>HTTP 请求响应结果如下：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all-tickers"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1578466373871</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tickers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"btcusd_p"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">1516333243320</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="mi">8325</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">8325</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">49517</span><span class="p">,</span><span class="w">
+                    </span><span class="mf">8325.5</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">11207</span><span class="p">,</span><span class="w">
+                    </span><span class="mf">7867.5</span><span class="p">,</span><span class="w">
+                    </span><span class="mf">8456.5</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">7731</span><span class="p">,</span><span class="w">
+                    </span><span class="mi">94200972</span><span class="p">,</span><span class="w">
+                    </span><span class="mf">11635.419473734316223965</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='websocket-4'>WebSocket 订阅</h3>
 <p>发送 <strong>sub 指令</strong>，topic: <code>ticker.$symbol</code>  (请参考 <code>WebSocket 订阅</code>)</p>
 
@@ -671,7 +706,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     </span><span class="mf">7140.890000000000000000</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='50f4407ea4'>获取最新的深度明细</h2><h3 id='http-2'>HTTP 请求</h3>
+</span></code></pre><h2 id='50f4407ea4'>获取最新的深度明细</h2><h3 id='http-3'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/depth/$level/$symbol</code></p>
 
 <p><code>$level</code> 包含的种类(大小写敏感)：</p>
@@ -730,9 +765,9 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 即使成交是一条记录, 也无法保证最新成交在重新获取时候 id 永远保持一致.</p>
 
 <p>PS: 历史行情中, 是可以保证成交 id 保持恒定. {transaction id} 此处只作为行情更新通知, 不应依赖归档使用.</p>
-<h3 id='http-3'>HTTP 请求</h3>
+<h3 id='http-4'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/trades/$symbol</code></p>
-<h4 id='http-4'>查询参数(HTTP 请求)</h4>
+<h4 id='http-5'>查询参数(HTTP 请求)</h4>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -808,9 +843,9 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"side"</span><span class="p">:</span><span class="s2">"sell"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">4.000000000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='candle'>获取 Candle 信息</h2><h3 id='http-5'>HTTP 请求</h3>
+</span></code></pre><h2 id='candle'>获取 Candle 信息</h2><h3 id='http-6'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/candles/$resolution/$symbol</code></p>
-<h4 id='http-6'>查询参数(HTTP 请求)</h4>
+<h4 id='http-7'>查询参数(HTTP 请求)</h4>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -945,7 +980,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
   </span><span class="s2">"base_vol"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"quote_vol"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='02d90e4564'>获取当前系统指数所有指数</h2><h3 id='http-7'>HTTP 请求</h3>
+</span></code></pre><h2 id='02d90e4564'>获取当前系统指数所有指数</h2><h3 id='http-8'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/indexes</code></p>
 
 <p>指数含义：</p>
@@ -969,9 +1004,9 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <p>.btcusdpi8h   溢价8H指数</p>
 
 <p>.btcusdpimax    最大溢价边界值指数</p>
-<h2 id='164308eda4'>获取某个指数的最近历史值</h2><h3 id='http-8'>HTTP 请求</h3>
+<h2 id='164308eda4'>获取某个指数的最近历史值</h2><h3 id='http-9'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/indexes/$indexname</code></p>
-<h2 id='1cc2931276'>获取汇率</h2><h3 id='http-9'>HTTP 请求</h3>
+<h2 id='1cc2931276'>获取汇率</h2><h3 id='http-10'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/fex</code></p>
 <h1 id='c3d92b20c8'>账户</h1><h2 id='035f475bd4'>查询当前用户账户余额</h2>
 <p>此api用于查询用户资产</p>
