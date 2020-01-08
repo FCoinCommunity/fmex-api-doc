@@ -651,6 +651,29 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='websocket-4'>WebSocket 订阅</h3>
+<p>发送 <strong>sub 指令</strong>，topic: <code>ticker.$symbol</code>  (请参考 <code>WebSocket 订阅</code>)</p>
+
+<blockquote>
+<p>WebSocket 订阅的通知消息结果如下:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
+    </span><span class="mf">7140.890000000000000000</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='ticker-2'>获取 所有交易对的ticker 数据</h2><h3 id='http-2'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/all-tickers</code></p>
 
@@ -682,29 +705,6 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='websocket-4'>WebSocket 订阅</h3>
-<p>发送 <strong>sub 指令</strong>，topic: <code>ticker.$symbol</code>  (请参考 <code>WebSocket 订阅</code>)</p>
-
-<blockquote>
-<p>WebSocket 订阅的通知消息结果如下:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticker.btcusdt"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"seq"</span><span class="p">:</span><span class="w"> </span><span class="mi">680035</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ticker"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="mf">7140.890000000000000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">1.000000000000000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7131.330000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">233.524600000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">225.495049866</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7140.890000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">1.000000000</span><span class="p">,</span><span class="w">
-    </span><span class="mf">7140.890000000000000000</span><span class="w">
-  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='50f4407ea4'>获取最新的深度明细</h2><h3 id='http-3'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/depth/$level/$symbol</code></p>
