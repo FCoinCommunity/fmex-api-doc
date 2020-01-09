@@ -60,7 +60,6 @@ leverage| 必填| 0～最大允许值，0=全仓，1～最大允许值=逐仓杠
 {
   'status': 0,
   'data': {
-    'symbol_id': 14,
     'direction': 'long',
     'updated_at': 1578539682369,
     'quantity': 26754,
@@ -100,7 +99,6 @@ margin| 必填| 设置的新的仓位保证金
 {
   'status': 0,
   'data': {
-    'symbol_id': 14,
     'direction': 'long',
     'updated_at': 1578539682369,
     'quantity': 26754,
