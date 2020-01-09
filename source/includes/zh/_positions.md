@@ -60,7 +60,22 @@ leverage| 必填| 0～最大允许值，0=全仓，1～最大允许值=逐仓杠
 {
   'status': 0,
   'data': {
-    'leverage': 0
+    'symbol_id': 14,
+    'direction': 'long',
+    'updated_at': 1578539682369,
+    'quantity': 26754,
+    'leverage': 5,
+    'risk_level': 1,
+    'max_quantity': 1200,
+    'realized_pnl': 0.000795757420283452,
+    'taker_fee_rate': 0.00045,
+    'margin': 10.0,
+    'bankruptcy_price': 2022.7359651164236,
+    'liquidation_price': 2032.845095833183,
+    'entry_price': 8276.33114284172,
+    'symbol': 'BTCUSD_P',
+    'closed': False,
+    'minimum_maintenance_margin_rate': 0.005
   }
 }
 ```
@@ -85,7 +100,22 @@ margin| 必填| 设置的新的仓位保证金
 {
   'status': 0,
   'data': {
-    'margin': 0
+    'symbol_id': 14,
+    'direction': 'long',
+    'updated_at': 1578539682369,
+    'quantity': 26754,
+    'leverage': 5,
+    'risk_level': 1,
+    'max_quantity': 1200,
+    'realized_pnl': 0.000795757420283452,
+    'taker_fee_rate': 0.00045,
+    'margin': 10.0,
+    'bankruptcy_price': 2022.7359651164236,
+    'liquidation_price': 2032.845095833183,
+    'entry_price': 8276.33114284172,
+    'symbol': 'BTCUSD_P',
+    'closed': False,
+    'minimum_maintenance_margin_rate': 0.005
   }
 }
 ```
