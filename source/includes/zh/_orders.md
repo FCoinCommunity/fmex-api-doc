@@ -420,7 +420,7 @@ order_id为订单id
 ```
 
 ## 分页查询合约每日交易量
-GET /v3/broker/auth/contracts/trade_volumes
+`GET /v3/broker/auth/contracts/trade_volumes`
 
 ### 请求参数
 
@@ -473,7 +473,7 @@ GET /v3/broker/auth/contracts/trade_volumes
 ```
 
 ## 分页查询合约每日手续费
-GET /v3/broker/auth/contracts/user_fees
+`GET /v3/broker/auth/contracts/user_fees`
 
 ### 请求参数
 
@@ -529,7 +529,7 @@ GET /v3/broker/auth/contracts/user_fees
 ```
 
 ## 根据时间查询手续费详情
-GET /v3/broker/auth/contracts/user_fees/{timestamp}
+`GET /v3/broker/auth/contracts/user_fees/{timestamp}`
 
   URL 参数  timestamp :  每日开始时间戳,单位毫秒
   
