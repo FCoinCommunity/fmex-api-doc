@@ -316,6 +316,9 @@
                     <a href="#515c1e61e5" class="toc-h2 toc-link" data-title="">查询历史订单</a>
                   </li>
                   <li>
+                    <a href="#f175a031e7" class="toc-h2 toc-link" data-title="">全部撤单</a>
+                  </li>
+                  <li>
                     <a href="#d5c6914f15" class="toc-h2 toc-link" data-title="">查询订单成交历史</a>
                   </li>
                   <li>
@@ -1633,6 +1636,18 @@ order_id为订单id</p>
     ]
   }
 }
+</code></pre><h2 id='f175a031e7'>全部撤单</h2>
+<p><code>POST /v3/contracts/orders/cancel</code></p>
+
+<p>此 API 用于撤销全部交易对的委托单
+如果需要撤销某个交易对的委托单，则在url中加入symbol
+举例：https://api.fmex.com/v3/contracts/orders/cancel?symbol=btcusd_p</p>
+<h3 id='api-7'>API响应：</h3><pre class="highlight plaintext"><code>{
+  "status": 0,
+  "data": {
+    "cancelled": 0
+  }
+}
 </code></pre><h2 id='d5c6914f15'>查询订单成交历史</h2>
 <p>此 API 用于查询订单成交历史</p>
 <h3 id='http-request-7'>HTTP Request</h3>
@@ -1642,7 +1657,7 @@ order_id为订单id</p>
 order_id为订单id</p>
 <h3 id='1f9ac54b15-7'>请求参数</h3>
 <p>无</p>
-<h3 id='api-7'>API响应：</h3><pre class="highlight plaintext"><code>{
+<h3 id='api-8'>API响应：</h3><pre class="highlight plaintext"><code>{
   'status': 0,
   'data': {
     'results': [
