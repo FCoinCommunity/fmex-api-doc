@@ -339,6 +339,20 @@
               </ul>
           </li>
           <li>
+            <a href="#ws-push-portal" class="toc-h1 toc-link" data-title="ws-push-portal">ws Push portal</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtain-the-account-information" class="toc-h2 toc-link" data-title="obtain-the-account-information">Obtain the account information</a>
+                  </li>
+                  <li>
+                    <a href="#obtain-the-order" class="toc-h2 toc-link" data-title="obtain-the-order">Obtain the order</a>
+                  </li>
+                  <li>
+                    <a href="#obtain-the-position" class="toc-h2 toc-link" data-title="obtain-the-position">Obtain the position</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#auto-trading" class="toc-h1 toc-link" data-title="auto-trading">Auto Trading</a>
           </li>
       </div>
@@ -1699,7 +1713,115 @@ order_id is the order id</p>
     'risk_level': 0
   }
 }
-</code></pre><h1 id='auto-trading'>Auto Trading</h1>
+</code></pre><h1 id='ws-push-portal'>ws Push portal</h1>
+<p>Signing method ：<br>
+1.Only sign to http address <br>
+For example，only sign to this character string：<code>GEThttps://api.fmex.com/v2/user/ws1579154149629</code>，and get the same signing result, the signing method is same with http request<br>
+2. Pass the signing result to the server by ws <br>
+For example：<code>wss://api.fmex.com/v2/user/ws?FC-ACCESS-KEY=f8wersd4sdfc7121cbdd81986&amp;FC-ACCESS-TIMESTAMP=1579147466690&amp;FC-ACCESS-SIGNATURE=aKx/DMQ6j75JwegtfDVuJaXRxoxA=</code><br>
+3.Commands can be sent through ws to get the information once the connection is successful <br>
+<br>
+Among，http address：<code>https://api.fmex.com/v2/user/ws</code><br>
+ws address：<code>wss://api.fmex.com/v2/user/ws</code><br></p>
+
+<p>Note: this portal is the Incremental push, which means the information will be pushed to users only changes happened after success subscription.</p>
+<h2 id='obtain-the-account-information'>Obtain the account information</h2>
+<p>websocket the requested data is:</p>
+
+<p>send sub commend，topic: <code>account</code> (please refer to WebSocket subsription)</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"account"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The responding result of the successful WebSocket request is as follow：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.34242880408925</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.747280117178e-06</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802053643</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802053662</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">time</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='obtain-the-order'>Obtain the order</h2>
+<p>websocket the requested data is:</p>
+
+<p>send sub commend, topic: <code>order.$symbol</code> (please refer to WebSocket subsription)</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"order.btcusd_p"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The responding result of the successful WebSocket request is as follow：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order.btcusd_p"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">849758102002</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10210</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fill_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9288.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"unfilled_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD_P"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"margin_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8449612403e-08</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARKET"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FULLY_FILLED"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trigger_direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trigger_on"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trailing_base_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trailing_distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802204215</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802204232</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='obtain-the-position'>Obtain the position</h2>
+<p>websocket the requested data is:</p>
+
+<p>send sub commend, topic: <code>position.$symbol</code>(please refer to WebSocket subsription)</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"position.btcusd_p"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The responding result of the successful WebSocket request is as follow：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"position.btcusd_p"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD_P"</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"risk_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"margin"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.749658727683e-06</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"taker_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00045</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"realized_pnl"</span><span class="p">:</span><span class="w"> </span><span class="mf">-4.8499218623e-08</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"entry_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9278.5</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"liquidation_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9363.483892761602</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"bankruptcy_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">8512.606170669584</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"minimum_maintenance_margin_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802507384</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802507401</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='auto-trading'>Auto Trading</h1>
 <p>Below are the automated trading software and services support FMex.</p>
 
 <p>-FMZ Inventor Quantification <br> Inventor Quantification (<a href='https://www.fmz.com/'>fmz.com</a>) is the only quantitative trading platform in Asia that supports commodity futures and digital currency. It focuses on the development of quantitative software platform and the research and service of the quantitative trading strategies, and provides support for more than 50 mainstream exchanges in the market. Support JavaScript/Python/C++/My language/Visual five programming languages.</p>
