@@ -101,7 +101,6 @@ websocket 请求的数据为:
     "type": "position.btcusd_p", 
     "position": 
     {
-        "id": "111246_14",
          "symbol": "BTCUSD_P", 
          "quantity": 1, 
          "direction": "LONG", 
