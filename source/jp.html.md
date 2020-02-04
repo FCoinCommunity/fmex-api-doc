@@ -17,6 +17,7 @@ includes:
   - jp/accounts
   - jp/orders
   - jp/positions
+  - jp/ws
   - jp/automated
 
 search: true
