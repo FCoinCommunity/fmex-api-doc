@@ -10,7 +10,7 @@
 其中，http地址：`https://api.fmex.com/v2/user/ws`<br>
 ws地址：`wss://api.fmex.com/v2/user/ws`<br>
 
-##获取账户信息：
+##获取账户信息
 websocket 请求的数据为:
 
 ```json
@@ -20,7 +20,7 @@ websocket 请求的数据为:
     "args":["account"],
 }
 ```
-##获取订单：
+##获取订单
 websocket 请求的数据为:
 
 ```json
@@ -30,7 +30,7 @@ websocket 请求的数据为:
     "args":["order.btcusd_p"],
 }
 ```
-##获取仓位：
+##获取仓位
 websocket 请求的数据为:
 
 ```json
