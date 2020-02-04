@@ -350,6 +350,20 @@
               </ul>
           </li>
           <li>
+            <a href="#ws" class="toc-h1 toc-link" data-title="ws">ws推送接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#746adeb2a4" class="toc-h2 toc-link" data-title="">获取账户信息：</a>
+                  </li>
+                  <li>
+                    <a href="#b34d74eff9" class="toc-h2 toc-link" data-title="">获取订单：</a>
+                  </li>
+                  <li>
+                    <a href="#a364b7f01e" class="toc-h2 toc-link" data-title="">获取仓位：</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#3efe4ff693" class="toc-h1 toc-link" data-title="">自动交易</a>
           </li>
       </div>
@@ -1974,7 +1988,38 @@ order_id为订单id</p>
     'risk_level': 0
   }
 }
-</code></pre><h1 id='3efe4ff693'>自动交易</h1>
+</code></pre><h1 id='ws'>ws推送接口</h1>
+<p>签名方式：<br>
+1.只对http地址进行签名<br>
+举例，只对这个字符串签名：<code>GEThttps://api.fmex.com/v2/user/ws1579154149629</code>，得到签名结果，签名方法与http请求相同<br>
+2.将签名结果通过ws传递给服务器<br>
+例如：<code>wss://api.fmex.com/v2/user/ws?FC-ACCESS-KEY=f8wersd4sdfc7121cbdd81986&amp;FC-ACCESS-TIMESTAMP=1579147466690&amp;FC-ACCESS-SIGNATURE=aKx/DMQ6j75JwegtfDVuJaXRxoxA=</code><br>
+3.连接成功后，就可以通过ws发送命令，获取相应信息<br>
+<br>
+其中，http地址：<code>https://api.fmex.com/v2/user/ws</code><br>
+ws地址：<code>wss://api.fmex.com/v2/user/ws</code><br></p>
+<h2 id='746adeb2a4'>获取账户信息：</h2>
+<p>websocket 请求的数据为:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"account"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='b34d74eff9'>获取订单：</h2>
+<p>websocket 请求的数据为:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"order.btcusd_p"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='a364b7f01e'>获取仓位：</h2>
+<p>websocket 请求的数据为:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"position.btcusd_p"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='3efe4ff693'>自动交易</h1>
 <p>以下是支持 FMex 的自动交易软件和服务。</p>
 
 <ul>
