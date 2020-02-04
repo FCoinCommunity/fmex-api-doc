@@ -234,7 +234,7 @@
               </ul>
           </li>
           <li>
-            <a href="#8e4b902c12" class="toc-h1 toc-link" data-title="">行情</a>
+            <a href="#ed913b7357" class="toc-h1 toc-link" data-title="">行情接口</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#35c492adbd" class="toc-h2 toc-link" data-title="">行情概述</a>
@@ -275,7 +275,7 @@
               </ul>
           </li>
           <li>
-            <a href="#c3d92b20c8" class="toc-h1 toc-link" data-title="">账户</a>
+            <a href="#df03e301d5" class="toc-h1 toc-link" data-title="">账户接口</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#035f475bd4" class="toc-h2 toc-link" data-title="">查询当前用户账户余额</a>
@@ -292,7 +292,7 @@
               </ul>
           </li>
           <li>
-            <a href="#dfe799947f" class="toc-h1 toc-link" data-title="">交易</a>
+            <a href="#ea84f6c646" class="toc-h1 toc-link" data-title="">合约交易接口</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#804ca63a95" class="toc-h2 toc-link" data-title="">订单模型说明</a>
@@ -333,7 +333,7 @@
               </ul>
           </li>
           <li>
-            <a href="#25a424cad9" class="toc-h1 toc-link" data-title="">仓位</a>
+            <a href="#773fd46b04" class="toc-h1 toc-link" data-title="">仓位接口</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#9208604e00" class="toc-h2 toc-link" data-title="">获取仓位列表</a>
@@ -493,7 +493,7 @@ timestamp: 1523069544359
 <p>此 API 用于获取指数列表</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /v2/public/indexes/symbols</code></p>
-<h1 id='8e4b902c12'>行情</h1><h2 id='35c492adbd'>行情概述</h2>
+<h1 id='ed913b7357'>行情接口</h1><h2 id='35c492adbd'>行情概述</h2>
 <p>行情是一个全公开的 API, 当前同时提供了 HTTP 和 WebSocket 的 API.
 为确保可以更及时的获得行情, 推荐使用 WebSocket 进行接入.
 为尽可能保证行情的实时性能, 当前公开部分只能获取最近一段时间的行情, 如果有需要获取全量或者历史行情, 请咨询 <code>support@fmex.com</code></p>
@@ -1011,7 +1011,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <p><code>GET https://api.fmex.com/v2/market/indexes/$indexname</code></p>
 <h2 id='1cc2931276'>获取汇率</h2><h3 id='http-10'>HTTP 请求</h3>
 <p><code>GET https://api.fmex.com/v2/market/fex</code></p>
-<h1 id='c3d92b20c8'>账户</h1><h2 id='035f475bd4'>查询当前用户账户余额</h2>
+<h1 id='df03e301d5'>账户接口</h1><h2 id='035f475bd4'>查询当前用户账户余额</h2>
 <p>此api用于查询用户资产</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p>API路径：<code>GET /v3/contracts/accounts</code></p>
@@ -1116,7 +1116,7 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
     ]
   }
 }
-</code></pre><h1 id='dfe799947f'>交易</h1><h2 id='804ca63a95'>订单模型说明</h2>
+</code></pre><h1 id='ea84f6c646'>合约交易接口</h1><h2 id='804ca63a95'>订单模型说明</h2>
 <p>订单模型由以下属性构成：</p>
 
 <table><thead>
@@ -1830,7 +1830,7 @@ order_id为订单id</p>
         }
       ]
     }
-</code></pre><h1 id='25a424cad9'>仓位</h1><h2 id='9208604e00'>获取仓位列表</h2>
+</code></pre><h1 id='773fd46b04'>仓位接口</h1><h2 id='9208604e00'>获取仓位列表</h2>
 <p>此 API 获取仓位列表。</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/broker/auth/contracts/positions</code></p>
