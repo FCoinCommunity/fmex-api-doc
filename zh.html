@@ -353,7 +353,7 @@
               </ul>
           </li>
           <li>
-            <a href="#ws" class="toc-h1 toc-link" data-title="ws">ws推送接口</a>
+            <a href="#ws" class="toc-h1 toc-link" data-title="ws">ws接口</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#0dd8ea95e3" class="toc-h2 toc-link" data-title="">获取账户信息</a>
@@ -2040,7 +2040,7 @@ order_id为订单id</p>
     'risk_level': 0
   }
 }
-</code></pre><h1 id='ws'>ws推送接口</h1>
+</code></pre><h1 id='ws'>ws接口</h1>
 <p>签名方式：<br>
 1.只对http地址进行签名<br>
 举例，只对这个字符串签名：<code>GEThttps://api.fmex.com/v2/user/ws1579154149629</code>，得到签名结果，签名方法与http请求相同<br>
@@ -2050,26 +2050,104 @@ order_id为订单id</p>
 <br>
 其中，http地址：<code>https://api.fmex.com/v2/user/ws</code><br>
 ws地址：<code>wss://api.fmex.com/v2/user/ws</code><br></p>
+
+<p>注：此接口为增量推送，即在订阅成功后，有变化时，才会有信息推送给用户</p>
 <h2 id='0dd8ea95e3'>获取账户信息</h2>
 <p>websocket 请求的数据为:</p>
+
+<p>发送 sub 指令，topic: <code>account</code> (请参考 WebSocket 订阅)</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"account"</span><span class="p">],</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>WebSocket 请求成功的响应结果如下：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.34242880408925</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"frozen"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.747280117178e-06</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802053643</span><span class="w">
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802053662</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">更新时间</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='e7c62dd474'>获取订单</h2>
 <p>websocket 请求的数据为:</p>
+
+<p>发送 sub 指令，topic: <code>order.$symbol</code> (请参考 WebSocket 订阅)</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"order.btcusd_p"</span><span class="p">],</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>WebSocket 请求成功的响应结果如下：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order.btcusd_p"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">849758102002</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">10210</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fill_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9288.0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"unfilled_quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD_P"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"margin_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8449612403e-08</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARKET"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FULLY_FILLED"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trigger_direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trigger_on"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trailing_base_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"trailing_distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802204215</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802204232</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='430d71f05a'>获取仓位</h2>
 <p>websocket 请求的数据为:</p>
+
+<p>发送 sub 指令，topic: <code>position.$symbol</code> (请参考 WebSocket 订阅)</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"11111"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cmd"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"args"</span><span class="p">:[</span><span class="s2">"position.btcusd_p"</span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>WebSocket 请求成功的响应结果如下：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"position.btcusd_p"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111246_14"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD_P"</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LONG"</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"risk_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"margin"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.749658727683e-06</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"taker_fee_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00045</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"realized_pnl"</span><span class="p">:</span><span class="w"> </span><span class="mf">-4.8499218623e-08</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"entry_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9278.5</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"liquidation_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9363.483892761602</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"bankruptcy_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">8512.606170669584</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"minimum_maintenance_margin_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802507384</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1580802507401</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='3efe4ff693'>自动交易</h1>
 <p>以下是支持 FMex 的自动交易软件和服务。</p>
