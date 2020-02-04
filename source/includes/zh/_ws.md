@@ -1,4 +1,4 @@
-# ws推送接口
+# ws接口
 
 签名方式：<br>
 1.只对http地址进行签名<br>
@@ -10,8 +10,12 @@
 其中，http地址：`https://api.fmex.com/v2/user/ws`<br>
 ws地址：`wss://api.fmex.com/v2/user/ws`<br>
 
+注：此接口为增量推送，即在订阅成功后，有变化时，才会有信息推送给用户
+
 ##获取账户信息
 websocket 请求的数据为:
+
+发送 sub 指令，topic: `account` (请参考 WebSocket 订阅)
 
 ```json
 {
@@ -20,8 +24,28 @@ websocket 请求的数据为:
     "args":["account"],
 }
 ```
+>WebSocket 请求成功的响应结果如下：
+
+```json
+
+{
+    "type": "account", 
+    "account": 
+    {
+        "currency": "BTC", 
+        "available": 1.34242880408925, 
+        "frozen": 0.0, 
+        "position": 9.747280117178e-06, 
+        "updated_at": 1580802053643
+    }, 
+    "ts": 1580802053662  # 更新时间
+}
+```
+
 ##获取订单
 websocket 请求的数据为:
+
+发送 sub 指令，topic: `order.$symbol` (请参考 WebSocket 订阅)
 
 ```json
 {
@@ -30,8 +54,38 @@ websocket 请求的数据为:
     "args":["order.btcusd_p"],
 }
 ```
+>WebSocket 请求成功的响应结果如下：
+
+```json
+{
+    "type": "order.btcusd_p", 
+    "order": 
+    {
+        "id": 849758102002, 
+        "quantity": 1, 
+        "direction": "LONG", 
+        "features": 8, 
+        "price": 10210, 
+        "fill_price": 9288.0, 
+        "unfilled_quantity": 0, 
+        "symbol": "BTCUSD_P", 
+        "margin_currency": "BTC", 
+        "fee": 4.8449612403e-08, 
+        "type": "MARKET", 
+        "status": "FULLY_FILLED", 
+        "trigger_direction": "LONG", 
+        "trigger_on": 0, 
+        "trailing_base_price": 0, 
+        "trailing_distance": 0, 
+        "created_at": 1580802204215
+        }, 
+    "ts": 1580802204232
+}
+```
 ##获取仓位
 websocket 请求的数据为:
+
+发送 sub 指令，topic: `position.$symbol` (请参考 WebSocket 订阅)
 
 ```json
 {
@@ -40,3 +94,29 @@ websocket 请求的数据为:
     "args":["position.btcusd_p"],
 }
 ```
+>WebSocket 请求成功的响应结果如下：
+
+```json
+{
+    "type": "position.btcusd_p", 
+    "position": 
+    {
+        "id": "111246_14",
+         "symbol": "BTCUSD_P", 
+         "quantity": 1, 
+         "direction": "LONG", 
+         "leverage": 50, 
+         "risk_level": 0, 
+         "margin": 9.749658727683e-06,
+          "taker_fee_rate": 0.00045, 
+          "realized_pnl": -4.8499218623e-08, 
+          "entry_price": 9278.5, 
+          "liquidation_price": 9363.483892761602, 
+          "bankruptcy_price": 8512.606170669584, 
+          "minimum_maintenance_margin_rate": 0.1, 
+          "updated_at": 1580802507384
+    },
+     "ts": 1580802507401
+}
+```
+

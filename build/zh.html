@@ -258,6 +258,9 @@
                     <a href="#50f4407ea4" class="toc-h2 toc-link" data-title="">获取最新的深度明细</a>
                   </li>
                   <li>
+                    <a href="#e9777d6ac8" class="toc-h2 toc-link" data-title="">获取增量深度</a>
+                  </li>
+                  <li>
                     <a href="#6477a1394e" class="toc-h2 toc-link" data-title="">获取最新的成交明细</a>
                   </li>
                   <li>
@@ -776,7 +779,56 @@ tip: 可以通过 ping 请求时服务器返回的 ts 和 gap 值获取推送服
 <blockquote>
 <p>bids 和 asks 对应的数组一定是偶数条目, 买(卖)1价, 买(卖)1量, 依次往后排列.</p>
 </blockquote>
-<h2 id='6477a1394e'>获取最新的成交明细</h2>
+<h2 id='e9777d6ac8'>获取增量深度</h2>
+<p>通过WebSocket订阅增量深度 </p>
+
+<p>发送 sub 指令，topic: depth-delta.$level.$symbol (请参考 WebSocket 订阅) </p>
+
+<p>WebSocket 订阅的通知消息结果如下: </p>
+
+<p>订阅后的第一次返回为完整深度信息 </p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"depth.l20.btcusd_p”, 
+    "</span><span class="err">seq</span><span class="s2">":1809245699, 
+    "</span><span class="err">ts</span><span class="s2">":1580782260172, 
+    "</span><span class="err">asks</span><span class="s2">":[ 
+        9291.5, 
+        48417, 
+        9292, 
+        477 
+    ], 
+    "</span><span class="err">bids</span><span class="s2">":[ 
+        9291, 
+        28800, 
+        9290.5, 
+        34, 
+        9290, 
+        20 
+    ] 
+} 
+</span></code></pre>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+
+<p>接下来返回的增量深度信息: </p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"depth-delta.l20.btcusd_p"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"seq"</span><span class="p">:</span><span class="mi">1809245710</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">当前深度seq</span><span class="w"> 
+    </span><span class="s2">"pre_seq"</span><span class="p">:</span><span class="mi">1809245699</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">上一条深度seq</span><span class="p">,</span><span class="w"> </span><span class="err">如果与上一次收到的深度seq不符</span><span class="p">,</span><span class="err">请重新订阅增量深度</span><span class="p">,</span><span class="err">并检查网络状况与程序是否有问题</span><span class="w"> 
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1580782260238</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w"> 
+        </span><span class="mi">9294</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">价格</span><span class="w"> 
+        </span><span class="mi">4057</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">相应价格的volume更新为该值</span><span class="w"> 
+        </span><span class="mi">9296</span><span class="p">,</span><span class="w"> 
+        </span><span class="mi">4621</span><span class="p">,</span><span class="w"> 
+        </span><span class="mi">9298</span><span class="p">,</span><span class="w"> 
+        </span><span class="mi">237</span><span class="p">,</span><span class="w"> 
+        </span><span class="mi">9300</span><span class="p">,</span><span class="w"> 
+        </span><span class="mi">0</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">相应价格的volume如果为</span><span class="mi">0</span><span class="p">,</span><span class="err">表示移除该条深度信息</span><span class="w"> 
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w"> 
+    </span><span class="p">]</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='6477a1394e'>获取最新的成交明细</h2>
 <p>通过对比其中的成交 id 大小才能决定是否是更新的成交.{trade id}
 需要注意, 常规由于 trade 到 transaction 过程的存在, 公开行情的成交 id 并不实际对应清算系统中的成交 id.
 即使成交是一条记录, 也无法保证最新成交在重新获取时候 id 永远保持一致.</p>
